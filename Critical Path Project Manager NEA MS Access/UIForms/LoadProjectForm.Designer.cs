@@ -39,7 +39,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(203, 298);
+            this.LoadButton.Location = new System.Drawing.Point(310, 407);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(64, 25);
             this.LoadButton.TabIndex = 0;
@@ -59,7 +59,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(266, 10);
+            this.ExitButton.Location = new System.Drawing.Point(381, 10);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(64, 27);
             this.ExitButton.TabIndex = 2;
@@ -70,14 +70,14 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // ProjectListBox
             // 
             this.ProjectListBox.FormattingEnabled = true;
-            this.ProjectListBox.Location = new System.Drawing.Point(79, 67);
+            this.ProjectListBox.Location = new System.Drawing.Point(88, 59);
             this.ProjectListBox.Name = "ProjectListBox";
-            this.ProjectListBox.Size = new System.Drawing.Size(188, 212);
+            this.ProjectListBox.Size = new System.Drawing.Size(286, 342);
             this.ProjectListBox.TabIndex = 3;
             // 
             // DeleteProjectButton
             // 
-            this.DeleteProjectButton.Location = new System.Drawing.Point(79, 298);
+            this.DeleteProjectButton.Location = new System.Drawing.Point(88, 407);
             this.DeleteProjectButton.Name = "DeleteProjectButton";
             this.DeleteProjectButton.Size = new System.Drawing.Size(91, 25);
             this.DeleteProjectButton.TabIndex = 4;
@@ -89,7 +89,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(340, 390);
+            this.ClientSize = new System.Drawing.Size(457, 482);
             this.ControlBox = false;
             this.Controls.Add(this.DeleteProjectButton);
             this.Controls.Add(this.ProjectListBox);

@@ -49,7 +49,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // LoginButton
             // 
             this.LoginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LoginButton.Location = new System.Drawing.Point(74, 172);
+            this.LoginButton.Location = new System.Drawing.Point(134, 181);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(64, 27);
             this.LoginButton.TabIndex = 0;
@@ -61,9 +61,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             this.OpenProjectGroupBox.Controls.Add(this.LoadRadioButton);
             this.OpenProjectGroupBox.Controls.Add(this.CreateNewRadioButton);
-            this.OpenProjectGroupBox.Location = new System.Drawing.Point(235, 56);
+            this.OpenProjectGroupBox.Location = new System.Drawing.Point(300, 54);
             this.OpenProjectGroupBox.Name = "OpenProjectGroupBox";
-            this.OpenProjectGroupBox.Size = new System.Drawing.Size(103, 74);
+            this.OpenProjectGroupBox.Size = new System.Drawing.Size(115, 81);
             this.OpenProjectGroupBox.TabIndex = 1;
             this.OpenProjectGroupBox.TabStop = false;
             this.OpenProjectGroupBox.Text = "Open Project";
@@ -72,7 +72,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             this.LoadRadioButton.AutoSize = true;
             this.LoadRadioButton.Checked = true;
-            this.LoadRadioButton.Location = new System.Drawing.Point(13, 41);
+            this.LoadRadioButton.Location = new System.Drawing.Point(18, 49);
             this.LoadRadioButton.Name = "LoadRadioButton";
             this.LoadRadioButton.Size = new System.Drawing.Size(49, 17);
             this.LoadRadioButton.TabIndex = 1;
@@ -83,7 +83,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // CreateNewRadioButton
             // 
             this.CreateNewRadioButton.AutoSize = true;
-            this.CreateNewRadioButton.Location = new System.Drawing.Point(13, 19);
+            this.CreateNewRadioButton.Location = new System.Drawing.Point(18, 26);
             this.CreateNewRadioButton.Name = "CreateNewRadioButton";
             this.CreateNewRadioButton.Size = new System.Drawing.Size(84, 17);
             this.CreateNewRadioButton.TabIndex = 0;
@@ -93,24 +93,24 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // UsernameTextBox
             // 
-            this.UsernameTextBox.Location = new System.Drawing.Point(74, 72);
+            this.UsernameTextBox.Location = new System.Drawing.Point(79, 75);
             this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.Size = new System.Drawing.Size(131, 20);
+            this.UsernameTextBox.Size = new System.Drawing.Size(180, 20);
             this.UsernameTextBox.TabIndex = 2;
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(74, 107);
+            this.PasswordTextBox.Location = new System.Drawing.Point(79, 115);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
-            this.PasswordTextBox.Size = new System.Drawing.Size(131, 20);
+            this.PasswordTextBox.Size = new System.Drawing.Size(180, 20);
             this.PasswordTextBox.TabIndex = 3;
             // 
             // UsernameLabel
             // 
             this.UsernameLabel.AutoSize = true;
             this.UsernameLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.UsernameLabel.Location = new System.Drawing.Point(13, 77);
+            this.UsernameLabel.Location = new System.Drawing.Point(13, 80);
             this.UsernameLabel.Name = "UsernameLabel";
             this.UsernameLabel.Size = new System.Drawing.Size(60, 15);
             this.UsernameLabel.TabIndex = 4;
@@ -119,7 +119,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(20, 110);
+            this.PasswordLabel.Location = new System.Drawing.Point(20, 122);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(53, 13);
             this.PasswordLabel.TabIndex = 5;
@@ -127,7 +127,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // CreateAccountButton
             // 
-            this.CreateAccountButton.Location = new System.Drawing.Point(177, 172);
+            this.CreateAccountButton.Location = new System.Drawing.Point(229, 181);
             this.CreateAccountButton.Name = "CreateAccountButton";
             this.CreateAccountButton.Size = new System.Drawing.Size(115, 27);
             this.CreateAccountButton.TabIndex = 6;
@@ -137,7 +137,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(302, 10);
+            this.ExitButton.Location = new System.Drawing.Point(378, 12);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(64, 23);
             this.ExitButton.TabIndex = 7;
@@ -156,7 +156,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(376, 222);
+            this.ClientSize = new System.Drawing.Size(454, 259);
             this.ControlBox = false;
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.CreateAccountButton);

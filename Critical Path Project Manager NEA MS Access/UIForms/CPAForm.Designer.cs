@@ -48,7 +48,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(1047, 10);
+            this.ExitButton.Location = new System.Drawing.Point(1227, 10);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(64, 28);
             this.ExitButton.TabIndex = 0;
@@ -72,11 +72,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPADataGrid.AllowUserToDeleteRows = false;
             this.CPADataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.CPADataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CPADataGrid.Location = new System.Drawing.Point(375, 44);
+            this.CPADataGrid.Location = new System.Drawing.Point(371, 44);
             this.CPADataGrid.Name = "CPADataGrid";
             this.CPADataGrid.ReadOnly = true;
             this.CPADataGrid.RowTemplate.Height = 25;
-            this.CPADataGrid.Size = new System.Drawing.Size(735, 596);
+            this.CPADataGrid.Size = new System.Drawing.Size(920, 712);
             this.CPADataGrid.TabIndex = 2;
             // 
             // CPAGroupBox
@@ -88,14 +88,14 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPAGroupBox.Controls.Add(this.TotalDurationTextBox);
             this.CPAGroupBox.Location = new System.Drawing.Point(39, 44);
             this.CPAGroupBox.Name = "CPAGroupBox";
-            this.CPAGroupBox.Size = new System.Drawing.Size(285, 596);
+            this.CPAGroupBox.Size = new System.Drawing.Size(285, 712);
             this.CPAGroupBox.TabIndex = 3;
             this.CPAGroupBox.TabStop = false;
             this.CPAGroupBox.Text = "Project";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(5, 458);
+            this.textBox1.Location = new System.Drawing.Point(4, 572);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -119,7 +119,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPTextBox.Multiline = true;
             this.CPTextBox.Name = "CPTextBox";
             this.CPTextBox.ReadOnly = true;
-            this.CPTextBox.Size = new System.Drawing.Size(275, 300);
+            this.CPTextBox.Size = new System.Drawing.Size(275, 414);
             this.CPTextBox.TabIndex = 2;
             this.CPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -150,13 +150,14 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 719);
+            this.ClientSize = new System.Drawing.Size(1303, 865);
             this.ControlBox = false;
             this.Controls.Add(this.CPAGroupBox);
             this.Controls.Add(this.CPADataGrid);
             this.Controls.Add(this.BackToEditProjectButton);
             this.Controls.Add(this.ExitButton);
             this.Name = "CPAForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Critical Path Analysis";
             ((System.ComponentModel.ISupportInitialize)(this.CPADataGrid)).EndInit();
             this.CPAGroupBox.ResumeLayout(false);

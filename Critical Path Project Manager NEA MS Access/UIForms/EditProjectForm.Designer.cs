@@ -62,7 +62,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(991, 10);
+            this.ExitButton.Location = new System.Drawing.Point(1185, 10);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(64, 24);
             this.ExitButton.TabIndex = 0;
@@ -77,11 +77,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.TasksDataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.TasksDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TasksDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TasksDataGrid.Location = new System.Drawing.Point(585, 10);
+            this.TasksDataGrid.Location = new System.Drawing.Point(585, 59);
             this.TasksDataGrid.Name = "TasksDataGrid";
             this.TasksDataGrid.ReadOnly = true;
             this.TasksDataGrid.RowTemplate.Height = 25;
-            this.TasksDataGrid.Size = new System.Drawing.Size(401, 603);
+            this.TasksDataGrid.Size = new System.Drawing.Size(594, 633);
             this.TasksDataGrid.TabIndex = 1;
             // 
             // AddTaskButton
@@ -154,7 +154,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.AddTaskGroupBox.Controls.Add(this.DurationLabel);
             this.AddTaskGroupBox.Controls.Add(this.NameLabel);
             this.AddTaskGroupBox.Controls.Add(this.AddTaskButton);
-            this.AddTaskGroupBox.Location = new System.Drawing.Point(100, 10);
+            this.AddTaskGroupBox.Location = new System.Drawing.Point(100, 59);
             this.AddTaskGroupBox.Name = "AddTaskGroupBox";
             this.AddTaskGroupBox.Size = new System.Drawing.Size(211, 237);
             this.AddTaskGroupBox.TabIndex = 9;
@@ -171,7 +171,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.EditTaskGroupBox.Controls.Add(this.EditDurationLabel);
             this.EditTaskGroupBox.Controls.Add(this.EditNameLabel);
             this.EditTaskGroupBox.Controls.Add(this.EditTaskButton);
-            this.EditTaskGroupBox.Location = new System.Drawing.Point(348, 10);
+            this.EditTaskGroupBox.Location = new System.Drawing.Point(348, 59);
             this.EditTaskGroupBox.Name = "EditTaskGroupBox";
             this.EditTaskGroupBox.Size = new System.Drawing.Size(211, 237);
             this.EditTaskGroupBox.TabIndex = 10;
@@ -256,7 +256,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.UpdateDependenciesCheckedListBox.FormattingEnabled = true;
             this.UpdateDependenciesCheckedListBox.Location = new System.Drawing.Point(6, 19);
             this.UpdateDependenciesCheckedListBox.Name = "UpdateDependenciesCheckedListBox";
-            this.UpdateDependenciesCheckedListBox.Size = new System.Drawing.Size(234, 334);
+            this.UpdateDependenciesCheckedListBox.Size = new System.Drawing.Size(234, 394);
             this.UpdateDependenciesCheckedListBox.TabIndex = 12;
             this.UpdateDependenciesCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.UpdateDependenciesCheckedListBox_SelectedIndexChanged);
             // 
@@ -264,9 +264,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             this.UpdateDependenciesGroupBox.Controls.Add(this.DependenciesInfoTextBox);
             this.UpdateDependenciesGroupBox.Controls.Add(this.UpdateDependenciesCheckedListBox);
-            this.UpdateDependenciesGroupBox.Location = new System.Drawing.Point(100, 305);
+            this.UpdateDependenciesGroupBox.Location = new System.Drawing.Point(100, 302);
             this.UpdateDependenciesGroupBox.Name = "UpdateDependenciesGroupBox";
-            this.UpdateDependenciesGroupBox.Size = new System.Drawing.Size(459, 358);
+            this.UpdateDependenciesGroupBox.Size = new System.Drawing.Size(459, 424);
             this.UpdateDependenciesGroupBox.TabIndex = 14;
             this.UpdateDependenciesGroupBox.TabStop = false;
             this.UpdateDependenciesGroupBox.Text = "Update Dependencies";
@@ -286,7 +286,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // CPAButton
             // 
-            this.CPAButton.Location = new System.Drawing.Point(707, 635);
+            this.CPAButton.Location = new System.Drawing.Point(829, 698);
             this.CPAButton.Name = "CPAButton";
             this.CPAButton.Size = new System.Drawing.Size(159, 28);
             this.CPAButton.TabIndex = 15;
@@ -308,7 +308,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1065, 712);
+            this.ClientSize = new System.Drawing.Size(1261, 785);
             this.ControlBox = false;
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.CPAButton);
