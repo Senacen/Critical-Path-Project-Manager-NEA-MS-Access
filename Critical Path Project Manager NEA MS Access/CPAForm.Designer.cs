@@ -30,140 +30,139 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CPAForm));
-            ExitButton = new Button();
-            BackToEditProjectButton = new Button();
-            CPADataGrid = new DataGridView();
-            CPAGroupBox = new GroupBox();
-            contextMenuStrip1 = new ContextMenuStrip(components);
-            TotalDurationTextBox = new TextBox();
-            TotalDurationLabel = new Label();
-            CPTextBox = new TextBox();
-            CPLabel = new Label();
-            textBox1 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)CPADataGrid).BeginInit();
-            CPAGroupBox.SuspendLayout();
-            SuspendLayout();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.BackToEditProjectButton = new System.Windows.Forms.Button();
+            this.CPADataGrid = new System.Windows.Forms.DataGridView();
+            this.CPAGroupBox = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CPLabel = new System.Windows.Forms.Label();
+            this.CPTextBox = new System.Windows.Forms.TextBox();
+            this.TotalDurationLabel = new System.Windows.Forms.Label();
+            this.TotalDurationTextBox = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.CPADataGrid)).BeginInit();
+            this.CPAGroupBox.SuspendLayout();
+            this.SuspendLayout();
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(1221, 12);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(75, 23);
-            ExitButton.TabIndex = 0;
-            ExitButton.Text = "Exit";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
+            this.ExitButton.Location = new System.Drawing.Point(1047, 10);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(64, 28);
+            this.ExitButton.TabIndex = 0;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // BackToEditProjectButton
             // 
-            BackToEditProjectButton.Location = new Point(12, 12);
-            BackToEditProjectButton.Name = "BackToEditProjectButton";
-            BackToEditProjectButton.Size = new Size(130, 23);
-            BackToEditProjectButton.TabIndex = 1;
-            BackToEditProjectButton.Text = "Back to Edit Project";
-            BackToEditProjectButton.UseVisualStyleBackColor = true;
-            BackToEditProjectButton.Click += BackToEditProjectButton_Click;
+            this.BackToEditProjectButton.Location = new System.Drawing.Point(10, 10);
+            this.BackToEditProjectButton.Name = "BackToEditProjectButton";
+            this.BackToEditProjectButton.Size = new System.Drawing.Size(111, 28);
+            this.BackToEditProjectButton.TabIndex = 1;
+            this.BackToEditProjectButton.Text = "Back to Edit Project";
+            this.BackToEditProjectButton.UseVisualStyleBackColor = true;
+            this.BackToEditProjectButton.Click += new System.EventHandler(this.BackToEditProjectButton_Click);
             // 
             // CPADataGrid
             // 
-            CPADataGrid.AllowUserToAddRows = false;
-            CPADataGrid.AllowUserToDeleteRows = false;
-            CPADataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            CPADataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CPADataGrid.Location = new Point(438, 51);
-            CPADataGrid.Name = "CPADataGrid";
-            CPADataGrid.ReadOnly = true;
-            CPADataGrid.RowTemplate.Height = 25;
-            CPADataGrid.Size = new Size(858, 688);
-            CPADataGrid.TabIndex = 2;
-            //CPADataGrid.AutoGenerateColumns = true;
-
+            this.CPADataGrid.AllowUserToAddRows = false;
+            this.CPADataGrid.AllowUserToDeleteRows = false;
+            this.CPADataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.CPADataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CPADataGrid.Location = new System.Drawing.Point(375, 44);
+            this.CPADataGrid.Name = "CPADataGrid";
+            this.CPADataGrid.ReadOnly = true;
+            this.CPADataGrid.RowTemplate.Height = 25;
+            this.CPADataGrid.Size = new System.Drawing.Size(735, 596);
+            this.CPADataGrid.TabIndex = 2;
             // 
             // CPAGroupBox
             // 
-            CPAGroupBox.Controls.Add(textBox1);
-            CPAGroupBox.Controls.Add(CPLabel);
-            CPAGroupBox.Controls.Add(CPTextBox);
-            CPAGroupBox.Controls.Add(TotalDurationLabel);
-            CPAGroupBox.Controls.Add(TotalDurationTextBox);
-            CPAGroupBox.Location = new Point(45, 51);
-            CPAGroupBox.Name = "CPAGroupBox";
-            CPAGroupBox.Size = new Size(332, 688);
-            CPAGroupBox.TabIndex = 3;
-            CPAGroupBox.TabStop = false;
-            CPAGroupBox.Text = "Project";
-            // 
-            // contextMenuStrip1
-            // 
-            contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
-            // 
-            // TotalDurationTextBox
-            // 
-            TotalDurationTextBox.Location = new Point(116, 91);
-            TotalDurationTextBox.Name = "TotalDurationTextBox";
-            TotalDurationTextBox.ReadOnly = true;
-            TotalDurationTextBox.Size = new Size(100, 23);
-            TotalDurationTextBox.TabIndex = 0;
-            TotalDurationTextBox.TextAlign = HorizontalAlignment.Center;
-            // 
-            // TotalDurationLabel
-            // 
-            TotalDurationLabel.AutoSize = true;
-            TotalDurationLabel.Location = new Point(125, 57);
-            TotalDurationLabel.Name = "TotalDurationLabel";
-            TotalDurationLabel.Size = new Size(81, 15);
-            TotalDurationLabel.TabIndex = 1;
-            TotalDurationLabel.Text = "Total Duration";
-            // 
-            // CPTextBox
-            // 
-            CPTextBox.Location = new Point(6, 175);
-            CPTextBox.Multiline = true;
-            CPTextBox.Name = "CPTextBox";
-            CPTextBox.ReadOnly = true;
-            CPTextBox.Size = new Size(320, 331);
-            CPTextBox.TabIndex = 2;
-            CPTextBox.TextAlign = HorizontalAlignment.Center;
-            // 
-            // CPLabel
-            // 
-            CPLabel.AutoSize = true;
-            CPLabel.Location = new Point(125, 141);
-            CPLabel.Name = "CPLabel";
-            CPLabel.Size = new Size(81, 15);
-            CPLabel.TabIndex = 3;
-            CPLabel.Text = "Critical Path/s";
+            this.CPAGroupBox.Controls.Add(this.textBox1);
+            this.CPAGroupBox.Controls.Add(this.CPLabel);
+            this.CPAGroupBox.Controls.Add(this.CPTextBox);
+            this.CPAGroupBox.Controls.Add(this.TotalDurationLabel);
+            this.CPAGroupBox.Controls.Add(this.TotalDurationTextBox);
+            this.CPAGroupBox.Location = new System.Drawing.Point(39, 44);
+            this.CPAGroupBox.Name = "CPAGroupBox";
+            this.CPAGroupBox.Size = new System.Drawing.Size(285, 596);
+            this.CPAGroupBox.TabIndex = 3;
+            this.CPAGroupBox.TabStop = false;
+            this.CPAGroupBox.Text = "Project";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(6, 512);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(320, 170);
-            textBox1.TabIndex = 4;
-            textBox1.Text = resources.GetString("textBox1.Text");
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            this.textBox1.Location = new System.Drawing.Point(5, 458);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(275, 134);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // CPLabel
+            // 
+            this.CPLabel.AutoSize = true;
+            this.CPLabel.Location = new System.Drawing.Point(107, 122);
+            this.CPLabel.Name = "CPLabel";
+            this.CPLabel.Size = new System.Drawing.Size(73, 13);
+            this.CPLabel.TabIndex = 3;
+            this.CPLabel.Text = "Critical Path/s";
+            // 
+            // CPTextBox
+            // 
+            this.CPTextBox.Location = new System.Drawing.Point(5, 152);
+            this.CPTextBox.Multiline = true;
+            this.CPTextBox.Name = "CPTextBox";
+            this.CPTextBox.ReadOnly = true;
+            this.CPTextBox.Size = new System.Drawing.Size(275, 300);
+            this.CPTextBox.TabIndex = 2;
+            this.CPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TotalDurationLabel
+            // 
+            this.TotalDurationLabel.AutoSize = true;
+            this.TotalDurationLabel.Location = new System.Drawing.Point(107, 49);
+            this.TotalDurationLabel.Name = "TotalDurationLabel";
+            this.TotalDurationLabel.Size = new System.Drawing.Size(74, 13);
+            this.TotalDurationLabel.TabIndex = 1;
+            this.TotalDurationLabel.Text = "Total Duration";
+            // 
+            // TotalDurationTextBox
+            // 
+            this.TotalDurationTextBox.Location = new System.Drawing.Point(99, 79);
+            this.TotalDurationTextBox.Name = "TotalDurationTextBox";
+            this.TotalDurationTextBox.ReadOnly = true;
+            this.TotalDurationTextBox.Size = new System.Drawing.Size(86, 20);
+            this.TotalDurationTextBox.TabIndex = 0;
+            this.TotalDurationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // CPAForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1308, 830);
-            ControlBox = false;
-            Controls.Add(CPAGroupBox);
-            Controls.Add(CPADataGrid);
-            Controls.Add(BackToEditProjectButton);
-            Controls.Add(ExitButton);
-            Name = "CPAForm";
-            Text = "Critical Path Analysis";
-            ((System.ComponentModel.ISupportInitialize)CPADataGrid).EndInit();
-            CPAGroupBox.ResumeLayout(false);
-            CPAGroupBox.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1121, 719);
+            this.ControlBox = false;
+            this.Controls.Add(this.CPAGroupBox);
+            this.Controls.Add(this.CPADataGrid);
+            this.Controls.Add(this.BackToEditProjectButton);
+            this.Controls.Add(this.ExitButton);
+            this.Name = "CPAForm";
+            this.Text = "Critical Path Analysis";
+            ((System.ComponentModel.ISupportInitialize)(this.CPADataGrid)).EndInit();
+            this.CPAGroupBox.ResumeLayout(false);
+            this.CPAGroupBox.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

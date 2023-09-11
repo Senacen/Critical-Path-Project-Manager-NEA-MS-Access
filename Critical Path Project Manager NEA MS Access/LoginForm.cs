@@ -55,6 +55,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             Application.Exit();
         }
+
+        private void LoadRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

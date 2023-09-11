@@ -85,6 +85,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             Application.Exit();
         }
 
+
         private void BackToEditProjectButton_Click(object sender, EventArgs e)
         {
             EditProjectForm editProjectForm = new EditProjectForm(projectName, username);

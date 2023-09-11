@@ -30,302 +30,305 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         /// </summary>
         private void InitializeComponent()
         {
-            ExitButton = new Button();
-            TasksDataGrid = new DataGridView();
-            AddTaskButton = new Button();
-            NameLabel = new Label();
-            DurationLabel = new Label();
-            NumWorkersLabel = new Label();
-            NameTextBox = new TextBox();
-            DurationTextBox = new TextBox();
-            NumWorkersTextBox = new TextBox();
-            AddTaskGroupBox = new GroupBox();
-            EditTaskGroupBox = new GroupBox();
-            EditNumWorkersTextBox = new TextBox();
-            DeleteTaskButton = new Button();
-            EditDurationTextBox = new TextBox();
-            EditNameTextBox = new TextBox();
-            EditNumWorkersLabel = new Label();
-            EditDurationLabel = new Label();
-            EditNameLabel = new Label();
-            EditTaskButton = new Button();
-            UpdateDependenciesCheckedListBox = new CheckedListBox();
-            UpdateDependenciesGroupBox = new GroupBox();
-            DependenciesInfoTextBox = new TextBox();
-            CPAButton = new Button();
-            BackButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)TasksDataGrid).BeginInit();
-            AddTaskGroupBox.SuspendLayout();
-            EditTaskGroupBox.SuspendLayout();
-            UpdateDependenciesGroupBox.SuspendLayout();
-            SuspendLayout();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.TasksDataGrid = new System.Windows.Forms.DataGridView();
+            this.AddTaskButton = new System.Windows.Forms.Button();
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.DurationLabel = new System.Windows.Forms.Label();
+            this.NumWorkersLabel = new System.Windows.Forms.Label();
+            this.NameTextBox = new System.Windows.Forms.TextBox();
+            this.DurationTextBox = new System.Windows.Forms.TextBox();
+            this.NumWorkersTextBox = new System.Windows.Forms.TextBox();
+            this.AddTaskGroupBox = new System.Windows.Forms.GroupBox();
+            this.EditTaskGroupBox = new System.Windows.Forms.GroupBox();
+            this.EditNumWorkersTextBox = new System.Windows.Forms.TextBox();
+            this.DeleteTaskButton = new System.Windows.Forms.Button();
+            this.EditDurationTextBox = new System.Windows.Forms.TextBox();
+            this.EditNameTextBox = new System.Windows.Forms.TextBox();
+            this.EditNumWorkersLabel = new System.Windows.Forms.Label();
+            this.EditDurationLabel = new System.Windows.Forms.Label();
+            this.EditNameLabel = new System.Windows.Forms.Label();
+            this.EditTaskButton = new System.Windows.Forms.Button();
+            this.UpdateDependenciesCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.UpdateDependenciesGroupBox = new System.Windows.Forms.GroupBox();
+            this.DependenciesInfoTextBox = new System.Windows.Forms.TextBox();
+            this.CPAButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.TasksDataGrid)).BeginInit();
+            this.AddTaskGroupBox.SuspendLayout();
+            this.EditTaskGroupBox.SuspendLayout();
+            this.UpdateDependenciesGroupBox.SuspendLayout();
+            this.SuspendLayout();
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(1156, 12);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(75, 23);
-            ExitButton.TabIndex = 0;
-            ExitButton.Text = "Exit";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
+            this.ExitButton.Location = new System.Drawing.Point(991, 10);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(64, 24);
+            this.ExitButton.TabIndex = 0;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // TasksDataGrid
             // 
-            TasksDataGrid.AllowUserToAddRows = false;
-            TasksDataGrid.AllowUserToDeleteRows = false;
-            TasksDataGrid.BackgroundColor = SystemColors.Control;
-            TasksDataGrid.BorderStyle = BorderStyle.None;
-            TasksDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TasksDataGrid.Location = new Point(682, 12);
-            TasksDataGrid.Name = "TasksDataGrid";
-            TasksDataGrid.ReadOnly = true;
-            TasksDataGrid.RowTemplate.Height = 25;
-            TasksDataGrid.Size = new Size(468, 696);
-            TasksDataGrid.TabIndex = 1;
+            this.TasksDataGrid.AllowUserToAddRows = false;
+            this.TasksDataGrid.AllowUserToDeleteRows = false;
+            this.TasksDataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.TasksDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TasksDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.TasksDataGrid.Location = new System.Drawing.Point(585, 10);
+            this.TasksDataGrid.Name = "TasksDataGrid";
+            this.TasksDataGrid.ReadOnly = true;
+            this.TasksDataGrid.RowTemplate.Height = 25;
+            this.TasksDataGrid.Size = new System.Drawing.Size(401, 603);
+            this.TasksDataGrid.TabIndex = 1;
             // 
             // AddTaskButton
             // 
-            AddTaskButton.Location = new Point(83, 218);
-            AddTaskButton.Name = "AddTaskButton";
-            AddTaskButton.Size = new Size(75, 23);
-            AddTaskButton.TabIndex = 2;
-            AddTaskButton.Text = "Add Task";
-            AddTaskButton.UseVisualStyleBackColor = true;
-            AddTaskButton.Click += AddTaskButton_Click;
+            this.AddTaskButton.Location = new System.Drawing.Point(71, 189);
+            this.AddTaskButton.Name = "AddTaskButton";
+            this.AddTaskButton.Size = new System.Drawing.Size(64, 31);
+            this.AddTaskButton.TabIndex = 2;
+            this.AddTaskButton.Text = "Add Task";
+            this.AddTaskButton.UseVisualStyleBackColor = true;
+            this.AddTaskButton.Click += new System.EventHandler(this.AddTaskButton_Click);
             // 
             // NameLabel
             // 
-            NameLabel.AutoSize = true;
-            NameLabel.Location = new Point(96, 39);
-            NameLabel.Name = "NameLabel";
-            NameLabel.Size = new Size(39, 15);
-            NameLabel.TabIndex = 3;
-            NameLabel.Text = "Name";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(82, 34);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NameLabel.TabIndex = 3;
+            this.NameLabel.Text = "Name";
             // 
             // DurationLabel
             // 
-            DurationLabel.AutoSize = true;
-            DurationLabel.Location = new Point(96, 92);
-            DurationLabel.Name = "DurationLabel";
-            DurationLabel.Size = new Size(53, 15);
-            DurationLabel.TabIndex = 4;
-            DurationLabel.Text = "Duration";
+            this.DurationLabel.AutoSize = true;
+            this.DurationLabel.Location = new System.Drawing.Point(82, 80);
+            this.DurationLabel.Name = "DurationLabel";
+            this.DurationLabel.Size = new System.Drawing.Size(47, 13);
+            this.DurationLabel.TabIndex = 4;
+            this.DurationLabel.Text = "Duration";
             // 
             // NumWorkersLabel
             // 
-            NumWorkersLabel.AutoSize = true;
-            NumWorkersLabel.Location = new Point(45, 151);
-            NumWorkersLabel.Name = "NumWorkersLabel";
-            NumWorkersLabel.Size = new Size(155, 15);
-            NumWorkersLabel.TabIndex = 5;
-            NumWorkersLabel.Text = "Number of Workers Needed";
+            this.NumWorkersLabel.AutoSize = true;
+            this.NumWorkersLabel.Location = new System.Drawing.Point(39, 131);
+            this.NumWorkersLabel.Name = "NumWorkersLabel";
+            this.NumWorkersLabel.Size = new System.Drawing.Size(140, 13);
+            this.NumWorkersLabel.TabIndex = 5;
+            this.NumWorkersLabel.Text = "Number of Workers Needed";
             // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(35, 57);
-            NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(176, 23);
-            NameTextBox.TabIndex = 6;
-            NameTextBox.TextAlign = HorizontalAlignment.Center;
+            this.NameTextBox.Location = new System.Drawing.Point(30, 49);
+            this.NameTextBox.Name = "NameTextBox";
+            this.NameTextBox.Size = new System.Drawing.Size(151, 20);
+            this.NameTextBox.TabIndex = 6;
+            this.NameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DurationTextBox
             // 
-            DurationTextBox.Location = new Point(64, 110);
-            DurationTextBox.Name = "DurationTextBox";
-            DurationTextBox.Size = new Size(109, 23);
-            DurationTextBox.TabIndex = 7;
-            DurationTextBox.TextAlign = HorizontalAlignment.Center;
+            this.DurationTextBox.Location = new System.Drawing.Point(55, 95);
+            this.DurationTextBox.Name = "DurationTextBox";
+            this.DurationTextBox.Size = new System.Drawing.Size(94, 20);
+            this.DurationTextBox.TabIndex = 7;
+            this.DurationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // NumWorkersTextBox
             // 
-            NumWorkersTextBox.Location = new Point(64, 169);
-            NumWorkersTextBox.Name = "NumWorkersTextBox";
-            NumWorkersTextBox.Size = new Size(109, 23);
-            NumWorkersTextBox.TabIndex = 8;
-            NumWorkersTextBox.TextAlign = HorizontalAlignment.Center;
+            this.NumWorkersTextBox.Location = new System.Drawing.Point(55, 146);
+            this.NumWorkersTextBox.Name = "NumWorkersTextBox";
+            this.NumWorkersTextBox.Size = new System.Drawing.Size(94, 20);
+            this.NumWorkersTextBox.TabIndex = 8;
+            this.NumWorkersTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // AddTaskGroupBox
             // 
-            AddTaskGroupBox.Controls.Add(NumWorkersTextBox);
-            AddTaskGroupBox.Controls.Add(DurationTextBox);
-            AddTaskGroupBox.Controls.Add(NameTextBox);
-            AddTaskGroupBox.Controls.Add(NumWorkersLabel);
-            AddTaskGroupBox.Controls.Add(DurationLabel);
-            AddTaskGroupBox.Controls.Add(NameLabel);
-            AddTaskGroupBox.Controls.Add(AddTaskButton);
-            AddTaskGroupBox.Location = new Point(117, 12);
-            AddTaskGroupBox.Name = "AddTaskGroupBox";
-            AddTaskGroupBox.Size = new Size(246, 273);
-            AddTaskGroupBox.TabIndex = 9;
-            AddTaskGroupBox.TabStop = false;
-            AddTaskGroupBox.Text = "Add Task";
+            this.AddTaskGroupBox.Controls.Add(this.NumWorkersTextBox);
+            this.AddTaskGroupBox.Controls.Add(this.DurationTextBox);
+            this.AddTaskGroupBox.Controls.Add(this.NameTextBox);
+            this.AddTaskGroupBox.Controls.Add(this.NumWorkersLabel);
+            this.AddTaskGroupBox.Controls.Add(this.DurationLabel);
+            this.AddTaskGroupBox.Controls.Add(this.NameLabel);
+            this.AddTaskGroupBox.Controls.Add(this.AddTaskButton);
+            this.AddTaskGroupBox.Location = new System.Drawing.Point(100, 10);
+            this.AddTaskGroupBox.Name = "AddTaskGroupBox";
+            this.AddTaskGroupBox.Size = new System.Drawing.Size(211, 237);
+            this.AddTaskGroupBox.TabIndex = 9;
+            this.AddTaskGroupBox.TabStop = false;
+            this.AddTaskGroupBox.Text = "Add Task";
             // 
             // EditTaskGroupBox
             // 
-            EditTaskGroupBox.Controls.Add(EditNumWorkersTextBox);
-            EditTaskGroupBox.Controls.Add(DeleteTaskButton);
-            EditTaskGroupBox.Controls.Add(EditDurationTextBox);
-            EditTaskGroupBox.Controls.Add(EditNameTextBox);
-            EditTaskGroupBox.Controls.Add(EditNumWorkersLabel);
-            EditTaskGroupBox.Controls.Add(EditDurationLabel);
-            EditTaskGroupBox.Controls.Add(EditNameLabel);
-            EditTaskGroupBox.Controls.Add(EditTaskButton);
-            EditTaskGroupBox.Location = new Point(406, 12);
-            EditTaskGroupBox.Name = "EditTaskGroupBox";
-            EditTaskGroupBox.Size = new Size(246, 273);
-            EditTaskGroupBox.TabIndex = 10;
-            EditTaskGroupBox.TabStop = false;
-            EditTaskGroupBox.Text = "Edit Task";
+            this.EditTaskGroupBox.Controls.Add(this.EditNumWorkersTextBox);
+            this.EditTaskGroupBox.Controls.Add(this.DeleteTaskButton);
+            this.EditTaskGroupBox.Controls.Add(this.EditDurationTextBox);
+            this.EditTaskGroupBox.Controls.Add(this.EditNameTextBox);
+            this.EditTaskGroupBox.Controls.Add(this.EditNumWorkersLabel);
+            this.EditTaskGroupBox.Controls.Add(this.EditDurationLabel);
+            this.EditTaskGroupBox.Controls.Add(this.EditNameLabel);
+            this.EditTaskGroupBox.Controls.Add(this.EditTaskButton);
+            this.EditTaskGroupBox.Location = new System.Drawing.Point(348, 10);
+            this.EditTaskGroupBox.Name = "EditTaskGroupBox";
+            this.EditTaskGroupBox.Size = new System.Drawing.Size(211, 237);
+            this.EditTaskGroupBox.TabIndex = 10;
+            this.EditTaskGroupBox.TabStop = false;
+            this.EditTaskGroupBox.Text = "Edit Task";
             // 
             // EditNumWorkersTextBox
             // 
-            EditNumWorkersTextBox.Location = new Point(64, 169);
-            EditNumWorkersTextBox.Name = "EditNumWorkersTextBox";
-            EditNumWorkersTextBox.Size = new Size(109, 23);
-            EditNumWorkersTextBox.TabIndex = 8;
-            EditNumWorkersTextBox.TextAlign = HorizontalAlignment.Center;
+            this.EditNumWorkersTextBox.Location = new System.Drawing.Point(55, 146);
+            this.EditNumWorkersTextBox.Name = "EditNumWorkersTextBox";
+            this.EditNumWorkersTextBox.Size = new System.Drawing.Size(94, 20);
+            this.EditNumWorkersTextBox.TabIndex = 8;
+            this.EditNumWorkersTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // DeleteTaskButton
             // 
-            DeleteTaskButton.Location = new Point(125, 218);
-            DeleteTaskButton.Name = "DeleteTaskButton";
-            DeleteTaskButton.Size = new Size(75, 23);
-            DeleteTaskButton.TabIndex = 11;
-            DeleteTaskButton.Text = "Delete Task";
-            DeleteTaskButton.UseVisualStyleBackColor = true;
-            DeleteTaskButton.Click += DeleteTaskButton_Click;
+            this.DeleteTaskButton.Location = new System.Drawing.Point(107, 189);
+            this.DeleteTaskButton.Name = "DeleteTaskButton";
+            this.DeleteTaskButton.Size = new System.Drawing.Size(74, 31);
+            this.DeleteTaskButton.TabIndex = 11;
+            this.DeleteTaskButton.Text = "Delete Task";
+            this.DeleteTaskButton.UseVisualStyleBackColor = true;
+            this.DeleteTaskButton.Click += new System.EventHandler(this.DeleteTaskButton_Click);
             // 
             // EditDurationTextBox
             // 
-            EditDurationTextBox.Location = new Point(64, 110);
-            EditDurationTextBox.Name = "EditDurationTextBox";
-            EditDurationTextBox.Size = new Size(109, 23);
-            EditDurationTextBox.TabIndex = 7;
-            EditDurationTextBox.TextAlign = HorizontalAlignment.Center;
+            this.EditDurationTextBox.Location = new System.Drawing.Point(55, 95);
+            this.EditDurationTextBox.Name = "EditDurationTextBox";
+            this.EditDurationTextBox.Size = new System.Drawing.Size(94, 20);
+            this.EditDurationTextBox.TabIndex = 7;
+            this.EditDurationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // EditNameTextBox
             // 
-            EditNameTextBox.Location = new Point(35, 57);
-            EditNameTextBox.Name = "EditNameTextBox";
-            EditNameTextBox.ReadOnly = true;
-            EditNameTextBox.Size = new Size(176, 23);
-            EditNameTextBox.TabIndex = 6;
-            EditNameTextBox.TextAlign = HorizontalAlignment.Center;
+            this.EditNameTextBox.Location = new System.Drawing.Point(30, 49);
+            this.EditNameTextBox.Name = "EditNameTextBox";
+            this.EditNameTextBox.ReadOnly = true;
+            this.EditNameTextBox.Size = new System.Drawing.Size(151, 20);
+            this.EditNameTextBox.TabIndex = 6;
+            this.EditNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // EditNumWorkersLabel
             // 
-            EditNumWorkersLabel.AutoSize = true;
-            EditNumWorkersLabel.Location = new Point(45, 151);
-            EditNumWorkersLabel.Name = "EditNumWorkersLabel";
-            EditNumWorkersLabel.Size = new Size(155, 15);
-            EditNumWorkersLabel.TabIndex = 5;
-            EditNumWorkersLabel.Text = "Number of Workers Needed";
+            this.EditNumWorkersLabel.AutoSize = true;
+            this.EditNumWorkersLabel.Location = new System.Drawing.Point(39, 131);
+            this.EditNumWorkersLabel.Name = "EditNumWorkersLabel";
+            this.EditNumWorkersLabel.Size = new System.Drawing.Size(140, 13);
+            this.EditNumWorkersLabel.TabIndex = 5;
+            this.EditNumWorkersLabel.Text = "Number of Workers Needed";
             // 
             // EditDurationLabel
             // 
-            EditDurationLabel.AutoSize = true;
-            EditDurationLabel.Location = new Point(96, 92);
-            EditDurationLabel.Name = "EditDurationLabel";
-            EditDurationLabel.Size = new Size(53, 15);
-            EditDurationLabel.TabIndex = 4;
-            EditDurationLabel.Text = "Duration";
+            this.EditDurationLabel.AutoSize = true;
+            this.EditDurationLabel.Location = new System.Drawing.Point(82, 80);
+            this.EditDurationLabel.Name = "EditDurationLabel";
+            this.EditDurationLabel.Size = new System.Drawing.Size(47, 13);
+            this.EditDurationLabel.TabIndex = 4;
+            this.EditDurationLabel.Text = "Duration";
             // 
             // EditNameLabel
             // 
-            EditNameLabel.AutoSize = true;
-            EditNameLabel.Location = new Point(96, 39);
-            EditNameLabel.Name = "EditNameLabel";
-            EditNameLabel.Size = new Size(39, 15);
-            EditNameLabel.TabIndex = 3;
-            EditNameLabel.Text = "Name";
+            this.EditNameLabel.AutoSize = true;
+            this.EditNameLabel.Location = new System.Drawing.Point(82, 34);
+            this.EditNameLabel.Name = "EditNameLabel";
+            this.EditNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.EditNameLabel.TabIndex = 3;
+            this.EditNameLabel.Text = "Name";
             // 
             // EditTaskButton
             // 
-            EditTaskButton.Location = new Point(45, 218);
-            EditTaskButton.Name = "EditTaskButton";
-            EditTaskButton.Size = new Size(75, 23);
-            EditTaskButton.TabIndex = 2;
-            EditTaskButton.Text = "Edit Task";
-            EditTaskButton.UseVisualStyleBackColor = true;
-            EditTaskButton.Click += EditTaskButton_Click;
+            this.EditTaskButton.Location = new System.Drawing.Point(23, 189);
+            this.EditTaskButton.Name = "EditTaskButton";
+            this.EditTaskButton.Size = new System.Drawing.Size(80, 31);
+            this.EditTaskButton.TabIndex = 2;
+            this.EditTaskButton.Text = "Edit Task";
+            this.EditTaskButton.UseVisualStyleBackColor = true;
+            this.EditTaskButton.Click += new System.EventHandler(this.EditTaskButton_Click);
             // 
             // UpdateDependenciesCheckedListBox
             // 
-            UpdateDependenciesCheckedListBox.CheckOnClick = true;
-            UpdateDependenciesCheckedListBox.FormattingEnabled = true;
-            UpdateDependenciesCheckedListBox.Location = new Point(6, 22);
-            UpdateDependenciesCheckedListBox.Name = "UpdateDependenciesCheckedListBox";
-            UpdateDependenciesCheckedListBox.Size = new Size(269, 382);
-            UpdateDependenciesCheckedListBox.TabIndex = 12;
-            UpdateDependenciesCheckedListBox.SelectedIndexChanged += UpdateDependenciesCheckedListBox_SelectedIndexChanged;
+            this.UpdateDependenciesCheckedListBox.CheckOnClick = true;
+            this.UpdateDependenciesCheckedListBox.FormattingEnabled = true;
+            this.UpdateDependenciesCheckedListBox.Location = new System.Drawing.Point(6, 19);
+            this.UpdateDependenciesCheckedListBox.Name = "UpdateDependenciesCheckedListBox";
+            this.UpdateDependenciesCheckedListBox.Size = new System.Drawing.Size(234, 334);
+            this.UpdateDependenciesCheckedListBox.TabIndex = 12;
+            this.UpdateDependenciesCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.UpdateDependenciesCheckedListBox_SelectedIndexChanged);
             // 
             // UpdateDependenciesGroupBox
             // 
-            UpdateDependenciesGroupBox.Controls.Add(DependenciesInfoTextBox);
-            UpdateDependenciesGroupBox.Controls.Add(UpdateDependenciesCheckedListBox);
-            UpdateDependenciesGroupBox.Location = new Point(117, 352);
-            UpdateDependenciesGroupBox.Name = "UpdateDependenciesGroupBox";
-            UpdateDependenciesGroupBox.Size = new Size(535, 413);
-            UpdateDependenciesGroupBox.TabIndex = 14;
-            UpdateDependenciesGroupBox.TabStop = false;
-            UpdateDependenciesGroupBox.Text = "Update Dependencies";
+            this.UpdateDependenciesGroupBox.Controls.Add(this.DependenciesInfoTextBox);
+            this.UpdateDependenciesGroupBox.Controls.Add(this.UpdateDependenciesCheckedListBox);
+            this.UpdateDependenciesGroupBox.Location = new System.Drawing.Point(100, 305);
+            this.UpdateDependenciesGroupBox.Name = "UpdateDependenciesGroupBox";
+            this.UpdateDependenciesGroupBox.Size = new System.Drawing.Size(459, 358);
+            this.UpdateDependenciesGroupBox.TabIndex = 14;
+            this.UpdateDependenciesGroupBox.TabStop = false;
+            this.UpdateDependenciesGroupBox.Text = "Update Dependencies";
             // 
             // DependenciesInfoTextBox
             // 
-            DependenciesInfoTextBox.Location = new Point(328, 22);
-            DependenciesInfoTextBox.Multiline = true;
-            DependenciesInfoTextBox.Name = "DependenciesInfoTextBox";
-            DependenciesInfoTextBox.ReadOnly = true;
-            DependenciesInfoTextBox.Size = new Size(161, 169);
-            DependenciesInfoTextBox.TabIndex = 14;
-            DependenciesInfoTextBox.Text = "\r\nSelect a task in the data grid\r\n\r\nTick which tasks are a prerequisite for the selected task\r\n\r\nI.E. Which tasks must be complete before the selected task is started\r\n\r\n";
-            DependenciesInfoTextBox.TextAlign = HorizontalAlignment.Center;
+            this.DependenciesInfoTextBox.Location = new System.Drawing.Point(271, 19);
+            this.DependenciesInfoTextBox.Multiline = true;
+            this.DependenciesInfoTextBox.Name = "DependenciesInfoTextBox";
+            this.DependenciesInfoTextBox.ReadOnly = true;
+            this.DependenciesInfoTextBox.Size = new System.Drawing.Size(158, 163);
+            this.DependenciesInfoTextBox.TabIndex = 14;
+            this.DependenciesInfoTextBox.Text = "\r\nSelect a task in the data grid\r\n\r\nTick which tasks are a prerequisite for the s" +
+    "elected task\r\n\r\nI.E. Which tasks must be complete before the selected task is st" +
+    "arted\r\n\r\n";
+            this.DependenciesInfoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CPAButton
             // 
-            CPAButton.Location = new Point(825, 733);
-            CPAButton.Name = "CPAButton";
-            CPAButton.Size = new Size(186, 23);
-            CPAButton.TabIndex = 15;
-            CPAButton.Text = "Perform Critical Path Analysis";
-            CPAButton.UseVisualStyleBackColor = true;
-            CPAButton.Click += CPAButton_Click;
+            this.CPAButton.Location = new System.Drawing.Point(707, 635);
+            this.CPAButton.Name = "CPAButton";
+            this.CPAButton.Size = new System.Drawing.Size(159, 28);
+            this.CPAButton.TabIndex = 15;
+            this.CPAButton.Text = "Perform Critical Path Analysis";
+            this.CPAButton.UseVisualStyleBackColor = true;
+            this.CPAButton.Click += new System.EventHandler(this.CPAButton_Click);
             // 
             // BackButton
             // 
-            BackButton.Location = new Point(12, 12);
-            BackButton.Name = "BackButton";
-            BackButton.Size = new Size(75, 23);
-            BackButton.TabIndex = 16;
-            BackButton.Text = "Back";
-            BackButton.UseVisualStyleBackColor = true;
-            BackButton.Click += BackButton_Click;
+            this.BackButton.Location = new System.Drawing.Point(10, 10);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(64, 24);
+            this.BackButton.TabIndex = 16;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // EditProjectForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1243, 821);
-            ControlBox = false;
-            Controls.Add(BackButton);
-            Controls.Add(CPAButton);
-            Controls.Add(UpdateDependenciesGroupBox);
-            Controls.Add(EditTaskGroupBox);
-            Controls.Add(AddTaskGroupBox);
-            Controls.Add(TasksDataGrid);
-            Controls.Add(ExitButton);
-            Name = "EditProjectForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Edit Project";
-            ((System.ComponentModel.ISupportInitialize)TasksDataGrid).EndInit();
-            AddTaskGroupBox.ResumeLayout(false);
-            AddTaskGroupBox.PerformLayout();
-            EditTaskGroupBox.ResumeLayout(false);
-            EditTaskGroupBox.PerformLayout();
-            UpdateDependenciesGroupBox.ResumeLayout(false);
-            UpdateDependenciesGroupBox.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1065, 712);
+            this.ControlBox = false;
+            this.Controls.Add(this.BackButton);
+            this.Controls.Add(this.CPAButton);
+            this.Controls.Add(this.UpdateDependenciesGroupBox);
+            this.Controls.Add(this.EditTaskGroupBox);
+            this.Controls.Add(this.AddTaskGroupBox);
+            this.Controls.Add(this.TasksDataGrid);
+            this.Controls.Add(this.ExitButton);
+            this.Name = "EditProjectForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Edit Project";
+            ((System.ComponentModel.ISupportInitialize)(this.TasksDataGrid)).EndInit();
+            this.AddTaskGroupBox.ResumeLayout(false);
+            this.AddTaskGroupBox.PerformLayout();
+            this.EditTaskGroupBox.ResumeLayout(false);
+            this.EditTaskGroupBox.PerformLayout();
+            this.UpdateDependenciesGroupBox.ResumeLayout(false);
+            this.UpdateDependenciesGroupBox.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

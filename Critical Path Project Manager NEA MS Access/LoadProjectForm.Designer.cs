@@ -30,65 +30,65 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         /// </summary>
         private void InitializeComponent()
         {
-            LoadButton = new Button();
-            BackToLoginButton = new Button();
-            ExitButton = new Button();
-            ProjectListBox = new ListBox();
-            SuspendLayout();
+            this.LoadButton = new System.Windows.Forms.Button();
+            this.BackToLoginButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.ProjectListBox = new System.Windows.Forms.ListBox();
+            this.SuspendLayout();
             // 
             // LoadButton
             // 
-            LoadButton.Location = new Point(163, 366);
-            LoadButton.Name = "LoadButton";
-            LoadButton.Size = new Size(75, 23);
-            LoadButton.TabIndex = 0;
-            LoadButton.Text = "Load";
-            LoadButton.UseVisualStyleBackColor = true;
-            LoadButton.Click += LoadButton_Click;
+            this.LoadButton.Location = new System.Drawing.Point(140, 317);
+            this.LoadButton.Name = "LoadButton";
+            this.LoadButton.Size = new System.Drawing.Size(64, 25);
+            this.LoadButton.TabIndex = 0;
+            this.LoadButton.Text = "Load";
+            this.LoadButton.UseVisualStyleBackColor = true;
+            this.LoadButton.Click += new System.EventHandler(this.LoadButton_Click);
             // 
             // BackToLoginButton
             // 
-            BackToLoginButton.Location = new Point(12, 12);
-            BackToLoginButton.Name = "BackToLoginButton";
-            BackToLoginButton.Size = new Size(104, 23);
-            BackToLoginButton.TabIndex = 1;
-            BackToLoginButton.Text = "Back to Login";
-            BackToLoginButton.UseVisualStyleBackColor = true;
-            BackToLoginButton.Click += BackToLoginButton_Click;
+            this.BackToLoginButton.Location = new System.Drawing.Point(10, 10);
+            this.BackToLoginButton.Name = "BackToLoginButton";
+            this.BackToLoginButton.Size = new System.Drawing.Size(89, 27);
+            this.BackToLoginButton.TabIndex = 1;
+            this.BackToLoginButton.Text = "Back to Login";
+            this.BackToLoginButton.UseVisualStyleBackColor = true;
+            this.BackToLoginButton.Click += new System.EventHandler(this.BackToLoginButton_Click);
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(310, 12);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(75, 23);
-            ExitButton.TabIndex = 2;
-            ExitButton.Text = "Exit";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
+            this.ExitButton.Location = new System.Drawing.Point(266, 10);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(64, 27);
+            this.ExitButton.TabIndex = 2;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // ProjectListBox
             // 
-            ProjectListBox.FormattingEnabled = true;
-            ProjectListBox.ItemHeight = 15;
-            ProjectListBox.Location = new Point(92, 77);
-            ProjectListBox.Name = "ProjectListBox";
-            ProjectListBox.Size = new Size(219, 244);
-            ProjectListBox.TabIndex = 3;
+            this.ProjectListBox.FormattingEnabled = true;
+            this.ProjectListBox.Location = new System.Drawing.Point(79, 67);
+            this.ProjectListBox.Name = "ProjectListBox";
+            this.ProjectListBox.Size = new System.Drawing.Size(188, 212);
+            this.ProjectListBox.TabIndex = 3;
             // 
             // LoadProjectForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(397, 450);
-            ControlBox = false;
-            Controls.Add(ProjectListBox);
-            Controls.Add(ExitButton);
-            Controls.Add(BackToLoginButton);
-            Controls.Add(LoadButton);
-            Name = "LoadProjectForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Load Project";
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(340, 390);
+            this.ControlBox = false;
+            this.Controls.Add(this.ProjectListBox);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.BackToLoginButton);
+            this.Controls.Add(this.LoadButton);
+            this.Name = "LoadProjectForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Load Project";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

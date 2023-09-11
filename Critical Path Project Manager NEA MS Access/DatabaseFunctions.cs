@@ -13,16 +13,26 @@ using System.Data;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data.OleDb;
 using System.IO;
+using ADOX;
 
 namespace Critical_Path_Project_Manager_NEA_MS_Access
 {
     static internal class DatabaseFunctions
     {
+        static string oledbConnectionString = @"Provider=Microsoft Jet 4.0 OLE DB Provider;Data Source = ";
+        public static void createDatabase(string databaseName)
+        {
+            CatalogClass cat = new CatalogClass();
+            cat.Create(oledbConnectionString + databaseName + ".mdb;");
+            cat = null;
+        }
 
         public static void checkUserAccountsDatabaseExists()
         {
             if (!File.Exists("CPPMUserAccounts.mdb"))
             {
+                createDatabase("CPPMUserAccounts");
+
                 string createTableSQL = "CREATE TABLE UserDetailsTbl (" +
                                         "Username VARCHAR(100) PRIMARY KEY," +
                                         "PasswordHash INT)";
@@ -55,7 +65,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private static void executeNonQuery(string databaseName, string nonQuery)
         {
-            string databaseConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + databaseName + ".mdb";
+            string databaseConnectionString = oledbConnectionString + databaseName + ".mdb;";
             using (OleDbConnection connection = new OleDbConnection(databaseConnectionString))
             {
                 connection.Open();
@@ -69,7 +79,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private static DataTable executeQuery(string databaseName, string query)
         {
             DataTable dataTable = new DataTable();
-            string databaseConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + databaseName + ".mdb";
+            string databaseConnectionString = oledbConnectionString + databaseName + ".mdb;";
             using (OleDbConnection connection = new OleDbConnection(databaseConnectionString))
             {
                 connection.Open();
@@ -102,7 +112,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             try
             {
                 int passwordHash = djb2HashFunction.djb2(password);
-                string checkDetailsSQL = $"SELECT * FROM UserDetailsTbl WHERE Username = '{username}' AND PasswordHash = '{passwordHash}'";
+                string checkDetailsSQL = $"SELECT * FROM UserDetailsTbl WHERE Username = '{username}' AND PasswordHash = {passwordHash}";
                 DataTable matchingAccountDataTable = executeQuery("CPPMUserAccounts", checkDetailsSQL);
                 return matchingAccountDataTable.Rows.Count == 1;
             }
@@ -121,7 +131,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 int passwordHash = djb2HashFunction.djb2(password);
 
                 string addDetailsSQL = "INSERT INTO UserDetailsTbl (Username, PasswordHash)" +
-                                        $"Values ('{username}', '{passwordHash}')";
+                                        $"Values ('{username}', {passwordHash})";
                 executeNonQuery("CPPMUserAccounts", addDetailsSQL);
                 MessageBox.Show("Your account has been created and can be used to login.", "Success", MessageBoxButtons.OK);
             }
@@ -131,17 +141,16 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             }
         }
 
-        public static bool createDatabase(string projectName, string username)
+        public static bool createProject(string projectName, string username)
         {
             try
             {
                 // Create Database
-                if (File.Exists(projectName + ".accdb"))
+                if (File.Exists(projectName + ".mdb"))
                 {
                     throw new Exception("This project already exists.");
                 }
-                FileStream filestream = File.Create(projectName + ".accdb");
-                filestream.Close();
+                createDatabase(projectName);
 
                 // Create TaskTbl
                 string createTableSQL =

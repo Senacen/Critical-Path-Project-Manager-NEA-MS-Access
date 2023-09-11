@@ -16,10 +16,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
             // Ensure UserAccounts has been created
             DatabaseFunctions.checkUserAccountsDatabaseExists();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            
+            
             Application.Run();
         }
     }

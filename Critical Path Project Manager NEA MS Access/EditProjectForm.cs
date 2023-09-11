@@ -189,7 +189,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             cpaForm.Show();
             this.Close();
         }
-
         private void BackButton_Click(object sender, EventArgs e)
         {
             LoadProjectForm loadProjectForm = new LoadProjectForm(username);

@@ -31,148 +31,149 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            LoginButton = new Button();
-            OpenProjectGroupBox = new GroupBox();
-            LoadRadioButton = new RadioButton();
-            CreateNewRadioButton = new RadioButton();
-            UsernameTextBox = new TextBox();
-            PasswordTextBox = new TextBox();
-            UsernameLabel = new Label();
-            PasswordLabel = new Label();
-            CreateAccountButton = new Button();
-            ExitButton = new Button();
-            imageList1 = new ImageList(components);
-            OpenProjectGroupBox.SuspendLayout();
-            SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.OpenProjectGroupBox = new System.Windows.Forms.GroupBox();
+            this.LoadRadioButton = new System.Windows.Forms.RadioButton();
+            this.CreateNewRadioButton = new System.Windows.Forms.RadioButton();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.UsernameLabel = new System.Windows.Forms.Label();
+            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.CreateAccountButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.OpenProjectGroupBox.SuspendLayout();
+            this.SuspendLayout();
             // 
             // LoginButton
             // 
-            LoginButton.ForeColor = SystemColors.ActiveCaptionText;
-            LoginButton.Location = new Point(86, 199);
-            LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(75, 23);
-            LoginButton.TabIndex = 0;
-            LoginButton.Text = "Login";
-            LoginButton.UseVisualStyleBackColor = true;
-            LoginButton.Click += LoginButton_Click;
+            this.LoginButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LoginButton.Location = new System.Drawing.Point(74, 172);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(64, 27);
+            this.LoginButton.TabIndex = 0;
+            this.LoginButton.Text = "Login";
+            this.LoginButton.UseVisualStyleBackColor = true;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // OpenProjectGroupBox
             // 
-            OpenProjectGroupBox.Controls.Add(LoadRadioButton);
-            OpenProjectGroupBox.Controls.Add(CreateNewRadioButton);
-            OpenProjectGroupBox.Location = new Point(274, 65);
-            OpenProjectGroupBox.Name = "OpenProjectGroupBox";
-            OpenProjectGroupBox.Size = new Size(120, 85);
-            OpenProjectGroupBox.TabIndex = 1;
-            OpenProjectGroupBox.TabStop = false;
-            OpenProjectGroupBox.Text = "Open Project";
+            this.OpenProjectGroupBox.Controls.Add(this.LoadRadioButton);
+            this.OpenProjectGroupBox.Controls.Add(this.CreateNewRadioButton);
+            this.OpenProjectGroupBox.Location = new System.Drawing.Point(235, 56);
+            this.OpenProjectGroupBox.Name = "OpenProjectGroupBox";
+            this.OpenProjectGroupBox.Size = new System.Drawing.Size(103, 74);
+            this.OpenProjectGroupBox.TabIndex = 1;
+            this.OpenProjectGroupBox.TabStop = false;
+            this.OpenProjectGroupBox.Text = "Open Project";
             // 
             // LoadRadioButton
             // 
-            LoadRadioButton.AutoSize = true;
-            LoadRadioButton.Location = new Point(15, 47);
-            LoadRadioButton.Name = "LoadRadioButton";
-            LoadRadioButton.Size = new Size(51, 19);
-            LoadRadioButton.TabIndex = 1;
-            LoadRadioButton.TabStop = true;
-            LoadRadioButton.Text = "Load";
-            LoadRadioButton.UseVisualStyleBackColor = true;
+            this.LoadRadioButton.AutoSize = true;
+            this.LoadRadioButton.Checked = true;
+            this.LoadRadioButton.Location = new System.Drawing.Point(13, 41);
+            this.LoadRadioButton.Name = "LoadRadioButton";
+            this.LoadRadioButton.Size = new System.Drawing.Size(49, 17);
+            this.LoadRadioButton.TabIndex = 1;
+            this.LoadRadioButton.TabStop = true;
+            this.LoadRadioButton.Text = "Load";
+            this.LoadRadioButton.UseVisualStyleBackColor = true;
             // 
             // CreateNewRadioButton
             // 
-            CreateNewRadioButton.AutoSize = true;
-            CreateNewRadioButton.Location = new Point(15, 22);
-            CreateNewRadioButton.Name = "CreateNewRadioButton";
-            CreateNewRadioButton.Size = new Size(89, 19);
-            CreateNewRadioButton.TabIndex = 0;
-            CreateNewRadioButton.TabStop = true;
-            CreateNewRadioButton.Text = "Create New ";
-            CreateNewRadioButton.UseVisualStyleBackColor = true;
+            this.CreateNewRadioButton.AutoSize = true;
+            this.CreateNewRadioButton.Location = new System.Drawing.Point(13, 19);
+            this.CreateNewRadioButton.Name = "CreateNewRadioButton";
+            this.CreateNewRadioButton.Size = new System.Drawing.Size(84, 17);
+            this.CreateNewRadioButton.TabIndex = 0;
+            this.CreateNewRadioButton.TabStop = true;
+            this.CreateNewRadioButton.Text = "Create New ";
+            this.CreateNewRadioButton.UseVisualStyleBackColor = true;
             // 
             // UsernameTextBox
             // 
-            UsernameTextBox.Location = new Point(86, 83);
-            UsernameTextBox.Name = "UsernameTextBox";
-            UsernameTextBox.Size = new Size(152, 23);
-            UsernameTextBox.TabIndex = 2;
+            this.UsernameTextBox.Location = new System.Drawing.Point(74, 72);
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(131, 20);
+            this.UsernameTextBox.TabIndex = 2;
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(86, 124);
-            PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.PasswordChar = '*';
-            PasswordTextBox.Size = new Size(152, 23);
-            PasswordTextBox.TabIndex = 3;
+            this.PasswordTextBox.Location = new System.Drawing.Point(74, 107);
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
+            this.PasswordTextBox.Size = new System.Drawing.Size(131, 20);
+            this.PasswordTextBox.TabIndex = 3;
             // 
             // UsernameLabel
             // 
-            UsernameLabel.AutoSize = true;
-            UsernameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            UsernameLabel.Location = new Point(23, 89);
-            UsernameLabel.Name = "UsernameLabel";
-            UsernameLabel.Size = new Size(60, 15);
-            UsernameLabel.TabIndex = 4;
-            UsernameLabel.Text = "Username";
+            this.UsernameLabel.AutoSize = true;
+            this.UsernameLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.UsernameLabel.Location = new System.Drawing.Point(13, 77);
+            this.UsernameLabel.Name = "UsernameLabel";
+            this.UsernameLabel.Size = new System.Drawing.Size(60, 15);
+            this.UsernameLabel.TabIndex = 4;
+            this.UsernameLabel.Text = "Username";
             // 
             // PasswordLabel
             // 
-            PasswordLabel.AutoSize = true;
-            PasswordLabel.Location = new Point(23, 127);
-            PasswordLabel.Name = "PasswordLabel";
-            PasswordLabel.Size = new Size(57, 15);
-            PasswordLabel.TabIndex = 5;
-            PasswordLabel.Text = "Password";
+            this.PasswordLabel.AutoSize = true;
+            this.PasswordLabel.Location = new System.Drawing.Point(20, 110);
+            this.PasswordLabel.Name = "PasswordLabel";
+            this.PasswordLabel.Size = new System.Drawing.Size(53, 13);
+            this.PasswordLabel.TabIndex = 5;
+            this.PasswordLabel.Text = "Password";
             // 
             // CreateAccountButton
             // 
-            CreateAccountButton.Location = new Point(206, 199);
-            CreateAccountButton.Name = "CreateAccountButton";
-            CreateAccountButton.Size = new Size(134, 23);
-            CreateAccountButton.TabIndex = 6;
-            CreateAccountButton.Text = "Create Account";
-            CreateAccountButton.UseVisualStyleBackColor = true;
-            CreateAccountButton.Click += CreateAccountButton_Click;
+            this.CreateAccountButton.Location = new System.Drawing.Point(177, 172);
+            this.CreateAccountButton.Name = "CreateAccountButton";
+            this.CreateAccountButton.Size = new System.Drawing.Size(115, 27);
+            this.CreateAccountButton.TabIndex = 6;
+            this.CreateAccountButton.Text = "Create Account";
+            this.CreateAccountButton.UseVisualStyleBackColor = true;
+            this.CreateAccountButton.Click += new System.EventHandler(this.CreateAccountButton_Click);
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(352, 12);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(75, 23);
-            ExitButton.TabIndex = 7;
-            ExitButton.Text = "Exit";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
+            this.ExitButton.Location = new System.Drawing.Point(302, 10);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(64, 23);
+            this.ExitButton.TabIndex = 7;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // imageList1
             // 
-            imageList1.ColorDepth = ColorDepth.Depth8Bit;
-            imageList1.ImageSize = new Size(16, 16);
-            imageList1.TransparentColor = Color.Transparent;
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
-            ClientSize = new Size(439, 256);
-            ControlBox = false;
-            Controls.Add(ExitButton);
-            Controls.Add(CreateAccountButton);
-            Controls.Add(PasswordLabel);
-            Controls.Add(UsernameLabel);
-            Controls.Add(PasswordTextBox);
-            Controls.Add(UsernameTextBox);
-            Controls.Add(OpenProjectGroupBox);
-            Controls.Add(LoginButton);
-            Name = "LoginForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Login";
-            Load += LoginForm_Load;
-            OpenProjectGroupBox.ResumeLayout(false);
-            OpenProjectGroupBox.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(376, 222);
+            this.ControlBox = false;
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.CreateAccountButton);
+            this.Controls.Add(this.PasswordLabel);
+            this.Controls.Add(this.UsernameLabel);
+            this.Controls.Add(this.PasswordTextBox);
+            this.Controls.Add(this.UsernameTextBox);
+            this.Controls.Add(this.OpenProjectGroupBox);
+            this.Controls.Add(this.LoginButton);
+            this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
+            this.OpenProjectGroupBox.ResumeLayout(false);
+            this.OpenProjectGroupBox.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

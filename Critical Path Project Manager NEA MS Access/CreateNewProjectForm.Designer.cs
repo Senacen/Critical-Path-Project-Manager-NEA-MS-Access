@@ -30,76 +30,77 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         /// </summary>
         private void InitializeComponent()
         {
-            CreateButton = new Button();
-            ProjectNameTextBox = new TextBox();
-            ProjectNameLabel = new Label();
-            BackToLoginButton = new Button();
-            ExitButton = new Button();
-            SuspendLayout();
+            this.CreateButton = new System.Windows.Forms.Button();
+            this.ProjectNameTextBox = new System.Windows.Forms.TextBox();
+            this.ProjectNameLabel = new System.Windows.Forms.Label();
+            this.BackToLoginButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.SuspendLayout();
             // 
             // CreateButton
             // 
-            CreateButton.Location = new Point(193, 219);
-            CreateButton.Name = "CreateButton";
-            CreateButton.Size = new Size(75, 23);
-            CreateButton.TabIndex = 0;
-            CreateButton.Text = "Create";
-            CreateButton.UseVisualStyleBackColor = true;
-            CreateButton.Click += CreateButton_Click;
+            this.CreateButton.Location = new System.Drawing.Point(165, 190);
+            this.CreateButton.Name = "CreateButton";
+            this.CreateButton.Size = new System.Drawing.Size(64, 26);
+            this.CreateButton.TabIndex = 0;
+            this.CreateButton.Text = "Create";
+            this.CreateButton.UseVisualStyleBackColor = true;
+            this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
             // 
             // ProjectNameTextBox
             // 
-            ProjectNameTextBox.Location = new Point(86, 139);
-            ProjectNameTextBox.Name = "ProjectNameTextBox";
-            ProjectNameTextBox.Size = new Size(288, 23);
-            ProjectNameTextBox.TabIndex = 1;
-            ProjectNameTextBox.TextAlign = HorizontalAlignment.Center;
+            this.ProjectNameTextBox.Location = new System.Drawing.Point(74, 120);
+            this.ProjectNameTextBox.Name = "ProjectNameTextBox";
+            this.ProjectNameTextBox.Size = new System.Drawing.Size(247, 20);
+            this.ProjectNameTextBox.TabIndex = 1;
+            this.ProjectNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ProjectNameLabel
             // 
-            ProjectNameLabel.AutoSize = true;
-            ProjectNameLabel.Location = new Point(193, 104);
-            ProjectNameLabel.Name = "ProjectNameLabel";
-            ProjectNameLabel.Size = new Size(79, 15);
-            ProjectNameLabel.TabIndex = 2;
-            ProjectNameLabel.Text = "Project Name";
+            this.ProjectNameLabel.AutoSize = true;
+            this.ProjectNameLabel.Location = new System.Drawing.Point(165, 90);
+            this.ProjectNameLabel.Name = "ProjectNameLabel";
+            this.ProjectNameLabel.Size = new System.Drawing.Size(71, 13);
+            this.ProjectNameLabel.TabIndex = 2;
+            this.ProjectNameLabel.Text = "Project Name";
             // 
             // BackToLoginButton
             // 
-            BackToLoginButton.Location = new Point(12, 12);
-            BackToLoginButton.Name = "BackToLoginButton";
-            BackToLoginButton.Size = new Size(104, 23);
-            BackToLoginButton.TabIndex = 3;
-            BackToLoginButton.Text = "Back to Login";
-            BackToLoginButton.UseVisualStyleBackColor = true;
-            BackToLoginButton.Click += BackToLoginButton_Click;
+            this.BackToLoginButton.Location = new System.Drawing.Point(10, 10);
+            this.BackToLoginButton.Name = "BackToLoginButton";
+            this.BackToLoginButton.Size = new System.Drawing.Size(89, 25);
+            this.BackToLoginButton.TabIndex = 3;
+            this.BackToLoginButton.Text = "Back to Login";
+            this.BackToLoginButton.UseVisualStyleBackColor = true;
+            this.BackToLoginButton.Click += new System.EventHandler(this.BackToLoginButton_Click);
             // 
             // ExitButton
             // 
-            ExitButton.Location = new Point(356, 12);
-            ExitButton.Name = "ExitButton";
-            ExitButton.Size = new Size(75, 23);
-            ExitButton.TabIndex = 4;
-            ExitButton.Text = "Exit";
-            ExitButton.UseVisualStyleBackColor = true;
-            ExitButton.Click += ExitButton_Click;
+            this.ExitButton.Location = new System.Drawing.Point(305, 10);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(64, 25);
+            this.ExitButton.TabIndex = 4;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // CreateNewProjectForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(443, 301);
-            ControlBox = false;
-            Controls.Add(ExitButton);
-            Controls.Add(BackToLoginButton);
-            Controls.Add(ProjectNameLabel);
-            Controls.Add(ProjectNameTextBox);
-            Controls.Add(CreateButton);
-            Name = "CreateNewProjectForm";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Create New Project";
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(380, 261);
+            this.ControlBox = false;
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.BackToLoginButton);
+            this.Controls.Add(this.ProjectNameLabel);
+            this.Controls.Add(this.ProjectNameTextBox);
+            this.Controls.Add(this.CreateButton);
+            this.Name = "CreateNewProjectForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Create New Project";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion

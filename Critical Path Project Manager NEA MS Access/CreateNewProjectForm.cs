@@ -24,7 +24,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             string projectName = ProjectNameTextBox.Text;
             if (DatabaseFunctions.isValidDatabaseName(projectName))
             {
-                if (DatabaseFunctions.createDatabase(projectName, username))
+                if (DatabaseFunctions.createProject(projectName, username))
                 {
                     EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
                     editProjectForm.Show();
@@ -51,5 +51,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             Application.Exit();
         }
+
     }
 }
