@@ -46,55 +46,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CPAForm.cs">
+    <Compile Include="UIForms\CPAForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CPAForm.Designer.cs">
+    <Compile Include="UIForms\CPAForm.Designer.cs">
       <DependentUpon>CPAForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateNewProjectForm.cs">
+    <Compile Include="UIForms\CreateNewProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateNewProjectForm.Designer.cs">
+    <Compile Include="UIForms\CreateNewProjectForm.Designer.cs">
       <DependentUpon>CreateNewProjectForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseFunctions.cs" />
     <Compile Include="djb2HashFunction.cs" />
-    <Compile Include="EditProjectForm.cs">
+    <Compile Include="UIForms\EditProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditProjectForm.Designer.cs">
+    <Compile Include="UIForms\EditProjectForm.Designer.cs">
       <DependentUpon>EditProjectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoadProjectForm.cs">
+    <Compile Include="UIForms\LoadProjectForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoadProjectForm.Designer.cs">
+    <Compile Include="UIForms\LoadProjectForm.Designer.cs">
       <DependentUpon>LoadProjectForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
+    <Compile Include="UIForms\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm.Designer.cs">
+    <Compile Include="UIForms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskGraph.cs" />
     <Compile Include="TaskNode.cs" />
-    <EmbeddedResource Include="CPAForm.resx">
+    <EmbeddedResource Include="UIForms\CPAForm.resx">
       <DependentUpon>CPAForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreateNewProjectForm.resx">
+    <EmbeddedResource Include="UIForms\CreateNewProjectForm.resx">
       <DependentUpon>CreateNewProjectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditProjectForm.resx">
+    <EmbeddedResource Include="UIForms\EditProjectForm.resx">
       <DependentUpon>EditProjectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoadProjectForm.resx">
+    <EmbeddedResource Include="UIForms\LoadProjectForm.resx">
       <DependentUpon>LoadProjectForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
+    <EmbeddedResource Include="UIForms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

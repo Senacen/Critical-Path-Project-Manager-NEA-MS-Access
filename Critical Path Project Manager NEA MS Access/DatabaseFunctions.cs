@@ -183,6 +183,21 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             }
         }
 
+        public static void deleteProject(string projectName)
+        {
+            try
+            {
+                // Delete in UserProjectsTbl
+                string deleteProjectSQL = $"DELETE FROM UserProjectsTbl WHERE ProjectName = '{projectName}'";
+                executeNonQuery("CPPMUserAccounts", deleteProjectSQL);
+                // Delete database file
+                File.Delete(projectName + ".mdb");
+            } 
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         // Returns a list of all the project names belonging to a user
         public static List<string> projectNamesList(string username)
         {

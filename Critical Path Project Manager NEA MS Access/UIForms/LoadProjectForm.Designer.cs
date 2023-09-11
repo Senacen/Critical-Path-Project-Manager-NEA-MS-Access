@@ -34,11 +34,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.BackToLoginButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.ProjectListBox = new System.Windows.Forms.ListBox();
+            this.DeleteProjectButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(140, 317);
+            this.LoadButton.Location = new System.Drawing.Point(203, 298);
             this.LoadButton.Name = "LoadButton";
             this.LoadButton.Size = new System.Drawing.Size(64, 25);
             this.LoadButton.TabIndex = 0;
@@ -74,12 +75,23 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.ProjectListBox.Size = new System.Drawing.Size(188, 212);
             this.ProjectListBox.TabIndex = 3;
             // 
+            // DeleteProjectButton
+            // 
+            this.DeleteProjectButton.Location = new System.Drawing.Point(79, 298);
+            this.DeleteProjectButton.Name = "DeleteProjectButton";
+            this.DeleteProjectButton.Size = new System.Drawing.Size(91, 25);
+            this.DeleteProjectButton.TabIndex = 4;
+            this.DeleteProjectButton.Text = "Delete Project";
+            this.DeleteProjectButton.UseVisualStyleBackColor = true;
+            this.DeleteProjectButton.Click += new System.EventHandler(this.DeleteProjectButton_Click);
+            // 
             // LoadProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(340, 390);
             this.ControlBox = false;
+            this.Controls.Add(this.DeleteProjectButton);
             this.Controls.Add(this.ProjectListBox);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.BackToLoginButton);
@@ -97,5 +109,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private Button BackToLoginButton;
         private Button ExitButton;
         private ListBox ProjectListBox;
+        private Button DeleteProjectButton;
     }
 }
