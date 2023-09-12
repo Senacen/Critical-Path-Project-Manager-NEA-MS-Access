@@ -399,7 +399,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             Dictionary<string, TaskNode> tasks = new Dictionary<string, TaskNode>();
             try
             {
-
                 string tasksDataSQL = "SELECT * FROM TasksTbl";
                 DataTable tasksDataTable = executeQuery(projectName, tasksDataSQL);
                 foreach (DataRow row in tasksDataTable.Rows)
@@ -407,9 +406,19 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     string name = row["Name"].ToString();
                     int duration = Convert.ToInt32(row["Duration"]);
                     int numWorkers = Convert.ToInt32(row["NumWorkers"]);
-                    List<string> predecessorsNames = predecessorsList(projectName, name);
-                    List<string> successorsNames = successorsList(projectName, name);
+                    List<string> predecessorsNames = new List<string>();
+                    List<string> successorsNames = new List<string>();
                     tasks[name] = new TaskNode(name, duration, numWorkers, predecessorsNames, successorsNames);
+                }
+                // Populate predecessorsNames and successorsNames in one SQL call to reduce bottleneck;
+                string dependenciesDataSQL = "SELECT * FROM DependenciesTbl";
+                DataTable dependenciesDataTable = executeQuery(projectName, dependenciesDataSQL);
+                foreach (DataRow row in dependenciesDataTable.Rows)
+                {
+                    string pre = row["PredecessorName"].ToString();
+                    string suc = row["SuccessorName"].ToString();                   
+                    tasks[pre].successorNames.Add(suc);
+                    tasks[suc].predecessorNames.Add(pre);
                 }
                 return tasks;
             }
