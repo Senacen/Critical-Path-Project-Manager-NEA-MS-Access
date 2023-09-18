@@ -119,6 +119,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPTextBox.Multiline = true;
             this.CPTextBox.Name = "CPTextBox";
             this.CPTextBox.ReadOnly = true;
+            this.CPTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.CPTextBox.Size = new System.Drawing.Size(275, 414);
             this.CPTextBox.TabIndex = 2;
             this.CPTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

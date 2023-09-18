@@ -37,13 +37,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.DurationLabel = new System.Windows.Forms.Label();
             this.NumWorkersLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.DurationTextBox = new System.Windows.Forms.TextBox();
-            this.NumWorkersTextBox = new System.Windows.Forms.TextBox();
             this.AddTaskGroupBox = new System.Windows.Forms.GroupBox();
             this.EditTaskGroupBox = new System.Windows.Forms.GroupBox();
-            this.EditNumWorkersTextBox = new System.Windows.Forms.TextBox();
             this.DeleteTaskButton = new System.Windows.Forms.Button();
-            this.EditDurationTextBox = new System.Windows.Forms.TextBox();
             this.EditNameTextBox = new System.Windows.Forms.TextBox();
             this.EditNumWorkersLabel = new System.Windows.Forms.Label();
             this.EditDurationLabel = new System.Windows.Forms.Label();
@@ -54,10 +50,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.DependenciesInfoTextBox = new System.Windows.Forms.TextBox();
             this.CPAButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.NumWorkersNumeric = new System.Windows.Forms.NumericUpDown();
+            this.EditNumWorkersNumeric = new System.Windows.Forms.NumericUpDown();
+            this.DurationNumeric = new System.Windows.Forms.NumericUpDown();
+            this.EditDurationNumeric = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.TasksDataGrid)).BeginInit();
             this.AddTaskGroupBox.SuspendLayout();
             this.EditTaskGroupBox.SuspendLayout();
             this.UpdateDependenciesGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumWorkersNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditNumWorkersNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditDurationNumeric)).BeginInit();
             this.SuspendLayout();
             // 
             // ExitButton
@@ -129,26 +133,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.NameTextBox.TabIndex = 6;
             this.NameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // DurationTextBox
-            // 
-            this.DurationTextBox.Location = new System.Drawing.Point(55, 95);
-            this.DurationTextBox.Name = "DurationTextBox";
-            this.DurationTextBox.Size = new System.Drawing.Size(94, 20);
-            this.DurationTextBox.TabIndex = 7;
-            this.DurationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // NumWorkersTextBox
-            // 
-            this.NumWorkersTextBox.Location = new System.Drawing.Point(55, 146);
-            this.NumWorkersTextBox.Name = "NumWorkersTextBox";
-            this.NumWorkersTextBox.Size = new System.Drawing.Size(94, 20);
-            this.NumWorkersTextBox.TabIndex = 8;
-            this.NumWorkersTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // AddTaskGroupBox
             // 
-            this.AddTaskGroupBox.Controls.Add(this.NumWorkersTextBox);
-            this.AddTaskGroupBox.Controls.Add(this.DurationTextBox);
+            this.AddTaskGroupBox.Controls.Add(this.DurationNumeric);
+            this.AddTaskGroupBox.Controls.Add(this.NumWorkersNumeric);
             this.AddTaskGroupBox.Controls.Add(this.NameTextBox);
             this.AddTaskGroupBox.Controls.Add(this.NumWorkersLabel);
             this.AddTaskGroupBox.Controls.Add(this.DurationLabel);
@@ -163,9 +151,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // EditTaskGroupBox
             // 
-            this.EditTaskGroupBox.Controls.Add(this.EditNumWorkersTextBox);
+            this.EditTaskGroupBox.Controls.Add(this.EditDurationNumeric);
+            this.EditTaskGroupBox.Controls.Add(this.EditNumWorkersNumeric);
             this.EditTaskGroupBox.Controls.Add(this.DeleteTaskButton);
-            this.EditTaskGroupBox.Controls.Add(this.EditDurationTextBox);
             this.EditTaskGroupBox.Controls.Add(this.EditNameTextBox);
             this.EditTaskGroupBox.Controls.Add(this.EditNumWorkersLabel);
             this.EditTaskGroupBox.Controls.Add(this.EditDurationLabel);
@@ -178,14 +166,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.EditTaskGroupBox.TabStop = false;
             this.EditTaskGroupBox.Text = "Edit Task";
             // 
-            // EditNumWorkersTextBox
-            // 
-            this.EditNumWorkersTextBox.Location = new System.Drawing.Point(55, 146);
-            this.EditNumWorkersTextBox.Name = "EditNumWorkersTextBox";
-            this.EditNumWorkersTextBox.Size = new System.Drawing.Size(94, 20);
-            this.EditNumWorkersTextBox.TabIndex = 8;
-            this.EditNumWorkersTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // DeleteTaskButton
             // 
             this.DeleteTaskButton.Location = new System.Drawing.Point(107, 189);
@@ -195,14 +175,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.DeleteTaskButton.Text = "Delete Task";
             this.DeleteTaskButton.UseVisualStyleBackColor = true;
             this.DeleteTaskButton.Click += new System.EventHandler(this.DeleteTaskButton_Click);
-            // 
-            // EditDurationTextBox
-            // 
-            this.EditDurationTextBox.Location = new System.Drawing.Point(55, 95);
-            this.EditDurationTextBox.Name = "EditDurationTextBox";
-            this.EditDurationTextBox.Size = new System.Drawing.Size(94, 20);
-            this.EditDurationTextBox.TabIndex = 7;
-            this.EditDurationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // EditNameTextBox
             // 
@@ -304,6 +276,78 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // NumWorkersNumeric
+            // 
+            this.NumWorkersNumeric.Location = new System.Drawing.Point(55, 147);
+            this.NumWorkersNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumWorkersNumeric.Name = "NumWorkersNumeric";
+            this.NumWorkersNumeric.Size = new System.Drawing.Size(94, 20);
+            this.NumWorkersNumeric.TabIndex = 9;
+            this.NumWorkersNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NumWorkersNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // EditNumWorkersNumeric
+            // 
+            this.EditNumWorkersNumeric.Location = new System.Drawing.Point(55, 147);
+            this.EditNumWorkersNumeric.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.EditNumWorkersNumeric.Name = "EditNumWorkersNumeric";
+            this.EditNumWorkersNumeric.Size = new System.Drawing.Size(94, 20);
+            this.EditNumWorkersNumeric.TabIndex = 12;
+            this.EditNumWorkersNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.EditNumWorkersNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // DurationNumeric
+            // 
+            this.DurationNumeric.Location = new System.Drawing.Point(55, 96);
+            this.DurationNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.DurationNumeric.Name = "DurationNumeric";
+            this.DurationNumeric.Size = new System.Drawing.Size(94, 20);
+            this.DurationNumeric.TabIndex = 10;
+            this.DurationNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.DurationNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // EditDurationNumeric
+            // 
+            this.EditDurationNumeric.Location = new System.Drawing.Point(55, 96);
+            this.EditDurationNumeric.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.EditDurationNumeric.Name = "EditDurationNumeric";
+            this.EditDurationNumeric.Size = new System.Drawing.Size(94, 20);
+            this.EditDurationNumeric.TabIndex = 13;
+            this.EditDurationNumeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.EditDurationNumeric.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // EditProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,6 +371,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.EditTaskGroupBox.PerformLayout();
             this.UpdateDependenciesGroupBox.ResumeLayout(false);
             this.UpdateDependenciesGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumWorkersNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditNumWorkersNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EditDurationNumeric)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,12 +388,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private Label DurationLabel;
         private Label NumWorkersLabel;
         private TextBox NameTextBox;
-        private TextBox DurationTextBox;
-        private TextBox NumWorkersTextBox;
         private GroupBox AddTaskGroupBox;
         private GroupBox EditTaskGroupBox;
-        private TextBox EditNumWorkersTextBox;
-        private TextBox EditDurationTextBox;
         private TextBox EditNameTextBox;
         private Label EditNumWorkersLabel;
         private Label EditDurationLabel;
@@ -357,5 +401,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private TextBox DependenciesInfoTextBox;
         private Button CPAButton;
         private Button BackButton;
+        private NumericUpDown NumWorkersNumeric;
+        private NumericUpDown EditNumWorkersNumeric;
+        private NumericUpDown DurationNumeric;
+        private NumericUpDown EditDurationNumeric;
     }
 }

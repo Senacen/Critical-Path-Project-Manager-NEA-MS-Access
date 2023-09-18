@@ -29,14 +29,20 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         }
 
-        private void displayCPAResults ()
+        private void displayCPAResults()
         {
             TotalDurationTextBox.Text = taskGraph.getTotalDuration().ToString();
 
             List<string> criticalPath = taskGraph.getCriticalPath();
             StringBuilder criticalPathStringBuilder = new StringBuilder();
-            foreach (string criticalTask in criticalPath)
+            for (int i = 0; i < criticalPath.Count(); i++)
             {
+                string criticalTask = criticalPath[i];
+                if (i != 0)
+                {
+                    criticalPathStringBuilder.AppendLine();
+                    criticalPathStringBuilder.AppendLine("↓");
+                }
                 criticalPathStringBuilder.AppendLine();
                 criticalPathStringBuilder.AppendLine(criticalTask);
             }

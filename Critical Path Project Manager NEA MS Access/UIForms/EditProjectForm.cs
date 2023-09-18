@@ -44,21 +44,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 {
                     throw new Exception("Task cannot be named after a reserved keyword: Start, End");
                 }
-                int duration = int.Parse(DurationTextBox.Text);
-                if (duration < 0)
-                {
-                    throw new Exception("Duration must be positive.");
-                }
-                int numWorkers = int.Parse(NumWorkersTextBox.Text);
-                if (numWorkers < 1)
-                {
-                    throw new Exception("Number of Workers Needed must be 1 or greater.");
-                }
+                int duration = (int) DurationNumeric.Value;
+                int numWorkers = (int) NumWorkersNumeric.Value;
                 DatabaseFunctions.addTask(projectName, name, duration, numWorkers);
                 updateTasksDataGrid();
                 NameTextBox.Text = "";
-                DurationTextBox.Text = "";
-                NumWorkersTextBox.Text = "";
                 // Refresh Update Dependencies Checked ListBox to include added task
                 if (TasksDataGrid.SelectedRows.Count > 0)
                 {
@@ -82,8 +72,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 // Change contents of Edit Task Group Box
                 DataGridViewRow selectedTask = TasksDataGrid.SelectedRows[0];
                 EditNameTextBox.Text = selectedTask.Cells["Name"].Value.ToString();
-                EditDurationTextBox.Text = selectedTask.Cells["Duration"].Value.ToString();
-                EditNumWorkersTextBox.Text = selectedTask.Cells["NumWorkers"].Value.ToString();
+                EditDurationNumeric.Value = (int)selectedTask.Cells["Duration"].Value;
+                EditNumWorkersNumeric.Value = (int)selectedTask.Cells["NumWorkers"].Value;
 
                 // Change contents of Update Dependencies Checked ListBox
                 refreshUpdateDependenciesCheckedListBox(EditNameTextBox.Text);
@@ -117,16 +107,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 if (TasksDataGrid.SelectedRows.Count == 0) throw new Exception("No row selected to edit.");
                 // Name cannot be changed due to issue with cascading - SQL Server flags infinite cascade loop when trying to cascade on update and delete for DependenciesTbl
                 string name = EditNameTextBox.Text;
-                int newDuration = int.Parse(EditDurationTextBox.Text);
-                if (newDuration < 0)
-                {
-                    throw new Exception("Duration must be positive.");
-                }
-                int newNumWorkers = int.Parse(EditNumWorkersTextBox.Text);
-                if (newNumWorkers < 1)
-                {
-                    throw new Exception("Number of Workers Needed must be 1 or greater.");
-                }
+                int newDuration = (int) EditDurationNumeric.Value;
+                int newNumWorkers = (int) EditNumWorkersNumeric.Value;
                 DatabaseFunctions.editTask(projectName, name, newDuration, newNumWorkers);
                 updateTasksDataGrid();
 
