@@ -55,7 +55,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         }
 
-        public void initStartEnd()
+        private void initStartEnd()
         {
             foreach (string name in tasks.Keys)
             {
@@ -82,7 +82,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             }
         }
 
-        public void setAllProcessedFalse()
+        private void setAllProcessedFalse()
         {
             foreach (string name in tasks.Keys)
             {
@@ -91,7 +91,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             }
         }
 
-        public void forwardPass()
+        private void forwardPass()
         {
             setAllProcessedFalse();
             // Initialise Start TaskNode
@@ -145,7 +145,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         }
 
-        public void backwardPass()
+        private void backwardPass()
         {
             setAllProcessedFalse();
             // Initialise End TaskNode
@@ -199,7 +199,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         }
 
         // Issue - floats are all wrong. Check TLMaths cpa 13 calculating floats example
-        public void calculateFloats()
+        private void calculateFloats()
         {
             foreach (string name in tasks.Keys)
             {

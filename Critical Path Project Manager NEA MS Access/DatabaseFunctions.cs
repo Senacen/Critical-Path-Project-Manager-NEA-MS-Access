@@ -19,7 +19,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 {
     static internal class DatabaseFunctions
     {
-        static string oledbConnectionString = @"Provider=Microsoft Jet 4.0 OLE DB Provider;Data Source = ";
+        private static string oledbConnectionString = @"Provider=Microsoft Jet 4.0 OLE DB Provider;Data Source = ";
         public static void createDatabase(string databaseName)
         {
             CatalogClass cat = new CatalogClass();
