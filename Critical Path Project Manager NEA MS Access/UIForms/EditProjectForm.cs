@@ -30,10 +30,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             TasksDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
         }
 
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+       
 
         private void AddTaskButton_Click(object sender, EventArgs e)
         {
@@ -62,6 +59,44 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+        }
+
+        private void EditTaskButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TasksDataGrid.SelectedRows.Count == 0) throw new Exception("No row selected to edit.");
+                // Name cannot be changed due to issue with cascading - SQL Server flags infinite cascade loop when trying to cascade on update and delete for DependenciesTbl
+                string name = EditNameTextBox.Text;
+                int newDuration = (int)EditDurationNumeric.Value;
+                int newNumWorkers = (int)EditNumWorkersNumeric.Value;
+                DatabaseFunctions.editTask(projectName, name, newDuration, newNumWorkers);
+                updateTasksDataGrid();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DeleteTaskButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (TasksDataGrid.SelectedRows.Count == 0) throw new Exception("No row selected to edit.");
+                string name = EditNameTextBox.Text;
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this task and all dependencies with it?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No) return;
+                DatabaseFunctions.deleteTask(projectName, name);
+                updateTasksDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
@@ -98,44 +133,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 }
 
             }
-        }
-
-        private void EditTaskButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (TasksDataGrid.SelectedRows.Count == 0) throw new Exception("No row selected to edit.");
-                // Name cannot be changed due to issue with cascading - SQL Server flags infinite cascade loop when trying to cascade on update and delete for DependenciesTbl
-                string name = EditNameTextBox.Text;
-                int newDuration = (int) EditDurationNumeric.Value;
-                int newNumWorkers = (int) EditNumWorkersNumeric.Value;
-                DatabaseFunctions.editTask(projectName, name, newDuration, newNumWorkers);
-                updateTasksDataGrid();
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void DeleteTaskButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (TasksDataGrid.SelectedRows.Count == 0) throw new Exception("No row selected to edit.");
-                string name = EditNameTextBox.Text;
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this task and all dependencies with it?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.No) return;
-                DatabaseFunctions.deleteTask(projectName, name);
-                updateTasksDataGrid();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void UpdateDependenciesCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -176,6 +173,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             LoadProjectForm loadProjectForm = new LoadProjectForm(username);
             loadProjectForm.Show();
             this.Close();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 

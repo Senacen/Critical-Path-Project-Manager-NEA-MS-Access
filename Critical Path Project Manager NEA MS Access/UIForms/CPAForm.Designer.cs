@@ -42,6 +42,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.TotalDurationLabel = new System.Windows.Forms.Label();
             this.TotalDurationTextBox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ScheduleProjectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CPADataGrid)).BeginInit();
             this.CPAGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -147,12 +148,23 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // ScheduleProjectButton
+            // 
+            this.ScheduleProjectButton.Location = new System.Drawing.Point(783, 798);
+            this.ScheduleProjectButton.Name = "ScheduleProjectButton";
+            this.ScheduleProjectButton.Size = new System.Drawing.Size(124, 29);
+            this.ScheduleProjectButton.TabIndex = 4;
+            this.ScheduleProjectButton.Text = "Schedule Project";
+            this.ScheduleProjectButton.UseVisualStyleBackColor = true;
+            this.ScheduleProjectButton.Click += new System.EventHandler(this.ScheduleProjectButton_Click);
+            // 
             // CPAForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1303, 865);
             this.ControlBox = false;
+            this.Controls.Add(this.ScheduleProjectButton);
             this.Controls.Add(this.CPAGroupBox);
             this.Controls.Add(this.CPADataGrid);
             this.Controls.Add(this.BackToEditProjectButton);
@@ -179,5 +191,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private TextBox TotalDurationTextBox;
         private TextBox textBox1;
         private Label CPLabel;
+        private Button ScheduleProjectButton;
     }
 }

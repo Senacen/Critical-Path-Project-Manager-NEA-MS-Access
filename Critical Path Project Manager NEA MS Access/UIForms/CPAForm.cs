@@ -13,8 +13,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
     public partial class CPAForm : Form
     {
         private string projectName, username;
-        TaskGraph taskGraph;
-        Dictionary<string, TaskNode> tasks;
+        private TaskGraph taskGraph;
+        private Dictionary<string, TaskNode> tasks;
         public CPAForm(string projectName, string username)
         {
             InitializeComponent();
@@ -86,17 +86,22 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         }
 
 
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
+        private void ScheduleProjectButton_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void BackToEditProjectButton_Click(object sender, EventArgs e)
         {
             EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
             editProjectForm.Show();
             this.Close();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
     }
