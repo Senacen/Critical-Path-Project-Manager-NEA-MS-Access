@@ -15,6 +15,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         public LoginForm()
         {
             InitializeComponent();
+             // Ensure UserAccounts has been created
+            DatabaseFunctions.checkUserAccountsDatabaseExists();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
