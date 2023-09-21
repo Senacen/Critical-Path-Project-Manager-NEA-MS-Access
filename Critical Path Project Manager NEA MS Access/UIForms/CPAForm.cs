@@ -89,7 +89,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void ScheduleProjectButton_Click(object sender, EventArgs e)
         {
-
+            ScheduleProjectForm scheduleProjectForm = new ScheduleProjectForm();
+            scheduleProjectForm.Show();
+            this.Close();
         }
 
         private void BackToEditProjectButton_Click(object sender, EventArgs e)
