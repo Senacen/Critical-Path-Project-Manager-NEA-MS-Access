@@ -292,22 +292,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         }
 
-        public static List<string> successorsList(string projectName, string selectedTaskName)
-        {
-            List<string> successors = new List<string>();
-            try
-            {
-                string successorsSQL = $"SELECT SuccessorName FROM DependenciesTbl WHERE PredecessorName = '{selectedTaskName}'";
-                successors = executeStringListQuery(projectName, successorsSQL);
-                return successors;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return successors;
-            }
-        }
-
         public static void deleteDependency(string projectName, string selectedTaskName, string predecessor)
         {
             try
