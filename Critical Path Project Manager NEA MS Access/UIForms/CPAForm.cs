@@ -56,8 +56,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             tasksDataTable.Columns.Add("Duration", typeof(int));
             tasksDataTable.Columns.Add("NumWorkers", typeof(int));
             tasksDataTable.Columns.Add("ES", typeof(int));
-            tasksDataTable.Columns.Add("LS", typeof(int));
             tasksDataTable.Columns.Add("EF", typeof(int));
+            tasksDataTable.Columns.Add("LS", typeof(int));
             tasksDataTable.Columns.Add("LF", typeof(int));
             tasksDataTable.Columns.Add("Total Float", typeof(int));
             tasksDataTable.Columns.Add("Ind Float", typeof(int));
@@ -65,21 +65,22 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
             foreach (TaskNode task in tasks.Values)
             {
-                if (task.name == "Start" || task.name == "End") continue;
+                if (task.getName() == "Start" || task.getName() == "End") continue;
                 DataRow row = tasksDataTable.NewRow();
-                row["Name"] = task.name;
-                row["Duration"] = task.duration;
-                row["NumWorkers"] = task.numWorkers;
-                row["ES"] = task.earliestStartTime;
-                row["LS"] = task.latestStartTime;
-                row["EF"] = task.earliestFinishTime;
-                row["LF"] = task.latestFinishTime;
-                row["Total Float"] = task.totalFloat;
-                row["Ind Float"] = task.independentFloat;
-                row["Int Float"] = task.interferingFloat;
+                row["Name"] = task.getName();
+                row["Duration"] = task.getDuration();
+                row["NumWorkers"] = task.getNumWorkers();
+                row["ES"] = task.getEarliestStartTime();
+                row["EF"] = task.getEarliestFinishTime();
+                row["LS"] = task.getLatestStartTime();
+                row["LF"] = task.getLatestFinishTime();
+                row["Total Float"] = task.getTotalFloat();
+                row["Ind Float"] = task.getIndependentFloat();
+                row["Int Float"] = task.getInterferingFloat();
 
                 tasksDataTable.Rows.Add(row);
             }
+
 
             // Bind the DataTable to the DataGridView
             CPADataGrid.DataSource = tasksDataTable;

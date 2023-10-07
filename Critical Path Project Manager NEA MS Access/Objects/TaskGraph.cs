@@ -21,7 +21,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             forwardPass();
             backwardPass();
             calculateFloats();
-            criticalPath = criticalTasks.OrderBy(name => tasks[name].earliestStartTime).ToList();
+            criticalPath = criticalTasks.OrderBy(name => tasks[name].getEarliestStartTime()).ToList();
             //outputCPA();
         }
 
@@ -37,19 +37,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             foreach (TaskNode node in tasks.Values)
             {
                 string predecessors = "", successors = "";
-                foreach (string predecessor in node.predecessorNames)
+                foreach (string predecessor in node.getPredecessorNames())
                 {
                     predecessors += predecessor + " | ";
                 }
-                foreach (string successor in node.successorNames)
+                foreach (string successor in node.getSuccessorNames())
                 {
                     successors += successor + " | ";
                 }
-                MessageBox.Show($"Name: {node.name} \n Duration: {node.duration} \n NumWorkers: {node.numWorkers} \n Earliest Start Time: {node.earliestStartTime} " +
-                    $" \n Earliest Finish Time: {node.earliestFinishTime} \n Latest Start Time: {node.latestStartTime} \n Latest Finish Time: {node.latestFinishTime} " +
-                    $"\n Total Float: {node.totalFloat} \n Independent Float: {node.independentFloat} \n Interfering Float: {node.interferingFloat} \n PredecessorNames: {predecessors} \n SuccessorNames: {successors}");
+                MessageBox.Show($"Name: {node.getName()} \n Duration: {node.getDuration()} \n NumWorkers: {node.getNumWorkers()} \n Earliest Start Time: {node.getEarliestStartTime()} " +
+                    $" \n Earliest Finish Time: {node.getEarliestFinishTime()} \n Latest Start Time: {node.getLatestStartTime()} \n Latest Finish Time: {node.getLatestFinishTime()} " +
+                    $"\n Total Float: {node.getTotalFloat()} \n Independent Float: {node.getIndependentFloat()} \n Interfering Float: {node.getInterferingFloat()} \n PredecessorNames: {predecessors} \n SuccessorNames: {successors}");
             }
-
         }
 
         private void initStartEnd()
@@ -69,17 +68,17 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 TaskNode currTaskNode = tasks[name];
 
                 // Connect tasks that do not have a predecessor to start 
-                if (currTaskNode.predecessorNames.Count == 0)
+                if (currTaskNode.getPredecessorNames().Count == 0)
                 {
-                    currTaskNode.predecessorNames.Add("Start");
-                    tasks["Start"].successorNames.Add(currTaskNode.name);
+                    currTaskNode.getPredecessorNames().Add("Start");
+                    tasks["Start"].getSuccessorNames().Add(currTaskNode.getName());
                 }
 
                 // Connect tasks that do not have a successor to end
-                if (currTaskNode.successorNames.Count == 0)
+                if (currTaskNode.getSuccessorNames().Count == 0)
                 {
-                    currTaskNode.successorNames.Add("End");
-                    tasks["End"].predecessorNames.Add(currTaskNode.name);
+                    currTaskNode.getSuccessorNames().Add("End");
+                    tasks["End"].getPredecessorNames().Add(currTaskNode.getName());
                 }
             }
         }
@@ -89,7 +88,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             foreach (string name in tasks.Keys)
             {
                 TaskNode currTaskNode = tasks[name];
-                currTaskNode.processed = false;
+                currTaskNode.setProcessed(false);
             }
         }
 
@@ -97,15 +96,15 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             setAllProcessedFalse();
             // Initialise Start TaskNode
-            tasks["Start"].earliestStartTime = 0;
-            tasks["Start"].earliestFinishTime = 0;
-            tasks["Start"].processed = true;
+            tasks["Start"].setEarliestStartTime(0);
+            tasks["Start"].setEarliestFinishTime(0);
+            tasks["Start"].setProcessed(true);
 
             // BFSQueue only stores the names of each TaskNode, to save space
             Queue<string> BFSQueue = new Queue<string>();
 
             // Enqueue all tasks that are successors of Start
-            foreach (string name in tasks["Start"].successorNames)
+            foreach (string name in tasks["Start"].getSuccessorNames())
             {
                 BFSQueue.Enqueue(name);
             }
@@ -115,23 +114,23 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             {
                 TaskNode currTaskNode = tasks[BFSQueue.Dequeue()];
                 int maxPredecessorEarliestFinishTime = 0;
-                foreach (string predecessorName in currTaskNode.predecessorNames)
+                foreach (string predecessorName in currTaskNode.getPredecessorNames())
                 {
-                    maxPredecessorEarliestFinishTime = Math.Max(maxPredecessorEarliestFinishTime, tasks[predecessorName].earliestFinishTime);
+                    maxPredecessorEarliestFinishTime = Math.Max(maxPredecessorEarliestFinishTime, tasks[predecessorName].getEarliestFinishTime());
                 }
-                currTaskNode.earliestStartTime = maxPredecessorEarliestFinishTime;
-                currTaskNode.earliestFinishTime = currTaskNode.earliestStartTime + currTaskNode.duration;
-                currTaskNode.processed = true;
+                currTaskNode.setEarliestStartTime(maxPredecessorEarliestFinishTime);
+                currTaskNode.setEarliestFinishTime(currTaskNode.getEarliestStartTime() + currTaskNode.getDuration());
+                currTaskNode.setProcessed(true);
 
                 // Check every successor if its predecessors have been processed, to then enqueue
                 // Need to make logic more efficient, possible using predecessorProcessedCount
-                foreach (string successorName in currTaskNode.successorNames)
+                foreach (string successorName in currTaskNode.getSuccessorNames())
                 {
                     TaskNode successorTaskNode = tasks[successorName];
                     bool predecessorsAllProcessed = true;
-                    foreach (string predecessorName in successorTaskNode.predecessorNames)
+                    foreach (string predecessorName in successorTaskNode.getPredecessorNames())
                     {
-                        if (tasks[predecessorName].processed == false)
+                        if (!tasks[predecessorName].getProcessed())
                         {
                             predecessorsAllProcessed = false;
                             break;
@@ -139,27 +138,25 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     }
                     if (predecessorsAllProcessed)
                     {
-                        BFSQueue.Enqueue(successorTaskNode.name);
+                        BFSQueue.Enqueue(successorTaskNode.getName());
                     }
                 }
-
             }
-
         }
 
         private void backwardPass()
         {
             setAllProcessedFalse();
             // Initialise End TaskNode
-            tasks["End"].latestFinishTime = tasks["End"].earliestFinishTime;
-            tasks["End"].latestStartTime = tasks["End"].latestFinishTime;
-            tasks["End"].processed = true;
+            tasks["End"].setLatestFinishTime(tasks["End"].getEarliestFinishTime());
+            tasks["End"].setLatestStartTime(tasks["End"].getLatestFinishTime());
+            tasks["End"].setProcessed(true);
 
             // BFSQueue only stores the names of each TaskNode, to save space
             Queue<string> BFSQueue = new Queue<string>();
 
             // Enqueue all tasks that are successors of Start
-            foreach (string name in tasks["End"].predecessorNames)
+            foreach (string name in tasks["End"].getPredecessorNames())
             {
                 BFSQueue.Enqueue(name);
             }
@@ -169,23 +166,23 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             {
                 TaskNode currTaskNode = tasks[BFSQueue.Dequeue()];
                 int minSuccessorLatestStartTime = int.MaxValue;
-                foreach (string successorName in currTaskNode.successorNames)
+                foreach (string successorName in currTaskNode.getSuccessorNames())
                 {
-                    minSuccessorLatestStartTime = Math.Min(minSuccessorLatestStartTime, tasks[successorName].latestStartTime);
+                    minSuccessorLatestStartTime = Math.Min(minSuccessorLatestStartTime, tasks[successorName].getLatestStartTime());
                 }
-                currTaskNode.latestFinishTime = minSuccessorLatestStartTime;
-                currTaskNode.latestStartTime = currTaskNode.latestFinishTime - currTaskNode.duration;
-                currTaskNode.processed = true;
+                currTaskNode.setLatestFinishTime(minSuccessorLatestStartTime);
+                currTaskNode.setLatestStartTime(currTaskNode.getLatestFinishTime() - currTaskNode.getDuration());
+                currTaskNode.setProcessed(true);
 
                 // Check every successor if its predecessors have been processed, to then enqueue
                 // Need to make logic more efficient, possible using predecessorProcessedCount
-                foreach (string predecessorName in currTaskNode.predecessorNames)
+                foreach (string predecessorName in currTaskNode.getPredecessorNames())
                 {
                     TaskNode predecessorTaskNode = tasks[predecessorName];
                     bool successorsAllProcessed = true;
-                    foreach (string successorName in predecessorTaskNode.successorNames)
+                    foreach (string successorName in predecessorTaskNode.getSuccessorNames())
                     {
-                        if (tasks[successorName].processed == false)
+                        if (!tasks[successorName].getProcessed())
                         {
                             successorsAllProcessed = false;
                             break;
@@ -193,10 +190,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     }
                     if (successorsAllProcessed)
                     {
-                        BFSQueue.Enqueue(predecessorTaskNode.name);
+                        BFSQueue.Enqueue(predecessorTaskNode.getName());
                     }
                 }
-
             }
         }
 
@@ -211,29 +207,29 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 }
                 TaskNode currTaskNode = tasks[name];
                 // How much the task can be delayed by without delaying the end of the project
-                currTaskNode.totalFloat = currTaskNode.latestFinishTime - currTaskNode.earliestFinishTime; // or currTaskNode.latestFinishTime - currTaskNode.earliestStartTime - currTaskNode.duration
+                currTaskNode.setTotalFloat(currTaskNode.getLatestFinishTime() - currTaskNode.getEarliestFinishTime()); // or currTaskNode.getLatestFinishTime() - currTaskNode.getEarliestStartTime() - currTaskNode.getDuration()
                 int minSuccessorEarliestStartTime = int.MaxValue;
-                foreach (string successorName in currTaskNode.successorNames)
+                foreach (string successorName in currTaskNode.getSuccessorNames())
                 {
-                    minSuccessorEarliestStartTime = Math.Min(minSuccessorEarliestStartTime, tasks[successorName].earliestStartTime);
+                    minSuccessorEarliestStartTime = Math.Min(minSuccessorEarliestStartTime, tasks[successorName].getEarliestStartTime());
                 }
                 // How much the task can be moved around without causing another task to move 
-                currTaskNode.independentFloat = minSuccessorEarliestStartTime - currTaskNode.earliestFinishTime;
+                currTaskNode.setIndependentFloat(minSuccessorEarliestStartTime - currTaskNode.getEarliestFinishTime());
                 // 
-                if (currTaskNode.independentFloat < 0) currTaskNode.independentFloat = 0;
+                if (currTaskNode.getIndependentFloat() < 0) currTaskNode.setIndependentFloat(0);
                 // How much the task can be moved with it causing another task to move
-                currTaskNode.interferingFloat = currTaskNode.totalFloat - currTaskNode.independentFloat;
+                currTaskNode.setInterferingFloat(currTaskNode.getTotalFloat() - currTaskNode.getIndependentFloat());
 
-                if (currTaskNode.totalFloat == 0)
+                if (currTaskNode.getTotalFloat() == 0)
                 {
-                    criticalTasks.Add(currTaskNode.name);
+                    criticalTasks.Add(currTaskNode.getName());
                 }
             }
         }
 
         public int getTotalDuration()
         {
-            return tasks["End"].earliestFinishTime;
+            return tasks["End"].getEarliestFinishTime();
         }
 
         public List<string> getCriticalPath()
@@ -247,3 +243,4 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         }
     }
 }
+
