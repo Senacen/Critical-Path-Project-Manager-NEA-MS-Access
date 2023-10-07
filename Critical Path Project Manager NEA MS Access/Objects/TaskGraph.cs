@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Critical_Path_Project_Manager_NEA_MS_Access.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -101,18 +102,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             tasks["Start"].setProcessed(true);
 
             // BFSQueue only stores the names of each TaskNode, to save space
-            Queue<string> BFSQueue = new Queue<string>();
+            LinkedListQueue<string> BFSQueue = new LinkedListQueue<string>();
 
             // Enqueue all tasks that are successors of Start
             foreach (string name in tasks["Start"].getSuccessorNames())
             {
-                BFSQueue.Enqueue(name);
+                BFSQueue.enqueue(name);
             }
 
             // Perform BFS forward pass
-            while (BFSQueue.Count > 0)
+            while (!BFSQueue.isEmpty())
             {
-                TaskNode currTaskNode = tasks[BFSQueue.Dequeue()];
+                TaskNode currTaskNode = tasks[BFSQueue.dequeue()];
                 int maxPredecessorEarliestFinishTime = 0;
                 foreach (string predecessorName in currTaskNode.getPredecessorNames())
                 {
@@ -138,7 +139,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     }
                     if (predecessorsAllProcessed)
                     {
-                        BFSQueue.Enqueue(successorTaskNode.getName());
+                        BFSQueue.enqueue(successorTaskNode.getName());
                     }
                 }
             }
@@ -153,18 +154,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             tasks["End"].setProcessed(true);
 
             // BFSQueue only stores the names of each TaskNode, to save space
-            Queue<string> BFSQueue = new Queue<string>();
+            LinkedListQueue<string> BFSQueue = new LinkedListQueue<string>();
 
             // Enqueue all tasks that are successors of Start
             foreach (string name in tasks["End"].getPredecessorNames())
             {
-                BFSQueue.Enqueue(name);
+                BFSQueue.enqueue(name);
             }
 
             // Perform BFS backward pass
-            while (BFSQueue.Count > 0)
+            while (!BFSQueue.isEmpty())
             {
-                TaskNode currTaskNode = tasks[BFSQueue.Dequeue()];
+                TaskNode currTaskNode = tasks[BFSQueue.dequeue()];
                 int minSuccessorLatestStartTime = int.MaxValue;
                 foreach (string successorName in currTaskNode.getSuccessorNames())
                 {
@@ -190,7 +191,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     }
                     if (successorsAllProcessed)
                     {
-                        BFSQueue.Enqueue(predecessorTaskNode.getName());
+                        BFSQueue.enqueue(predecessorTaskNode.getName());
                     }
                 }
             }
