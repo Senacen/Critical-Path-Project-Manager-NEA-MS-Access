@@ -365,11 +365,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         // dfsCycle does not require visited array as it assumes graph before adding new dependency is also acyclic so can never visit one already visited.
         // To check adding the new edge doesn't create a cycle, just run dfs from the start of the edge and check if it ever leads back to the start node.
-        public static bool dfsCycle(int current, int target, ref List<List<int>> adjacencyList)
+        public static bool dfsCycle(int currentNode, int startNode, ref List<List<int>> adjacencyList)
         {
-            foreach (int successor in adjacencyList[current])
+            foreach (int successor in adjacencyList[currentNode])
             {
-                if (successor == target || dfsCycle(successor, target, ref adjacencyList))
+                if (successor == startNode || dfsCycle(successor, startNode, ref adjacencyList))
                 {
                     return true;
                 }
