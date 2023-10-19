@@ -31,7 +31,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CPAForm));
             this.ExitButton = new System.Windows.Forms.Button();
             this.BackToEditProjectButton = new System.Windows.Forms.Button();
             this.CPADataGrid = new System.Windows.Forms.DataGridView();
@@ -42,7 +41,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.TotalDurationLabel = new System.Windows.Forms.Label();
             this.TotalDurationTextBox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ScheduleProjectButton = new System.Windows.Forms.Button();
+            this.ProjectTrackerButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CPADataGrid)).BeginInit();
             this.CPAGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -102,7 +101,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(275, 134);
             this.textBox1.TabIndex = 4;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.textBox1.Text = "\r\nThis Duration and Critical Path are assuming optimal conditions where there are" +
+    " always workers, and no delays\r\n\r\n\r\nClick Project Tracker to start tracking the " +
+    "progress of the project";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // CPLabel
@@ -148,15 +149,15 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // ScheduleProjectButton
+            // ProjectTrackerButton
             // 
-            this.ScheduleProjectButton.Location = new System.Drawing.Point(783, 798);
-            this.ScheduleProjectButton.Name = "ScheduleProjectButton";
-            this.ScheduleProjectButton.Size = new System.Drawing.Size(124, 29);
-            this.ScheduleProjectButton.TabIndex = 4;
-            this.ScheduleProjectButton.Text = "Schedule Project";
-            this.ScheduleProjectButton.UseVisualStyleBackColor = true;
-            this.ScheduleProjectButton.Click += new System.EventHandler(this.ScheduleProjectButton_Click);
+            this.ProjectTrackerButton.Location = new System.Drawing.Point(784, 797);
+            this.ProjectTrackerButton.Name = "ProjectTrackerButton";
+            this.ProjectTrackerButton.Size = new System.Drawing.Size(115, 26);
+            this.ProjectTrackerButton.TabIndex = 4;
+            this.ProjectTrackerButton.Text = "Project Tracker";
+            this.ProjectTrackerButton.UseVisualStyleBackColor = true;
+            this.ProjectTrackerButton.Click += new System.EventHandler(this.ProjectTrackerButton_Click);
             // 
             // CPAForm
             // 
@@ -164,7 +165,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1303, 865);
             this.ControlBox = false;
-            this.Controls.Add(this.ScheduleProjectButton);
+            this.Controls.Add(this.ProjectTrackerButton);
             this.Controls.Add(this.CPAGroupBox);
             this.Controls.Add(this.CPADataGrid);
             this.Controls.Add(this.BackToEditProjectButton);
@@ -191,6 +192,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private TextBox TotalDurationTextBox;
         private TextBox textBox1;
         private Label CPLabel;
-        private Button ScheduleProjectButton;
+        private Button ProjectTrackerButton;
     }
 }

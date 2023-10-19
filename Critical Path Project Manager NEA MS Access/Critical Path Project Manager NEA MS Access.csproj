@@ -48,11 +48,11 @@
   <ItemGroup>
     <Compile Include="Objects\LinkedListQueue.cs" />
     <Compile Include="Objects\LinkedListQueueNode.cs" />
-    <Compile Include="UIForms\ScheduleProjectForm.cs">
+    <Compile Include="UIForms\ProjectTrackerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UIForms\ScheduleProjectForm.Designer.cs">
-      <DependentUpon>ScheduleProjectForm.cs</DependentUpon>
+    <Compile Include="UIForms\ProjectTrackerForm.Designer.cs">
+      <DependentUpon>ProjectTrackerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UIForms\CPAForm.cs">
       <SubType>Form</SubType>
@@ -90,9 +90,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Objects\TaskGraph.cs" />
     <Compile Include="Objects\TaskNode.cs" />
-    <EmbeddedResource Include="UIForms\ScheduleProjectForm.resx">
-      <DependentUpon>ScheduleProjectForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\CPAForm.resx">
       <DependentUpon>CPAForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +114,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UIForms\ProjectTrackerForm.resx">
+      <DependentUpon>ProjectTrackerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

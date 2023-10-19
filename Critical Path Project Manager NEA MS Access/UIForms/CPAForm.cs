@@ -86,19 +86,17 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             CPADataGrid.DataSource = tasksDataTable;
         }
 
-
-
-        private void ScheduleProjectButton_Click(object sender, EventArgs e)
-        {
-            ScheduleProjectForm scheduleProjectForm = new ScheduleProjectForm();
-            scheduleProjectForm.Show();
-            this.Close();
-        }
-
         private void BackToEditProjectButton_Click(object sender, EventArgs e)
         {
             EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
             editProjectForm.Show();
+            this.Close();
+        }
+
+        private void ProjectTrackerButton_Click(object sender, EventArgs e)
+        {
+            ProjectTrackerForm projectTrackerForm = new ProjectTrackerForm(projectName, username);
+            projectTrackerForm.Show();
             this.Close();
         }
 
