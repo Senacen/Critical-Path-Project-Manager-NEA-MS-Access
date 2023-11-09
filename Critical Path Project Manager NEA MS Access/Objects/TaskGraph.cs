@@ -23,41 +23,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             forwardPass();
             backwardPass();
             calculateFloats();
+            // Sorting the critical tasks by their earliest start time gives the order they must be completed in, which is the critical path
             criticalPath = sortCriticalTasks();
-            List<string>criticalPathTest = criticalTasks.OrderBy(name => tasks[name].getEarliestStartTime()).ToList();
-            string cptest = "";
-            foreach (string task in criticalPathTest)
-            {
-                cptest += task;
-            }
-            MessageBox.Show(cptest);
-            //outputCPA();
-        }
-
-        // For checking tasks 
-        public void outputCPA()
-        {
-            string criticalPathString = "";
-            foreach (string name in criticalPath)
-            {
-                criticalPathString += " | " + name;
-            }
-            MessageBox.Show(criticalPathString);
-            foreach (TaskNode node in tasks.Values)
-            {
-                string predecessors = "", successors = "";
-                foreach (string predecessor in node.getPredecessorNames())
-                {
-                    predecessors += predecessor + " | ";
-                }
-                foreach (string successor in node.getSuccessorNames())
-                {
-                    successors += successor + " | ";
-                }
-                MessageBox.Show($"Name: {node.getName()} \n Duration: {node.getDuration()} \n NumWorkers: {node.getNumWorkers()} \n Earliest Start Time: {node.getEarliestStartTime()} " +
-                    $" \n Earliest Finish Time: {node.getEarliestFinishTime()} \n Latest Start Time: {node.getLatestStartTime()} \n Latest Finish Time: {node.getLatestFinishTime()} " +
-                    $"\n Total Float: {node.getTotalFloat()} \n Independent Float: {node.getIndependentFloat()} \n Interfering Float: {node.getInterferingFloat()} \n PredecessorNames: {predecessors} \n SuccessorNames: {successors}");
-            }
         }
 
         private void initStartEnd()

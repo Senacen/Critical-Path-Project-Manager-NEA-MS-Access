@@ -40,7 +40,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
         {
             if (this.isEmpty())
             {
-                throw new InvalidOperationException("The queue is empty.");
+                throw new InvalidOperationException("Queue is empty.");
             }
 
             T value = front.getItem();

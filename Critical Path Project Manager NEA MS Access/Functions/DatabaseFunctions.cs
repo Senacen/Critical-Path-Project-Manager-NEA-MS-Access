@@ -14,6 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Data.OleDb;
 using System.IO;
 using ADOX;
+using Critical_Path_Project_Manager_NEA_MS_Access.Objects;
 
 namespace Critical_Path_Project_Manager_NEA_MS_Access
 {
@@ -353,7 +354,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 }
                 // Add new dependency to the graph
                 adjacencyList[tasksToIndex[predecessor]].Add(tasksToIndex[selectedTaskName]);
-                return dfsCycle(tasksToIndex[predecessor], tasksToIndex[predecessor], ref adjacencyList);
+                // Start from the node that the new edge leads out of, which is the predecessor
+                return dfsCycle(tasksToIndex[predecessor], ref adjacencyList);
 
             }
             catch (Exception ex)
@@ -365,15 +367,19 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         // dfsCycle does not require visited array as it assumes graph before adding new dependency is also acyclic so can never visit one already visited.
         // To check adding the new edge doesn't create a cycle, just run dfs from the start of the edge and check if it ever leads back to the start node.
-        public static bool dfsCycle(int currentNode, int startNode, ref List<List<int>> adjacencyList)
+        public static bool dfsCycle(int startNode, ref List<List<int>> adjacencyList)
         {
-            foreach (int successor in adjacencyList[currentNode])
-            {
-                if (successor == startNode || dfsCycle(successor, startNode, ref adjacencyList))
+            LinkedListStack<int> DFSStack = new LinkedListStack<int>();
+            DFSStack.push(startNode);
+            while (!DFSStack.isEmpty()) {
+                int currentNode = DFSStack.pop();
+                foreach (int successor in adjacencyList[currentNode])
                 {
-                    return true;
+                    if (successor == startNode) return true; // As somehow we reached the start node again, a cycle must have formed.
+                    DFSStack.push(successor);
                 }
             }
+            
             return false;
         }
 
