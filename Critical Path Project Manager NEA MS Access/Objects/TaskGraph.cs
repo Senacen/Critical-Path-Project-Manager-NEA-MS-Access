@@ -1,4 +1,5 @@
-﻿using Critical_Path_Project_Manager_NEA_MS_Access.Objects;
+﻿using Critical_Path_Project_Manager_NEA_MS_Access.Functions;
+using Critical_Path_Project_Manager_NEA_MS_Access.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
     {
         private Dictionary<string, TaskNode> tasks;
         private List<string> criticalTasks = new List<string>();
-        private List<string> criticalPath;
+        private List<string> criticalPath = new List<string>();
 
         public TaskGraph(string projectName)
         {
@@ -22,7 +23,14 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             forwardPass();
             backwardPass();
             calculateFloats();
-            criticalPath = criticalTasks.OrderBy(name => tasks[name].getEarliestStartTime()).ToList();
+            criticalPath = sortCriticalTasks();
+            List<string>criticalPathTest = criticalTasks.OrderBy(name => tasks[name].getEarliestStartTime()).ToList();
+            string cptest = "";
+            foreach (string task in criticalPathTest)
+            {
+                cptest += task;
+            }
+            MessageBox.Show(cptest);
             //outputCPA();
         }
 
@@ -226,6 +234,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     criticalTasks.Add(currTaskNode.getName());
                 }
             }
+        }
+
+        private List<string> sortCriticalTasks()
+        {
+            return MergeSortTasks.sort(criticalTasks, tasks);
         }
 
         public int getTotalDuration()

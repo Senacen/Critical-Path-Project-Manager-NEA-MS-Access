@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Functions\MergeSortTasks.cs" />
     <Compile Include="Objects\LinkedListQueue.cs" />
     <Compile Include="Objects\LinkedListQueueNode.cs" />
     <Compile Include="UIForms\ProjectTrackerForm.cs">

@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
+{
+    static internal class MergeSortTasks
+    {
+        public static List<string> sort(List<string> tasksToBeSorted, Dictionary<string, TaskNode> tasks) {
+            // Base case when list only contains 1 or 0 elements
+            if (tasksToBeSorted.Count <= 1) return tasksToBeSorted;
+
+            // Divide the list into 2 halves
+            int middle = tasksToBeSorted.Count / 2;
+            List<string> left = tasksToBeSorted.GetRange(0, middle);
+            List<string> right = tasksToBeSorted.GetRange(middle, tasksToBeSorted.Count - middle);
+
+            // Recursively sort each half
+            left = sort(left, tasks);
+            right = sort(right, tasks);
+
+            // Merge the sorted halves 
+            return mergeHalves(left, right, tasks);
+
+        }
+
+        private static List<string> mergeHalves(List<string> left, List<string> right, Dictionary<string, TaskNode> tasks)
+        {
+            List<string> mergedResult = new List<string>();
+
+            // Initialise pointers to the start of each list
+            int leftIndex = 0, rightIndex = 0;
+
+            // Compare the Earliest Start Time of each task at the pointer of each list, and add it to the mergedResult list if it is the earlier one
+            // Until one list has been fully added
+            while(leftIndex < left.Count && rightIndex < right.Count) {
+                if (tasks[left[leftIndex]].getEarliestStartTime() < tasks[right[rightIndex]].getEarliestStartTime())
+                {
+                    mergedResult.Add(left[leftIndex]);
+                    leftIndex++;
+                } 
+                else
+                {
+                    mergedResult.Add(right[rightIndex]);
+                    rightIndex++;
+                }
+            }
+
+            // Add the remaining tasks to the mergedResult
+            while (leftIndex < left.Count)
+            {
+                mergedResult.Add(left[leftIndex]);
+                leftIndex++;
+            }
+
+            while (rightIndex < right.Count)
+            {
+                mergedResult.Add(right[rightIndex]);
+                rightIndex++;
+            }
+
+            return mergedResult;
+        }
+    }
+}
