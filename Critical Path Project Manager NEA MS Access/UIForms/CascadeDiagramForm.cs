@@ -19,13 +19,17 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             tasksLengthScaleFactor = 50,
             tasksWidth = 30,
             tasksVerticalSpacing = 20,
-            tasksLeftMargin = 50;
+            tasksLeftMargin = 50,
+            tasksTopMargin = 50;
+            
         // Text font
         private Font font = new Font("Segoe UI", 9, FontStyle.Regular);
+
         // Task outlines
         private Pen 
             taskPen = new Pen(Color.Black),
             floatPen = new Pen(Color.Black);
+
         // Task colours
         private Brush 
             criticalTasksColour = Brushes.Aqua,
@@ -48,6 +52,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         // which happens when a small parent contains a larger control, without messing up rendering
         private void DrawCascadeDiagram(Graphics g)
         {
+            int criticalPathRowY = tasksTopMargin;
+            int nonCriticalTaskCount = 0;
             for (int i = 0; i < sortedTaskNames.Count; i++) {
 
                 // Retrieve task data
@@ -63,7 +69,17 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 // Calculate position of each task rectangle and how long it will be
                 // Then draw it
                 int taskX = tasksLeftMargin + earliestStartTime * tasksLengthScaleFactor;
-                int taskY = tasksVerticalSpacing * i + tasksWidth * i;
+
+                int taskY = 0;
+                if (critical)
+                {
+                    taskY = criticalPathRowY;
+                } 
+                else
+                {
+                    taskY = tasksTopMargin + tasksWidth * (nonCriticalTaskCount + 1) + tasksVerticalSpacing * (nonCriticalTaskCount + 1);
+                    nonCriticalTaskCount++;
+                }
                 int length = duration * tasksLengthScaleFactor;
                 // Fill done first otherwise top and left of border gets covered
                 g.FillRectangle((critical ? criticalTasksColour : nonCriticalTasksColour), taskX, taskY, length, tasksWidth);
