@@ -38,7 +38,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
         // Dequeue an item from the front of the queue
         public T dequeue()
         {
-            if (front == null)
+            if (this.isEmpty())
             {
                 throw new InvalidOperationException("The queue is empty.");
             }
