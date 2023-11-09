@@ -36,6 +36,7 @@
             // ParentPanel
             // 
             this.ParentPanel.AutoScroll = true;
+            this.ParentPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ParentPanel.Controls.Add(this.ChildCascadeDiagramPanel);
             this.ParentPanel.Location = new System.Drawing.Point(385, 12);
             this.ParentPanel.Name = "ParentPanel";
@@ -44,7 +45,7 @@
             // 
             // ChildCascadeDiagramPanel
             // 
-            this.ChildCascadeDiagramPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ChildCascadeDiagramPanel.BackColor = System.Drawing.SystemColors.Control;
             this.ChildCascadeDiagramPanel.Location = new System.Drawing.Point(0, 0);
             this.ChildCascadeDiagramPanel.Name = "ChildCascadeDiagramPanel";
             this.ChildCascadeDiagramPanel.Size = new System.Drawing.Size(2076, 2034);

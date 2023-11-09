@@ -22,6 +22,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             tasksLeftMargin = 50;
         // Text font
         private Font font = new Font("Segoe UI", 9, FontStyle.Regular);
+        // Task outlines
+        private Pen 
+            taskPen = new Pen(Color.Black),
+            floatPen = new Pen(Color.Black);
         // Task colours
         private Brush 
             criticalTasksColour = Brushes.Aqua,
@@ -36,6 +40,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             InitializeComponent();
             this.tasks = tasks;
             this.sortedTaskNames = sortedTaskNames;
+            floatPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
             this.AutoScroll = false;
         }
 
@@ -52,18 +57,39 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 int duration = currentTask.getDuration();
                 int earliestStartTime = currentTask.getEarliestStartTime();
                 bool critical = currentTask.getTotalFloat() == 0; // If a task has no float, meaning it cannot be moved without delaying the project, it is critical
+                int independentFloat = currentTask.getIndependentFloat();
+                int interferingFloat = currentTask.getInterferingFloat();
 
-                // Calculate position of each rectangle and how long it will be
+                // Calculate position of each task rectangle and how long it will be
                 // Then draw it
-                int startX = tasksLeftMargin + earliestStartTime * tasksLengthScaleFactor;
-                int startY = tasksVerticalSpacing * i + tasksWidth * i;
+                int taskX = tasksLeftMargin + earliestStartTime * tasksLengthScaleFactor;
+                int taskY = tasksVerticalSpacing * i + tasksWidth * i;
                 int length = duration * tasksLengthScaleFactor;
-                g.FillRectangle((critical ? criticalTasksColour : nonCriticalTasksColour), startX, startY, length, tasksWidth);
+                // Fill done first otherwise top and left of border gets covered
+                g.FillRectangle((critical ? criticalTasksColour : nonCriticalTasksColour), taskX, taskY, length, tasksWidth);
+                g.DrawRectangle(taskPen, taskX, taskY, length, tasksWidth);
+
+                // Calculate position of each float rectange and how long it will be 
+                // Then draw it
+
+                // Independent Float
+                int independentFloatX = taskX + length;
+                int independentFloatY = taskY;
+                int independentFloatLength = independentFloat * tasksLengthScaleFactor;
+                g.FillRectangle(independentFloatColour, independentFloatX, independentFloatY, independentFloatLength, tasksWidth);
+                g.DrawRectangle(floatPen, independentFloatX, independentFloatY, independentFloatLength, tasksWidth);
+
+                //Interfering Float
+                int interferingFloatX = independentFloatX + independentFloatLength;
+                int interferingFloatY = taskY;
+                int interferingFloatLength = interferingFloat * tasksLengthScaleFactor;
+                g.FillRectangle(interferingFloatColour, interferingFloatX, interferingFloatY, interferingFloatLength, tasksWidth);
+                g.DrawRectangle(floatPen, interferingFloatX, interferingFloatY, interferingFloatLength, tasksWidth);
 
                 // Calculate start position of each name so it is centred
                 // Then draw it
-                int textX = startX + length / 2 - (int)g.MeasureString(name, font).Width / 2;
-                int textY = startY + tasksWidth / 2 - (int)g.MeasureString(name, font).Height / 2;
+                int textX = taskX + length / 2 - (int)g.MeasureString(name, font).Width / 2;
+                int textY = taskY + tasksWidth / 2 - (int)g.MeasureString(name, font).Height / 2;
                 g.DrawString(name, font, Brushes.Black, textX, textY);
             }
             
