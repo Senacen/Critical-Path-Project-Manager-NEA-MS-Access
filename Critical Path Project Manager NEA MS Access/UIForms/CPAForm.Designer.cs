@@ -72,6 +72,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPADataGrid.AllowUserToAddRows = false;
             this.CPADataGrid.AllowUserToDeleteRows = false;
             this.CPADataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.CPADataGrid.BackgroundColor = System.Drawing.SystemColors.Control;
             this.CPADataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CPADataGrid.Location = new System.Drawing.Point(371, 44);
             this.CPADataGrid.Name = "CPADataGrid";

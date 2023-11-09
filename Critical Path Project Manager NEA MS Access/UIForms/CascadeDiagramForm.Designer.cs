@@ -44,9 +44,10 @@
             // 
             // ChildCascadeDiagramPanel
             // 
-            this.ChildCascadeDiagramPanel.Location = new System.Drawing.Point(3, 3);
+            this.ChildCascadeDiagramPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ChildCascadeDiagramPanel.Location = new System.Drawing.Point(0, 0);
             this.ChildCascadeDiagramPanel.Name = "ChildCascadeDiagramPanel";
-            this.ChildCascadeDiagramPanel.Size = new System.Drawing.Size(2073, 2031);
+            this.ChildCascadeDiagramPanel.Size = new System.Drawing.Size(2076, 2034);
             this.ChildCascadeDiagramPanel.TabIndex = 0;
             this.ChildCascadeDiagramPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ChildCascadeDiagramPanel_Paint);
             // 
