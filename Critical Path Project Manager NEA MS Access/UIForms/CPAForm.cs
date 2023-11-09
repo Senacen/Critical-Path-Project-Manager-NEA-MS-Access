@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Critical_Path_Project_Manager_NEA_MS_Access.Functions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,11 +61,20 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             tasksDataTable.Columns.Add("LS", typeof(int));
             tasksDataTable.Columns.Add("LF", typeof(int));
             tasksDataTable.Columns.Add("Total Float", typeof(int));
-            tasksDataTable.Columns.Add("Ind Float", typeof(int));
-            tasksDataTable.Columns.Add("Int Float", typeof(int));
+            tasksDataTable.Columns.Add("Ind. Float", typeof(int));
+            tasksDataTable.Columns.Add("Int. Float", typeof(int));
 
-            foreach (TaskNode task in tasks.Values)
+            // Display tasks sorted by Earliest Start Time as default
+
+            // Create taskNames list
+            List<string> taskNames = tasks.Keys.ToList<string>();
+
+            // Sort by merge sort with Earliest Start Time of the task as the comparison value
+            List<string> sortedTaskNames = MergeSortTasks.sort(taskNames, tasks);
+
+            foreach (string taskName in sortedTaskNames)
             {
+                TaskNode task = tasks[taskName];
                 if (task.getName() == "Start" || task.getName() == "End") continue;
                 DataRow row = tasksDataTable.NewRow();
                 row["Name"] = task.getName();
@@ -75,8 +85,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 row["LS"] = task.getLatestStartTime();
                 row["LF"] = task.getLatestFinishTime();
                 row["Total Float"] = task.getTotalFloat();
-                row["Ind Float"] = task.getIndependentFloat();
-                row["Int Float"] = task.getInterferingFloat();
+                row["Ind. Float"] = task.getIndependentFloat();
+                row["Int. Float"] = task.getInterferingFloat();
 
                 tasksDataTable.Rows.Add(row);
             }
