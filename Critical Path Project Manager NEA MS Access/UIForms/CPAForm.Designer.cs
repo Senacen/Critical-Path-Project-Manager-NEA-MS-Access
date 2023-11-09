@@ -42,6 +42,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.TotalDurationTextBox = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ProjectTrackerButton = new System.Windows.Forms.Button();
+            this.DrawCascadeDiagramButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CPADataGrid)).BeginInit();
             this.CPAGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -151,7 +152,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ProjectTrackerButton
             // 
-            this.ProjectTrackerButton.Location = new System.Drawing.Point(784, 797);
+            this.ProjectTrackerButton.Location = new System.Drawing.Point(847, 796);
             this.ProjectTrackerButton.Name = "ProjectTrackerButton";
             this.ProjectTrackerButton.Size = new System.Drawing.Size(115, 26);
             this.ProjectTrackerButton.TabIndex = 4;
@@ -159,12 +160,23 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.ProjectTrackerButton.UseVisualStyleBackColor = true;
             this.ProjectTrackerButton.Click += new System.EventHandler(this.ProjectTrackerButton_Click);
             // 
+            // DrawCascadeDiagramButton
+            // 
+            this.DrawCascadeDiagramButton.Location = new System.Drawing.Point(615, 796);
+            this.DrawCascadeDiagramButton.Name = "DrawCascadeDiagramButton";
+            this.DrawCascadeDiagramButton.Size = new System.Drawing.Size(133, 26);
+            this.DrawCascadeDiagramButton.TabIndex = 5;
+            this.DrawCascadeDiagramButton.Text = "Draw Cascade Diagram";
+            this.DrawCascadeDiagramButton.UseVisualStyleBackColor = true;
+            this.DrawCascadeDiagramButton.Click += new System.EventHandler(this.DrawCascadeDiagramButton_Click);
+            // 
             // CPAForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1303, 865);
             this.ControlBox = false;
+            this.Controls.Add(this.DrawCascadeDiagramButton);
             this.Controls.Add(this.ProjectTrackerButton);
             this.Controls.Add(this.CPAGroupBox);
             this.Controls.Add(this.CPADataGrid);
@@ -193,5 +205,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private TextBox textBox1;
         private Label CPLabel;
         private Button ProjectTrackerButton;
+        private Button DrawCascadeDiagramButton;
     }
 }

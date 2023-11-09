@@ -1,4 +1,5 @@
 ﻿using Critical_Path_Project_Manager_NEA_MS_Access.Functions;
+using Critical_Path_Project_Manager_NEA_MS_Access.UIForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private string projectName, username;
         private TaskGraph taskGraph;
         private Dictionary<string, TaskNode> tasks;
+        private List<string> sortedTaskNames;
         public CPAForm(string projectName, string username)
         {
             InitializeComponent();
@@ -70,7 +72,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             List<string> taskNames = tasks.Keys.ToList<string>();
 
             // Sort by merge sort with Earliest Start Time of the task as the comparison value
-            List<string> sortedTaskNames = MergeSortTasks.sort(taskNames, tasks);
+            sortedTaskNames = MergeSortTasks.sort(taskNames, tasks);
 
             foreach (string taskName in sortedTaskNames)
             {
@@ -108,6 +110,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             ProjectTrackerForm projectTrackerForm = new ProjectTrackerForm(projectName, username);
             projectTrackerForm.Show();
             this.Close();
+        }
+
+        private void DrawCascadeDiagramButton_Click(object sender, EventArgs e)
+        {
+            CascadeDiagramForm cascadeDiagramForm = new CascadeDiagramForm(sortedTaskNames, tasks);
+            cascadeDiagramForm.Show();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
