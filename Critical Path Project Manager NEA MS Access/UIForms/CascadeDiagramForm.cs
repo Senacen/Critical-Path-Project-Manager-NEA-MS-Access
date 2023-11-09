@@ -16,7 +16,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         private List<string> sortedTaskNames;
         // Spacings and lengths
         private const int
-            tasksLengthScaleFactor = 50,
+            minTasksLengthScaleFactor = 50, 
             tasksWidth = 30,
             tasksVerticalSpacing = 20,
             tasksLeftMargin = 50,
@@ -54,12 +54,15 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         {
             int criticalPathRowY = tasksTopMargin;
             int nonCriticalTaskCount = 0;
+            int totalDuration = tasks["End"].getEarliestStartTime(); // Duration of the project is EOS of dummy End node
+            int dynamicTasksLengthScaleFactor = 1000 / totalDuration; // Suggests a scale factor such that the entire project will be roughly 1000 pixels
+            int tasksLengthScaleFactor = Math.Min(dynamicTasksLengthScaleFactor, minTasksLengthScaleFactor); // Ensure project will either be roughly 1000 pixels long or more
             for (int i = 0; i < sortedTaskNames.Count; i++) {
 
                 // Retrieve task data
                 TaskNode currentTask = tasks[sortedTaskNames[i]];
                 string name = currentTask.getName();
-                if (name == "Start" || name == "End") continue; // Skip the dummy start and end nodes
+                if (name == "Start" || name == "End") continue; // Skip the dummy Start and End nodes
                 int duration = currentTask.getDuration();
                 int earliestStartTime = currentTask.getEarliestStartTime();
                 bool critical = currentTask.getTotalFloat() == 0; // If a task has no float, meaning it cannot be moved without delaying the project, it is critical
@@ -69,15 +72,16 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 // Calculate position of each task rectangle and how long it will be
                 // Then draw it
                 int taskX = tasksLeftMargin + earliestStartTime * tasksLengthScaleFactor;
-
                 int taskY = 0;
+                // If critical, it will be in the top critical row
                 if (critical)
                 {
                     taskY = criticalPathRowY;
                 } 
                 else
                 {
-                    taskY = tasksTopMargin + tasksWidth * (nonCriticalTaskCount + 1) + tasksVerticalSpacing * (nonCriticalTaskCount + 1);
+                    // If not critical, each non critical task will be under
+                    taskY = tasksTopMargin + tasksWidth * (nonCriticalTaskCount + 1) + tasksVerticalSpacing * (nonCriticalTaskCount + 1); // nonCriticalTaskCount + 1 as that will be how many rows are above (+1 from Critical Path Row)
                     nonCriticalTaskCount++;
                 }
                 int length = duration * tasksLengthScaleFactor;
@@ -102,6 +106,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 g.FillRectangle(interferingFloatColour, interferingFloatX, interferingFloatY, interferingFloatLength, tasksWidth);
                 g.DrawRectangle(floatPen, interferingFloatX, interferingFloatY, interferingFloatLength, tasksWidth);
 
+                // Truncate name and add ellipsis if it is too long
+                name = truncateStringToFitRectangle(g, name, length);
+
                 // Calculate start position of each name so it is centred
                 // Then draw it
                 int textX = taskX + length / 2 - (int)g.MeasureString(name, font).Width / 2;
@@ -111,7 +118,29 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             
         }
 
+        private string truncateStringToFitRectangle(Graphics g, string text, int rectLength)
+        {
+            string truncatedText = text;
+            float textLength = g.MeasureString(text, font).Width;
 
+            if (textLength >= rectLength)
+            {
+                float ellipsisLength = g.MeasureString("...", font).Width;
+                int charsToRemove = 0;
+                for (int i = text.Length - 1; i >= 0; i--)
+                {
+                    float truncatedTextLength = g.MeasureString(truncatedText, font).Width;
+                    if (truncatedTextLength + ellipsisLength < rectLength)
+                    {
+                        break;
+                    }
+                    charsToRemove++;
+                    truncatedText = text.Substring(0, text.Length - charsToRemove);
+                }
+                return truncatedText + "...";
+            }
+            return text;
+        }
         private void ChildCascadeDiagramPanel_Paint(object sender, PaintEventArgs e)
         {
             DrawCascadeDiagram(e.Graphics);
