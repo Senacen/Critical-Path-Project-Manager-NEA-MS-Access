@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Critical_Path_Project_Manager_NEA_MS_Access.UIForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,10 +39,15 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 CreateNewProjectForm createNewProjectForm = new CreateNewProjectForm(username);
                 createNewProjectForm.Show();
             }
-            else
+            else if (LoadRadioButton.Checked)
             {
                 LoadProjectForm loadProjectForm = new LoadProjectForm(username);
                 loadProjectForm.Show();
+            }
+            else
+            {
+                ImportProjectForm importProjectForm = new ImportProjectForm(username);
+                importProjectForm.Show();
             }
             this.Close();
         }

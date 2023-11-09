@@ -43,6 +43,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CreateAccountButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ImportRadioButton = new System.Windows.Forms.RadioButton();
             this.OpenProjectGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,11 +60,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // OpenProjectGroupBox
             // 
+            this.OpenProjectGroupBox.Controls.Add(this.ImportRadioButton);
             this.OpenProjectGroupBox.Controls.Add(this.LoadRadioButton);
             this.OpenProjectGroupBox.Controls.Add(this.CreateNewRadioButton);
             this.OpenProjectGroupBox.Location = new System.Drawing.Point(300, 54);
             this.OpenProjectGroupBox.Name = "OpenProjectGroupBox";
-            this.OpenProjectGroupBox.Size = new System.Drawing.Size(115, 81);
+            this.OpenProjectGroupBox.Size = new System.Drawing.Size(115, 98);
             this.OpenProjectGroupBox.TabIndex = 1;
             this.OpenProjectGroupBox.TabStop = false;
             this.OpenProjectGroupBox.Text = "Open Project";
@@ -151,6 +153,17 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // ImportRadioButton
+            // 
+            this.ImportRadioButton.AutoSize = true;
+            this.ImportRadioButton.Location = new System.Drawing.Point(18, 72);
+            this.ImportRadioButton.Name = "ImportRadioButton";
+            this.ImportRadioButton.Size = new System.Drawing.Size(54, 17);
+            this.ImportRadioButton.TabIndex = 2;
+            this.ImportRadioButton.TabStop = true;
+            this.ImportRadioButton.Text = "Import";
+            this.ImportRadioButton.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +202,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private Button CreateAccountButton;
         private Button ExitButton;
         private ImageList imageList1;
+        private RadioButton ImportRadioButton;
     }
 }
 

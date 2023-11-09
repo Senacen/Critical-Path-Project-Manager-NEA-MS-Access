@@ -56,7 +56,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             int nonCriticalTaskCount = 0;
             int totalDuration = tasks["End"].getEarliestStartTime(); // Duration of the project is EOS of dummy End node
             int dynamicTasksLengthScaleFactor = 1000 / totalDuration; // Suggests a scale factor such that the entire project will be roughly 1000 pixels
-            int tasksLengthScaleFactor = Math.Min(dynamicTasksLengthScaleFactor, minTasksLengthScaleFactor); // Ensure project will either be roughly 1000 pixels long or more
+            int tasksLengthScaleFactor = Math.Max(dynamicTasksLengthScaleFactor, minTasksLengthScaleFactor); // Ensure project will either be roughly 1000 pixels long or more
             for (int i = 0; i < sortedTaskNames.Count; i++) {
 
                 // Retrieve task data

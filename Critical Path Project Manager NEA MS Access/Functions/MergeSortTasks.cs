@@ -11,7 +11,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
     {
         // Note: the entire tasks dictionary is passed as an argument, which contains a lot of irelevant data for this merge sort
         // such as numWorkers, predecessor and successor lists.
-        // However, this is not an issue for efficiency, as objects are passed by reference not by value.
+        // However, this is not an issue for efficiency, as objects are passed by reference not by value.km
         public static List<string> sort(List<string> tasksToBeSorted, Dictionary<string, TaskNode> tasks) {
 
             // Base case when list only contains 1 or 0 elements

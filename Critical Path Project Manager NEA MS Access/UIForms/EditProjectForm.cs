@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Critical_Path_Project_Manager_NEA_MS_Access.Functions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,9 +38,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             try
             {
                 string name = NameTextBox.Text.Trim();
-                if (name == "Start" || name == "End")
+                if (name == "Start" || name == "End" || name.Contains(';'))
                 {
-                    throw new Exception("Task cannot be named after a reserved keyword: Start, End");
+                    throw new Exception("Task cannot be named after a reserved keyword: Start, End, or contain the reserved character ';'");
                 }
                 int duration = (int) DurationNumeric.Value;
                 int numWorkers = (int) NumWorkersNumeric.Value;
@@ -174,6 +175,33 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             loadProjectForm.Show();
             this.Close();
         }
+
+        private void ExportProjectButton_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, TaskNode> tasks = DatabaseFunctions.tasksDict(projectName);
+            // Semicolon is reserved so cannot be in task names, this custom serialisation protocol will use semicolon as delimiters
+            string exportString = projectName + ';';
+            // Output how many tasks there are
+            exportString += tasks.Count.ToString() + ';';
+            // Add task data
+            foreach (TaskNode task in tasks.Values)
+            {
+                exportString += task.getName() + ';';
+                exportString += task.getDuration().ToString() + ';';
+                exportString += task.getNumWorkers().ToString() + ';';
+                // Output how many successors it has
+                exportString += task.getPredecessorNames().Count().ToString() + ';';
+                foreach (string predecessorName in task.getPredecessorNames())
+                {
+                    exportString += predecessorName + ';';
+                }
+            }
+            exportString = StringEncryptionFunction.encrypt(exportString);
+            MessageBox.Show("The exported data has been copied to your clipboard and encrypted", "Successful Export", MessageBoxButtons.OK);
+            Clipboard.SetText(exportString);
+        }
+
+
 
         private void ExitButton_Click(object sender, EventArgs e)
         {

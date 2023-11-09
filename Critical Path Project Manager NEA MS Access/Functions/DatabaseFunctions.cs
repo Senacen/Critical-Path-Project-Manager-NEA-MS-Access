@@ -188,11 +188,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Delete database file
+                File.Delete(projectName + ".mdb");
                 // Delete in UserProjectsTbl
                 string deleteProjectSQL = $"DELETE FROM UserProjectsTbl WHERE ProjectName = '{projectName}'";
                 executeNonQuery("CPPMUserAccounts", deleteProjectSQL);
-                // Delete database file
-                File.Delete(projectName + ".mdb");
             } 
             catch (Exception ex)
             {

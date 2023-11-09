@@ -54,6 +54,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.DependenciesInfoTextBox = new System.Windows.Forms.TextBox();
             this.CPAButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
+            this.ExportProjectButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TasksDataGrid)).BeginInit();
             this.AddTaskGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
@@ -329,7 +330,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // CPAButton
             // 
-            this.CPAButton.Location = new System.Drawing.Point(829, 698);
+            this.CPAButton.Location = new System.Drawing.Point(901, 721);
             this.CPAButton.Name = "CPAButton";
             this.CPAButton.Size = new System.Drawing.Size(159, 28);
             this.CPAButton.TabIndex = 15;
@@ -347,12 +348,23 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // ExportProjectButton
+            // 
+            this.ExportProjectButton.Location = new System.Drawing.Point(719, 721);
+            this.ExportProjectButton.Name = "ExportProjectButton";
+            this.ExportProjectButton.Size = new System.Drawing.Size(96, 28);
+            this.ExportProjectButton.TabIndex = 17;
+            this.ExportProjectButton.Text = "Export Project";
+            this.ExportProjectButton.UseVisualStyleBackColor = true;
+            this.ExportProjectButton.Click += new System.EventHandler(this.ExportProjectButton_Click);
+            // 
             // EditProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1261, 785);
             this.ControlBox = false;
+            this.Controls.Add(this.ExportProjectButton);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.CPAButton);
             this.Controls.Add(this.UpdateDependenciesGroupBox);
@@ -404,5 +416,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private NumericUpDown EditNumWorkersNumeric;
         private NumericUpDown DurationNumeric;
         private NumericUpDown EditDurationNumeric;
+        private Button ExportProjectButton;
     }
 }
