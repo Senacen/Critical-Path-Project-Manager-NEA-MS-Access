@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Functions\MergeSortTasks.cs" />
     <Compile Include="Objects\LinkedListQueue.cs" />
-    <Compile Include="Objects\LinkedListQueueNode.cs" />
+    <Compile Include="Objects\LinkedListNode.cs" />
     <Compile Include="UIForms\ProjectTrackerForm.cs">
       <SubType>Form</SubType>
     </Compile>
