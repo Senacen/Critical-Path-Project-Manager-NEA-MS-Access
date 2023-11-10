@@ -53,7 +53,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // Check first character is a letter and following characters are only letters, numbers, or underscore
             if (!Regex.IsMatch(name, "^[A-Za-z][A-Za-z0-9_]*$")) return false;
             // Check name is not a SQL Server reserved keyword
-            using (StreamReader SR = new StreamReader("SQLServerReservedKeywords.txt"))
+            using (StreamReader SR = new StreamReader("@"..\..\SQLServerReservedKeywords.txt""))
             {
                 string keyword;
                 while ((keyword = SR.ReadLine()) != null)
