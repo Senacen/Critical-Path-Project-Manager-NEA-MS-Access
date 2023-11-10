@@ -41,5 +41,72 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
             }
             return plaintext;
         }
+
+        public static string addCheckSum(string text)
+        {
+            int even1odd2 = 0; // Sum of ascii values with even indices weighted by 1 and odd indices weighted by 2
+            int even2odd1 = 0; // Sum of ascii values with even indices weighted by 2 and odd indices weighted by 1
+            for(int i = 0; i < text.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    even1odd2 += (int)text[i];
+                    even2odd1 += (int)text[i] * 2;
+                }
+                else
+                {
+                    even1odd2 += (int)text[i] * 2;
+                    even2odd1 += (int)text[i];
+                }
+            }
+            // Mod and shift to printable range
+            even1odd2 %= 95;
+            even2odd1 %= 95;
+            even1odd2 += 32;
+            even2odd1 += 32;
+            return (char)even1odd2 + text + (char)even2odd1;
+        }
+
+        public static bool checkCheckSum(string textWithCheckSum)
+        {
+            if (textWithCheckSum.Length <= 2) return false; // There is no content in the text
+            int even1odd2 = textWithCheckSum[0];
+            int even2odd1 = textWithCheckSum[textWithCheckSum.Length - 1];
+            int checkEven1odd2 = 0;
+            int checkEven2odd1 = 0;
+            string text = textWithCheckSum.Substring(1, textWithCheckSum.Length - 2);
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    checkEven1odd2 += (int)text[i];
+                    checkEven2odd1 += (int)text[i] * 2;
+                }
+                else
+                {
+                    checkEven1odd2 += (int)text[i] * 2;
+                    checkEven2odd1 += (int)text[i];
+                }
+            }
+            // Shift to mod range
+            even1odd2 -= 32;
+            even2odd1 -= 32;
+
+            // Mod the check counters
+            checkEven1odd2 %= 95;
+            checkEven2odd1 %= 95;
+
+            return (checkEven1odd2  == even1odd2 && checkEven2odd1 == even2odd1);
+        }
+
+        public static string addSquareParantheses(string text)
+        {
+            return '[' + text + ']';
+        }
+
+        public static string removeSquareParantheses(string textWithSquareParantheses)
+        {
+            return textWithSquareParantheses.Substring(1, textWithSquareParantheses.Length - 2);
+        }
     }
 }
