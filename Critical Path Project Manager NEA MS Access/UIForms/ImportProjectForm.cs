@@ -32,12 +32,25 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            string importString = ImportTextBox.Text;
-            if (importString == "") return;
-            importString = StringEncryptionFunction.decrypt(importString);
-            MessageBox.Show(importString);
-            //return;
+            string importStringWithCheckSumAndSquareParantheses = ImportTextBox.Text;
+            // Remove bounding square parentheses
+            string importStringWithCheckSum = StringEncryptionFunction.removeSquareParantheses(importStringWithCheckSumAndSquareParantheses);
+            // Check the data has not been corrupted
+            if (!StringEncryptionFunction.checkCheckSum(importStringWithCheckSum))
+            {
+                MessageBox.Show("Data imported failed check sum - it is corrupted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Decrypt the data
+            string importString = StringEncryptionFunction.decrypt(importStringWithCheckSum.Substring(1, importStringWithCheckSum.Length - 2));
+            // MessageBox.Show(importString);
             ImportTextBox.Text = "";
+            importData(importString);            
+            
+        }
+
+        private void importData(string importString)
+        {
             // Split the text by new line or carriage return characters
             List<string> importList = importString.Split(';').ToList();
 
@@ -82,13 +95,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 editProjectForm.Show();
                 this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 DatabaseFunctions.deleteProject(projectName); // Get rid of everything done so far before the error
                 File.Delete(projectName + ".mdb");
-                MessageBox.Show("An error occurred in importing the data, it is corrupted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred in importing the data - it is corrupted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
         private void ExitButton_Click(object sender, EventArgs e)
         {
