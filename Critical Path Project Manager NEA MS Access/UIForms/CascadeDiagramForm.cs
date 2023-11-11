@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
 {
@@ -20,43 +21,109 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             tasksWidth = 30,
             tasksVerticalSpacing = 20,
             tasksLeftMargin = 50,
-            tasksTopMargin = 50;
+            tasksTopMargin = 50,
+            scaleLabelY = tasksTopMargin / 2;
             
         // Text font
         private Font font = new Font("Segoe UI", 9, FontStyle.Regular);
 
-        // Task outlines
-        private Pen 
+        // Pens
+        private Pen
             taskPen = new Pen(Color.Black),
-            floatPen = new Pen(Color.Black);
+            floatPen = new Pen(Color.Black),
+            scalePen = new Pen(Color.DarkGray);
 
-        // Task colours
+
+        // Colours
         private Brush 
-            criticalTasksColour = Brushes.Aqua,
+            criticalTasksColour = Brushes.IndianRed,
             nonCriticalTasksColour = Brushes.AliceBlue,
             independentFloatColour = Brushes.LightGray,
-            interferingFloatColour = Brushes.Gray;
+            interferingFloatColour = Brushes.Gray,
+            fontColour = Brushes.Black;
 
-            
- 
         internal CascadeDiagramForm(List<string> sortedTaskNames, Dictionary<string, TaskNode> tasks)
         {
             InitializeComponent();
             this.tasks = tasks;
             this.sortedTaskNames = sortedTaskNames;
             floatPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            scalePen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.AutoScroll = false;
+        }
+
+        private void drawKeyRectangle(Graphics g, int x, int y, int length, string text, Brush fillColour, Pen borderPen)
+        {
+            g.FillRectangle(fillColour, x, y, length, tasksWidth);
+            g.DrawRectangle(borderPen, x, y, length, tasksWidth);
+            int[] centredTextXY = centreStringInRectangleXY(g, text, x, y, length, tasksWidth);
+            g.DrawString(text, font, fontColour, centredTextXY[0], centredTextXY[1]);
+        }
+
+        private void drawKey(Graphics g)
+        {
+            // Critical Task Key
+            drawKeyRectangle(g, 20, 20, 150, "Critical Task", criticalTasksColour, taskPen);
+
+            // Non Critical Task Key
+            drawKeyRectangle(g, 20, 100, 150, "Non Critical Task", nonCriticalTasksColour, taskPen);
+
+            // Independent Float Key
+            drawKeyRectangle(g, 20, 180, 150, "Independent Float", independentFloatColour, floatPen);
+
+            // Interfering Float Key
+            drawKeyRectangle(g, 20, 260, 150, "Interfering Float", interferingFloatColour, floatPen);
         }
 
         // To add scrolling of graphics, created parent panel and larger child panel. This allows parent panel to scroll
         // which happens when a small parent contains a larger control, without messing up rendering
-        private void DrawCascadeDiagram(Graphics g)
+        private void drawCascadeDiagram(Graphics g)
         {
             int criticalPathRowY = tasksTopMargin;
             int nonCriticalTaskCount = 0;
             int totalDuration = tasks["End"].getEarliestStartTime(); // Duration of the project is EOS of dummy End node
             int dynamicTasksLengthScaleFactor = 1000 / totalDuration; // Suggests a scale factor such that the entire project will be roughly 1000 pixels
             int tasksLengthScaleFactor = Math.Max(dynamicTasksLengthScaleFactor, minTasksLengthScaleFactor); // Ensure project will either be roughly 1000 pixels long or more
+
+            // Draw the scale
+            
+            // Calculate dimensions of diagram
+
+            // Count how many rows there will be
+            int rowCount = 1; // Initialised to 1 to account for critical path row
+            foreach (TaskNode task in tasks.Values)
+            {
+                if (task.getTotalFloat() != 0) // If task is not critical, and so therefore will be on it's own row
+                {
+                    rowCount++;
+                }
+            }
+            int diagramHeight = tasksTopMargin + rowCount * (tasksVerticalSpacing + tasksWidth);
+            // Calculate the length
+            int diagramLength = tasksLeftMargin + totalDuration * tasksLengthScaleFactor + tasksLengthScaleFactor / 2; // Adding half task unit margin on the end
+
+            // Set size of child panel to be size of parent panel or larger (with larger being bounding the diagram)
+            int panelLength = Math.Max(diagramLength, ParentPanel.Size.Width - 2); // - 2 to prevent auto scroll from triggering when child is set to exactly parent size, so child is set to 2 pixels smaller
+            int panelHeight = Math.Max(diagramHeight, ParentPanel.Size.Height - 2);
+            ChildCascadeDiagramPanel.Size = new System.Drawing.Size(panelLength, panelHeight);
+
+            // Draw scale lines and time labels
+            for (int t = 0; t <= ChildCascadeDiagramPanel.Size.Width / tasksLengthScaleFactor; t++)
+            {
+                int lineX = tasksLeftMargin + t * tasksLengthScaleFactor;
+                int lineY = tasksTopMargin - 10; // Leave space for labels
+                int lineLength = ChildCascadeDiagramPanel.Size.Height;
+                g.DrawLine(scalePen, lineX, lineY, lineX, lineLength);
+
+                // Centre the label 
+                string label = t.ToString();
+                int labelX = lineX - (int)g.MeasureString(label, font).Width / 2;
+                int labelY = scaleLabelY - (int)g.MeasureString(label, font).Height / 2;
+                g.DrawString(label, font, fontColour, labelX, labelY);
+            }
+
+
+            // Draw the tasks and floats
             for (int i = 0; i < sortedTaskNames.Count; i++) {
 
                 // Retrieve task data
@@ -109,11 +176,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 // Truncate name and add ellipsis if it is too long
                 name = truncateStringToFitRectangle(g, name, length);
 
-                // Calculate start position of each name so it is centred
+
                 // Then draw it
-                int textX = taskX + length / 2 - (int)g.MeasureString(name, font).Width / 2;
-                int textY = taskY + tasksWidth / 2 - (int)g.MeasureString(name, font).Height / 2;
-                g.DrawString(name, font, Brushes.Black, textX, textY);
+                int[] centredNameXY = centreStringInRectangleXY(g, name, taskX, taskY, length, tasksWidth); // Start position of text for it to be centred
+                g.DrawString(name, font, fontColour, centredNameXY[0], centredNameXY[1]);
             }
             
         }
@@ -141,9 +207,22 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             }
             return text;
         }
+
+        // Calculate start position of text so it is centred
+        private int[] centreStringInRectangleXY(Graphics g, string text, int rectX, int rectY, int rectLength, int rectWidth) 
+        {
+            int textX = rectX + rectLength / 2 - (int)g.MeasureString(text, font).Width / 2;
+            int textY = rectY + rectWidth / 2 - (int)g.MeasureString(text, font).Height / 2;
+            return new int[] { textX, textY };
+        }
         private void ChildCascadeDiagramPanel_Paint(object sender, PaintEventArgs e)
         {
-            DrawCascadeDiagram(e.Graphics);
+            drawCascadeDiagram(e.Graphics);
+        }
+
+        private void KeyPanel_Paint(object sender, PaintEventArgs e)
+        {
+            drawKey(e.Graphics);
         }
     }
 }

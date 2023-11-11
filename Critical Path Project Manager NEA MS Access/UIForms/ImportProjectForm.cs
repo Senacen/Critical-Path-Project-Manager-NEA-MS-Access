@@ -15,19 +15,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
 {
     public partial class ImportProjectForm : Form
     {
-        string projectName;
         string username;
         public ImportProjectForm(string username)
         {
             InitializeComponent();
             this.username = username;
-        }
-
-        private void BackToLoginButton_Click(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            loginForm.Show();
-            this.Close();
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
@@ -51,12 +43,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             ImportTextBox.Text = "";
 
             // Try and create new project
-            projectName = ImportProjectNameTextBox.Text;
+            string projectName = ImportProjectNameTextBox.Text;
             ImportProjectNameTextBox.Text = "";
             if (!DatabaseFunctions.createProject(projectName, username)) return;
 
             // Import the data
-            if (!importData(projectName, importString))
+            if (!importData(projectName, importString)) // If there was an error importing the data
             {
                 DatabaseFunctions.deleteProject(projectName); // Get rid of everything done so far before the error
                 File.Delete(projectName + ".mdb");
@@ -119,6 +111,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 return false;
             }
         }
+        private void BackToLoginButton_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
         private void ExitButton_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
