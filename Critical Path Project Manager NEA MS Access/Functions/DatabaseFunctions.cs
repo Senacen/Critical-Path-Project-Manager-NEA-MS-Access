@@ -21,11 +21,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
     static internal class DatabaseFunctions
     {
         private static string oledbConnectionString = @"Provider=Microsoft Jet 4.0 OLE DB Provider;Data Source = ";
-        public static void createDatabase(string databaseName)
+        public static bool createDatabase(string databaseName)
         {
+            if (!isValidDatabaseName(databaseName))
+            { 
+                MessageBox.Show("The name must start with a letter, be made of only letters, numbers, and underscores, and be no longer than 128 characters. " +
+                                "It also may not be a MS Access reserved keyword.", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
             CatalogClass cat = new CatalogClass();
             cat.Create(oledbConnectionString + databaseName + ".mdb;");
             cat = null;
+            return true;
         }
 
         public static void checkUserAccountsDatabaseExists()
@@ -52,8 +59,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             if (name.Length == 0 || name.Length > 128) return false;
             // Check first character is a letter and following characters are only letters, numbers, or underscore
             if (!Regex.IsMatch(name, "^[A-Za-z][A-Za-z0-9_]*$")) return false;
-            // Check name is not a SQL Server reserved keyword
-            using (StreamReader SR = new StreamReader("@"..\..\SQLServerReservedKeywords.txt""))
+            // Check name is not a MS Access reserved keyword
+            using (StreamReader SR = new StreamReader(@"..\..\MSAccessReservedKeywords.txt"))
             {
                 string keyword;
                 while ((keyword = SR.ReadLine()) != null)
@@ -151,7 +158,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 {
                     throw new Exception("This project already exists.");
                 }
-                createDatabase(projectName);
+                // If the database creation failed, return false that the project was created
+                if (!createDatabase(projectName)) return false;
 
                 // Create TaskTbl
                 string createTableSQL =
@@ -174,7 +182,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 string addProjectSQL = "INSERT INTO UserProjectsTbl(Username, ProjectName)" +
                                         $"Values ('{username}', '{projectName}')";
                 executeNonQuery("CPPMUserAccounts", addProjectSQL);
-                MessageBox.Show($"Database {projectName} has been created.", "Success", MessageBoxButtons.OK);
+                MessageBox.Show($"Project {projectName} has been created.", "Success", MessageBoxButtons.OK);
                 return true;
             }
             catch (Exception ex)

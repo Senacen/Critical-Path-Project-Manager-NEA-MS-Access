@@ -180,7 +180,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             Dictionary<string, TaskNode> tasks = DatabaseFunctions.tasksDict(projectName);
             // Semicolon is reserved so cannot be in task names, this custom serialisation protocol will use semicolon as delimiters
-            string exportString = projectName + ';';
+            string exportString = "";
             // Output how many tasks there are
             exportString += tasks.Count.ToString() + ';';
             // Add task data

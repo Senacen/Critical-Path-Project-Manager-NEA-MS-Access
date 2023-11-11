@@ -33,6 +33,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         private void ImportButton_Click(object sender, EventArgs e)
         {
             string importStringWithCheckSumAndSquareParantheses = ImportTextBox.Text;
+            if (importStringWithCheckSumAndSquareParantheses.Length < 4)
+            {
+                MessageBox.Show("Import data is too short", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Remove bounding square parentheses
             string importStringWithCheckSum = StringEncryptionFunction.removeSquareParantheses(importStringWithCheckSumAndSquareParantheses);
             // Check the data has not been corrupted
@@ -43,27 +48,41 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             }
             // Decrypt the data
             string importString = StringEncryptionFunction.decrypt(importStringWithCheckSum.Substring(1, importStringWithCheckSum.Length - 2));
-            // MessageBox.Show(importString);
             ImportTextBox.Text = "";
-            importData(importString);            
-            
+
+            // Try and create new project
+            projectName = ImportProjectNameTextBox.Text;
+            ImportProjectNameTextBox.Text = "";
+            if (!DatabaseFunctions.createProject(projectName, username)) return;
+
+            // Import the data
+            if (!importData(projectName, importString))
+            {
+                DatabaseFunctions.deleteProject(projectName); // Get rid of everything done so far before the error
+                File.Delete(projectName + ".mdb");
+                MessageBox.Show("An error occurred in importing the data - it is corrupted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // If all successful, go to EditProjectForm
+            EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
+            editProjectForm.Show();
+            this.Close();
         }
 
-        private void importData(string importString)
+        private bool importData(string projectName, string importString)
         {
             // Split the text by new line or carriage return characters
             List<string> importList = importString.Split(';').ToList();
 
-            // Extract the project name, and create the new project - if this fails, exit the procedure
-            projectName = importList[0];
-            if (!DatabaseFunctions.createProject(projectName, username)) return;
+            
             try
             {
                 List<string> taskNames = new List<string>();
                 List<List<string>> predecessorNamesLists = new List<List<string>>();
 
-                int index = 2;
-                for (int i = 0; i < int.Parse(importList[1]); i++)
+                int index = 1;
+                for (int i = 0; i < int.Parse(importList[0]); i++)
                 {
                     // Retrieve task data and create task
                     string name = importList[index++];
@@ -91,15 +110,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                     }
                 }
 
-                EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
-                editProjectForm.Show();
-                this.Close();
+                // Return that the data was imported successfully
+                return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                DatabaseFunctions.deleteProject(projectName); // Get rid of everything done so far before the error
-                File.Delete(projectName + ".mdb");
-                MessageBox.Show("An error occurred in importing the data - it is corrupted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // If an error occurred, return that the data was not imported successfully
+                return false;
             }
         }
         private void ExitButton_Click(object sender, EventArgs e)

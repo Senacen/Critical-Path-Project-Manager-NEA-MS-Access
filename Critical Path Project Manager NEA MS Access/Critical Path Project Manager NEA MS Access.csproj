@@ -163,7 +163,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SQLServerReservedKeywords.txt" />
+    <Content Include="MSAccessReservedKeywords.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

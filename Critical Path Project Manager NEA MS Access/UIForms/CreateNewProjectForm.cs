@@ -22,22 +22,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private void CreateButton_Click(object sender, EventArgs e)
         {
             string projectName = ProjectNameTextBox.Text;
-            if (DatabaseFunctions.isValidDatabaseName(projectName))
+           
+            if (DatabaseFunctions.createProject(projectName, username))
             {
-                if (DatabaseFunctions.createProject(projectName, username))
-                {
-                    EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
-                    editProjectForm.Show();
-                    this.Close();
-                }
-                
+                EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
+                editProjectForm.Show();
+                this.Close();
             }
-            else
-            {
-                MessageBox.Show("The name must start with a letter, be made of only letters, numbers, and underscores, and be no longer than 128 characters. " +
-                                "It also may not be a SQL Server reserved keyword.", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void BackToLoginButton_Click(object sender, EventArgs e)

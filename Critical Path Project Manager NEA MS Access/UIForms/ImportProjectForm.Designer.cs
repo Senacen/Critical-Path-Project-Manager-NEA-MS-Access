@@ -33,6 +33,7 @@
             this.ImportTextBox = new System.Windows.Forms.TextBox();
             this.ImportButton = new System.Windows.Forms.Button();
             this.ImportInfoTextBox = new System.Windows.Forms.TextBox();
+            this.ImportProjectNameTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // BackToLoginButton
@@ -81,11 +82,19 @@
             this.ImportInfoTextBox.Multiline = true;
             this.ImportInfoTextBox.Name = "ImportInfoTextBox";
             this.ImportInfoTextBox.ReadOnly = true;
-            this.ImportInfoTextBox.Size = new System.Drawing.Size(161, 120);
+            this.ImportInfoTextBox.Size = new System.Drawing.Size(161, 142);
             this.ImportInfoTextBox.TabIndex = 4;
-            this.ImportInfoTextBox.Text = "\r\nPaste your encrypted export project data into the text box on the right \r\n\r\nCli" +
-    "ck Import to create a new project with the imported data\r\n";
+            this.ImportInfoTextBox.Text = "\r\nPaste your encrypted export project data into the text box on the right \r\n\r\nEnt" +
+    "er a name for the new project\r\n\r\nClick Import to create a new project with the i" +
+    "mported data\r\n";
             this.ImportInfoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // ImportProjectNameTextBox
+            // 
+            this.ImportProjectNameTextBox.Location = new System.Drawing.Point(59, 310);
+            this.ImportProjectNameTextBox.Name = "ImportProjectNameTextBox";
+            this.ImportProjectNameTextBox.Size = new System.Drawing.Size(161, 20);
+            this.ImportProjectNameTextBox.TabIndex = 5;
             // 
             // ImportProjectForm
             // 
@@ -93,6 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.ImportProjectNameTextBox);
             this.Controls.Add(this.ImportInfoTextBox);
             this.Controls.Add(this.ImportButton);
             this.Controls.Add(this.ImportTextBox);
@@ -113,5 +123,6 @@
         private System.Windows.Forms.TextBox ImportTextBox;
         private System.Windows.Forms.Button ImportButton;
         private System.Windows.Forms.TextBox ImportInfoTextBox;
+        private System.Windows.Forms.TextBox ImportProjectNameTextBox;
     }
 }
