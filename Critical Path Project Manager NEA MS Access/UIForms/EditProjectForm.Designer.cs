@@ -85,7 +85,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.TasksDataGrid.Name = "TasksDataGrid";
             this.TasksDataGrid.ReadOnly = true;
             this.TasksDataGrid.RowTemplate.Height = 25;
-            this.TasksDataGrid.Size = new System.Drawing.Size(594, 633);
+            this.TasksDataGrid.Size = new System.Drawing.Size(645, 633);
             this.TasksDataGrid.TabIndex = 1;
             // 
             // AddTaskButton
@@ -330,7 +330,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // CPAButton
             // 
-            this.CPAButton.Location = new System.Drawing.Point(901, 721);
+            this.CPAButton.Location = new System.Drawing.Point(817, 721);
             this.CPAButton.Name = "CPAButton";
             this.CPAButton.Size = new System.Drawing.Size(159, 28);
             this.CPAButton.TabIndex = 15;
@@ -350,7 +350,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ExportProjectButton
             // 
-            this.ExportProjectButton.Location = new System.Drawing.Point(719, 721);
+            this.ExportProjectButton.Location = new System.Drawing.Point(585, 721);
             this.ExportProjectButton.Name = "ExportProjectButton";
             this.ExportProjectButton.Size = new System.Drawing.Size(96, 28);
             this.ExportProjectButton.TabIndex = 17;
