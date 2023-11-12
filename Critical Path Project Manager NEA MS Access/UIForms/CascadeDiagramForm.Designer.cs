@@ -53,7 +53,7 @@
             this.ChildCascadeDiagramPanel.BackColor = System.Drawing.SystemColors.Control;
             this.ChildCascadeDiagramPanel.Location = new System.Drawing.Point(0, 0);
             this.ChildCascadeDiagramPanel.Name = "ChildCascadeDiagramPanel";
-            this.ChildCascadeDiagramPanel.Size = new System.Drawing.Size(2076, 2034);
+            this.ChildCascadeDiagramPanel.Size = new System.Drawing.Size(1186, 564);
             this.ChildCascadeDiagramPanel.TabIndex = 0;
             this.ChildCascadeDiagramPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ChildCascadeDiagramPanel_Paint);
             // 
@@ -97,7 +97,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoScrollMinSize = new System.Drawing.Size(2000, 2000);
-            this.ClientSize = new System.Drawing.Size(1813, 620);
+            this.ClientSize = new System.Drawing.Size(1810, 620);
             this.Controls.Add(this.KeyGroupBox);
             this.Controls.Add(this.ParentPanel);
             this.Name = "CascadeDiagramForm";

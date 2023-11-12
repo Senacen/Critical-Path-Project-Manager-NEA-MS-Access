@@ -48,9 +48,9 @@
   <ItemGroup>
     <Compile Include="Functions\MergeSortTasks.cs" />
     <Compile Include="Functions\StringEncryptionFunction.cs" />
-    <Compile Include="Objects\LinkedListQueue.cs" />
-    <Compile Include="Objects\LinkedListNode.cs" />
-    <Compile Include="Objects\LinkedListStack.cs" />
+    <Compile Include="DataStructures\LinkedListQueue.cs" />
+    <Compile Include="DataStructures\LinkedListNode.cs" />
+    <Compile Include="DataStructures\LinkedListStack.cs" />
     <Compile Include="UIForms\CascadeDiagramForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,8 +103,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Objects\TaskGraph.cs" />
-    <Compile Include="Objects\TaskNode.cs" />
+    <Compile Include="DataStructures\TaskGraph.cs" />
+    <Compile Include="DataStructures\TaskNode.cs" />
     <EmbeddedResource Include="UIForms\CascadeDiagramForm.resx">
       <DependentUpon>CascadeDiagramForm.cs</DependentUpon>
     </EmbeddedResource>
