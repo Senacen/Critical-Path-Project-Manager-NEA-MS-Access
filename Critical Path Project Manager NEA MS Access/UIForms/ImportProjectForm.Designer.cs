@@ -78,11 +78,12 @@
             // 
             // ImportInfoTextBox
             // 
-            this.ImportInfoTextBox.Location = new System.Drawing.Point(59, 139);
+            this.ImportInfoTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportInfoTextBox.Location = new System.Drawing.Point(59, 117);
             this.ImportInfoTextBox.Multiline = true;
             this.ImportInfoTextBox.Name = "ImportInfoTextBox";
             this.ImportInfoTextBox.ReadOnly = true;
-            this.ImportInfoTextBox.Size = new System.Drawing.Size(161, 142);
+            this.ImportInfoTextBox.Size = new System.Drawing.Size(161, 164);
             this.ImportInfoTextBox.TabIndex = 4;
             this.ImportInfoTextBox.Text = "\r\nPaste your encrypted export project data into the text box on the right \r\n\r\nEnt" +
     "er a name for the new project\r\n\r\nClick Import to create a new project with the i" +

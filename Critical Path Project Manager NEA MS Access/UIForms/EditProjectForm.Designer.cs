@@ -317,6 +317,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // DependenciesInfoTextBox
             // 
+            this.DependenciesInfoTextBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DependenciesInfoTextBox.Location = new System.Drawing.Point(271, 19);
             this.DependenciesInfoTextBox.Multiline = true;
             this.DependenciesInfoTextBox.Name = "DependenciesInfoTextBox";
