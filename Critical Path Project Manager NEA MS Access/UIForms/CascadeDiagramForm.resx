@@ -117,4 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="KeyTextBox.Text" xml:space="preserve">
+    <value>
+
+
+Critical Tasks are tasks that cannot be delayed without delaying the end of the entire project
+
+
+
+
+
+Non Critical Tasks are tasks that can be delayed without delaying the entire project, and so have floats attached to them
+
+
+
+Independent Float is how much the task can be delayed by without forcing any other task to start later than its Earliest Start Time
+
+ 
+
+
+Interfering Float is how much more the task can be delayed by without delaying the entire project, but that does force another task to start later than its Earliest Start Time
+</value>
+  </data>
 </root>

@@ -42,6 +42,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             interferingFloatColour = Brushes.Gray,
             fontColour = Brushes.Black;
 
+       
+
         internal CascadeDiagramForm(List<string> sortedTaskNames, Dictionary<string, TaskNode> tasks)
         {
             InitializeComponent();
@@ -63,16 +65,16 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         private void drawKey(Graphics g)
         {
             // Critical Task Key
-            drawKeyRectangle(g, 20, 20, 150, "Critical Task", criticalTasksColour, taskPen);
+            drawKeyRectangle(g, 20, 50, 150, "Critical Task", criticalTasksColour, taskPen);
 
             // Non Critical Task Key
-            drawKeyRectangle(g, 20, 100, 150, "Non Critical Task", nonCriticalTasksColour, taskPen);
+            drawKeyRectangle(g, 20, 150, 150, "Non Critical Task", nonCriticalTasksColour, taskPen);
 
             // Independent Float Key
-            drawKeyRectangle(g, 20, 180, 150, "Independent Float", independentFloatColour, floatPen);
+            drawKeyRectangle(g, 20, 250, 150, "Independent Float", independentFloatColour, floatPen);
 
             // Interfering Float Key
-            drawKeyRectangle(g, 20, 260, 150, "Interfering Float", interferingFloatColour, floatPen);
+            drawKeyRectangle(g, 20, 350, 150, "Interfering Float", interferingFloatColour, floatPen);
         }
 
         // To add scrolling of graphics, created parent panel and larger child panel. This allows parent panel to scroll
@@ -223,6 +225,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         private void KeyPanel_Paint(object sender, PaintEventArgs e)
         {
             drawKey(e.Graphics);
+        }
+
+        // Prevent the key text box from getting focussed upon load
+        private void KeyTextBox_Enter(object sender, EventArgs e)
+        {
+            ParentPanel.Focus();
         }
     }
 }
