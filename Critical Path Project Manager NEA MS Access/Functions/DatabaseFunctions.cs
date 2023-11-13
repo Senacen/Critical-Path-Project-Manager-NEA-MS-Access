@@ -266,13 +266,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             {
                 // Delete dependencies first
 
-                // Deleting dependencies where the to be deleted task is the predecessor
-                string deletePredecessorSQL = $"DELETE FROM DependenciesTbl WHERE PredecessorName = '{name}'";
+                // Deleting dependencies where the to be deleted task is the predecessor or successor
+                string deletePredecessorSQL = $"DELETE FROM DependenciesTbl WHERE PredecessorName = '{name}' OR SuccessorName = '{name}'";
                 executeNonQuery(projectName, deletePredecessorSQL);
-
-                // Deleting dependencies where the to be deleted task is the successor
-                string deleteSuccessorSQL = $"DELETE FROM DependenciesTbl WHERE SuccessorName = '{name}'";
-                executeNonQuery(projectName, deleteSuccessorSQL);
 
                 // Delete task
                 string deleteTaskSQL = $"DELETE FROM TasksTbl WHERE Name = '{name}'";
