@@ -21,6 +21,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.projectName = projectName;
             this.username = username;
             this.Text += " - " + projectName + " - " + username;
+            TasksDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             updateTasksDataGrid();
             TasksDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             TasksDataGrid.SelectionChanged += tasksDataGrid_SelectionChanged;
@@ -28,7 +29,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private void updateTasksDataGrid()
         {
             TasksDataGrid.DataSource = DatabaseFunctions.tasksData(projectName);
-            TasksDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            
         }
 
        

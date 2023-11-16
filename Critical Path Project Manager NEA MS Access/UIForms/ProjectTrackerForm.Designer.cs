@@ -32,10 +32,10 @@
             this.ExitButton = new System.Windows.Forms.Button();
             this.IncompleteDataGrid = new System.Windows.Forms.DataGridView();
             this.AvailableDataGrid = new System.Windows.Forms.DataGridView();
-            this.CompleteDataGrid = new System.Windows.Forms.DataGridView();
+            this.CompletedDataGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.IncompleteDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AvailableDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CompleteDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CompletedDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // BackToCPAFormButton
@@ -74,13 +74,13 @@
             this.AvailableDataGrid.Size = new System.Drawing.Size(371, 402);
             this.AvailableDataGrid.TabIndex = 3;
             // 
-            // CompleteDataGrid
+            // CompletedDataGrid
             // 
-            this.CompleteDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CompleteDataGrid.Location = new System.Drawing.Point(36, 149);
-            this.CompleteDataGrid.Name = "CompleteDataGrid";
-            this.CompleteDataGrid.Size = new System.Drawing.Size(352, 402);
-            this.CompleteDataGrid.TabIndex = 4;
+            this.CompletedDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CompletedDataGrid.Location = new System.Drawing.Point(36, 149);
+            this.CompletedDataGrid.Name = "CompletedDataGrid";
+            this.CompletedDataGrid.Size = new System.Drawing.Size(352, 402);
+            this.CompletedDataGrid.TabIndex = 4;
             // 
             // ProjectTrackerForm
             // 
@@ -88,7 +88,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 759);
             this.ControlBox = false;
-            this.Controls.Add(this.CompleteDataGrid);
+            this.Controls.Add(this.CompletedDataGrid);
             this.Controls.Add(this.AvailableDataGrid);
             this.Controls.Add(this.IncompleteDataGrid);
             this.Controls.Add(this.ExitButton);
@@ -98,7 +98,7 @@
             this.Text = "Project Tracker ";
             ((System.ComponentModel.ISupportInitialize)(this.IncompleteDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AvailableDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CompleteDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CompletedDataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -109,6 +109,6 @@
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.DataGridView IncompleteDataGrid;
         private System.Windows.Forms.DataGridView AvailableDataGrid;
-        private System.Windows.Forms.DataGridView CompleteDataGrid;
+        private System.Windows.Forms.DataGridView CompletedDataGrid;
     }
 }

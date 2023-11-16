@@ -15,6 +15,7 @@ using System.Data.OleDb;
 using System.IO;
 using ADOX;
 using Critical_Path_Project_Manager_NEA_MS_Access.Objects;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Critical_Path_Project_Manager_NEA_MS_Access
 {
@@ -166,7 +167,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     "CREATE TABLE TasksTbl (" +
                     "Name VARCHAR(100) PRIMARY KEY," +
                     "Duration INT," +
-                    "NumWorkers INT)";
+                    "NumWorkers INT," +
+                    "Completed BIT)";
                 executeNonQuery(projectName, createTableSQL);
                 // Create DependenciesTbl
                 createTableSQL =
@@ -236,8 +238,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
-                string addTaskSQL = "INSERT INTO TasksTbl (Name, Duration, NumWorkers)" +
-                                    $"Values ('{name}', {duration}, {numWorkers})";
+                string addTaskSQL = "INSERT INTO TasksTbl (Name, Duration, NumWorkers, Completed)" +
+                                    $"Values ('{name}', {duration}, {numWorkers}, 0)";
                 executeNonQuery(projectName, addTaskSQL);
             }
             catch (Exception ex)
@@ -404,7 +406,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     List<string> successorsNames = new List<string>();
                     tasks[name] = new TaskNode(name, duration, numWorkers, predecessorsNames, successorsNames);
                 }
-                // Populate predecessorsNames and successorsNames in one SQL call to reduce bottleneck;
+                // Populate predecessorsNames and successorsNames in one SQL call (O(n)) to reduce bottleneck caused by a select query for each task (O(n^2))
                 string dependenciesDataSQL = "SELECT * FROM DependenciesTbl";
                 DataTable dependenciesDataTable = executeQuery(projectName, dependenciesDataSQL);
                 foreach (DataRow row in dependenciesDataTable.Rows)
@@ -422,6 +424,38 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 return tasks;
             }
 
+        }
+
+        public static DataTable completedTasks(string projectName)
+        {
+            DataTable completedTasksDataTable = new DataTable();
+            try
+            {
+                string completedTasksSQL = "SELECT Name, Duration, NumWorkers FROM TasksTbl WHERE Completed = 1";
+                completedTasksDataTable = executeQuery(projectName, completedTasksSQL);
+                return completedTasksDataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return completedTasksDataTable;
+            }
+        }
+
+        public static DataTable incompleteTasks(string projectName)
+        {
+            DataTable incompleteTasksDataTable = new DataTable();
+            try
+            {
+                string completedTasksSQL = "SELECT Name, Duration, NumWorkers FROM TasksTbl WHERE Completed = 0";
+                incompleteTasksDataTable = executeQuery(projectName, completedTasksSQL);
+                return incompleteTasksDataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return incompleteTasksDataTable;
+            }
         }
     }
 }
