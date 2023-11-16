@@ -33,7 +33,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private void updateAllDataGrids()
         {
             updateCompletedDataGrid();
+            updateAvailableDataGrid();
             updateIncompleteDataGrid();
+            
         }
 
         private void updateCompletedDataGrid()
@@ -45,11 +47,34 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             IncompleteDataGrid.DataSource = DatabaseFunctions.incompleteTasks(projectName);
         }
+
+        private void updateAvailableDataGrid()
+        {
+            AvailableDataGrid.DataSource = DatabaseFunctions.incompleteTasks(projectName);
+        }
         private void BackToCPAFormButton_Click(object sender, EventArgs e)
         {
             CPAForm cpaForm = new CPAForm(projectName, username);
             cpaForm.Show();
             this.Close();
+        }
+
+        private void MarkCompletedButton_Click(object sender, EventArgs e)
+        {
+            if (AvailableDataGrid.SelectedRows.Count != 1) return;
+            DataGridViewRow selectedTask = AvailableDataGrid.SelectedRows[0];
+            string taskName = selectedTask.Cells["Name"].Value.ToString();
+            DatabaseFunctions.markTaskCompleted(projectName, taskName);
+            updateAllDataGrids();
+        }
+
+        private void MarkIncompleteButton_Click(object sender, EventArgs e)
+        {
+            if (CompletedDataGrid.SelectedRows.Count != 1) return;
+            DataGridViewRow selectedTask = CompletedDataGrid.SelectedRows[0];
+            string taskName = selectedTask.Cells["Name"].Value.ToString();
+            DatabaseFunctions.markTaskIncomplete(projectName, taskName);
+            updateAllDataGrids();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

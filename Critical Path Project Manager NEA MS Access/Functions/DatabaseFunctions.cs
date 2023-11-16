@@ -431,7 +431,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             DataTable completedTasksDataTable = new DataTable();
             try
             {
-                string completedTasksSQL = "SELECT Name, Duration, NumWorkers FROM TasksTbl WHERE Completed = 1";
+                string completedTasksSQL = "SELECT Name, Duration, NumWorkers FROM TasksTbl WHERE Completed = -1";
                 completedTasksDataTable = executeQuery(projectName, completedTasksSQL);
                 return completedTasksDataTable;
             }
@@ -455,6 +455,32 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return incompleteTasksDataTable;
+            }
+        }
+
+        public static void markTaskCompleted(string projectName, string taskName)
+        {
+            try
+            {
+                string markTaskCompletedSQL = $"UPDATE TasksTbl SET Completed = -1 WHERE Name = '{taskName}'";
+                executeNonQuery(projectName, markTaskCompletedSQL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public static void markTaskIncomplete(string projectName, string taskName)
+        {
+            try
+            {
+                string markTaskIncompleteSQL = $"UPDATE TasksTbl SET Completed = 0 WHERE Name = '{taskName}'";
+                executeNonQuery(projectName, markTaskIncompleteSQL);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
