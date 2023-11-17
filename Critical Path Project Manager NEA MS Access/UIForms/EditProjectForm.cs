@@ -198,10 +198,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     exportString += predecessorName + ';';
                 }
             }
-            exportString = StringEncryptionFunction.encrypt(exportString);
-            string exportStringWithCheckSum = StringEncryptionFunction.addCheckSum(exportString);
-            string exportStringWithCheckSumAndSquareParantheses = StringEncryptionFunction.addSquareParantheses(exportStringWithCheckSum);
-            Clipboard.SetText(exportStringWithCheckSumAndSquareParantheses);
+            string encryptedExportString = StringEncryptionFunction.encrypt(exportString);
+            string encryptedExportStringWithCheckSum = StringEncryptionFunction.addCheckSum(encryptedExportString);
+            string encryptedExportStringWithCheckSumAndSquareParantheses = StringEncryptionFunction.addSquareParantheses(encryptedExportStringWithCheckSum);
+            Clipboard.SetText(encryptedExportStringWithCheckSumAndSquareParantheses);
             MessageBox.Show("The exported data has been copied to your clipboard and encrypted", "Successful Export", MessageBoxButtons.OK);
         }
 

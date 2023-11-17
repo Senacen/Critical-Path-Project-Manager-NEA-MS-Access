@@ -141,7 +141,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 // Calculate position of each task rectangle and how long it will be
                 // Then draw it
                 int taskX = tasksLeftMargin + earliestStartTime * tasksLengthScaleFactor;
-                int taskY = 0;
+                int taskY;
                 // If critical, it will be in the top critical row
                 if (critical)
                 {
@@ -157,6 +157,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                 // Fill done first otherwise top and left of border gets covered
                 g.FillRectangle((critical ? criticalTasksColour : nonCriticalTasksColour), taskX, taskY, length, tasksWidth);
                 g.DrawRectangle(taskPen, taskX, taskY, length, tasksWidth);
+
 
                 // Calculate position of each float rectange and how long it will be 
                 // Then draw it

@@ -65,6 +65,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             tasksDataTable.Columns.Add("Total Float", typeof(int));
             tasksDataTable.Columns.Add("Ind. Float", typeof(int));
             tasksDataTable.Columns.Add("Int. Float", typeof(int));
+            tasksDataTable.Columns.Add("Completed", typeof(bool));
 
             // Display tasks sorted by Earliest Start Time as default
 
@@ -89,6 +90,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 row["Total Float"] = task.getTotalFloat();
                 row["Ind. Float"] = task.getIndependentFloat();
                 row["Int. Float"] = task.getInterferingFloat();
+                row["Completed"] = task.getCompleted();
 
                 tasksDataTable.Rows.Add(row);
             }
