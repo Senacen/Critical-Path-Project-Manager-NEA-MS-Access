@@ -50,7 +50,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void updateAvailableDataGrid()
         {
-            AvailableDataGrid.DataSource = DatabaseFunctions.incompleteTasks(projectName);
+            AvailableDataGrid.DataSource = DatabaseFunctions.availableTasks(projectName);
         }
         private void BackToCPAFormButton_Click(object sender, EventArgs e)
         {

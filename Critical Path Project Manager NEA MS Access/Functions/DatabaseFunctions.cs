@@ -447,14 +447,58 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             DataTable incompleteTasksDataTable = new DataTable();
             try
             {
-                string completedTasksSQL = "SELECT Name, Duration, NumWorkers FROM TasksTbl WHERE Completed = 0";
-                incompleteTasksDataTable = executeQuery(projectName, completedTasksSQL);
+                string incompleteTasksSQL =
+                    "SELECT Name, Duration, NumWorkers " + // Get all task data from tasks
+                    "FROM TasksTbl t1 " +
+                    "WHERE t1.Completed = 0 " + // That are not completed
+                    "AND EXISTS ( " + // If there is a dependency
+                        "SELECT 1 " + 
+                        "FROM DependenciesTbl d " +
+                        "WHERE d.SuccessorName = t1.Name " + // Where the current task is the successor
+                        "AND EXISTS ( " + // And there is another task
+                            "SELECT 1 " +
+                            "FROM TasksTbl t2 " +
+                            "WHERE t2.Name = d.PredecessorName " + // That is the predecessor
+                            "AND t2.Completed = 0" + // That has not been completed
+                        ")" +
+                    ")";
+                incompleteTasksDataTable = executeQuery(projectName, incompleteTasksSQL);
                 return incompleteTasksDataTable;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return incompleteTasksDataTable;
+            }
+        }
+
+        public static DataTable availableTasks(string projectName)
+        {
+            DataTable availableTasksDataTable = new DataTable();
+            try
+            {
+                string availableTasksSQL =
+                    "SELECT Name, Duration, NumWorkers " +  // Get all task data from tasks
+                    "FROM TasksTbl t1 " +
+                    "WHERE t1.Completed = 0 " +  // That are not completed
+                    "AND NOT EXISTS ( " +  // If there are no dependencies
+                        "SELECT 1 " +
+                        "FROM DependenciesTbl d " +
+                        "WHERE d.SuccessorName = t1.Name " +  // Where the current task is the successor
+                        "AND EXISTS ( " +  // And there is another task
+                            "SELECT 1 " +
+                            "FROM TasksTbl t2 " +
+                            "WHERE t2.Name = d.PredecessorName " +  // That is the predecessor
+                            "AND t2.Completed = 0" +  // That has not been completed
+                        ")" +
+                    ")";
+                availableTasksDataTable = executeQuery(projectName, availableTasksSQL);
+                return availableTasksDataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return availableTasksDataTable;
             }
         }
 
