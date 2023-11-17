@@ -30,8 +30,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private void initStartEnd()
         {
             // Create start TaskNode and end TaskNode
-            tasks["Start"] = new TaskNode("Start", 0, 0, new List<string>(), new List<string>());
-            tasks["End"] = new TaskNode("End", 0, 0, new List<string>(), new List<string>());
+            tasks["Start"] = new TaskNode("Start", 0, 0, false, new List<string>(), new List<string>());
+            tasks["End"] = new TaskNode("End", 0, 0, false, new List<string>(), new List<string>());
 
             // Connect them
             foreach (string name in tasks.Keys)

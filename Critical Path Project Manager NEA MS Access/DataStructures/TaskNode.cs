@@ -15,6 +15,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         public List<string> predecessorNames;
         public List<string> successorNames;
 
+        // Used in the project tracker and when exporting data
+        private bool completed;
+
         // Calculated through forward and backward BFS passes
         private int earliestStartTime;
         private int latestStartTime;
@@ -27,13 +30,14 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         // Used in the forward and backward BFS passes to mark which TaskNodes are already processed
         private bool processed;
 
-        public TaskNode(string name, int duration, int numWorkers, List<string> predecessorNames, List<string> successorNames)
+        public TaskNode(string name, int duration, int numWorkers, bool completed, List<string> predecessorNames, List<string> successorNames)
         {
             this.name = name;
             this.duration = duration;
             this.numWorkers = numWorkers;
             this.predecessorNames = predecessorNames;
             this.successorNames = successorNames;
+            this.completed = completed;
         }
 
         // Getters for attributes retrieved from the database
@@ -56,6 +60,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         public List<string> getSuccessorNames()
         {
             return successorNames;
+        }
+        public bool getCompleted()
+        {
+            return completed;
         }
 
         // Getters and setters for calculated attributes

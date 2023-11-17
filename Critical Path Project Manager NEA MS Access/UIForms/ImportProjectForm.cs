@@ -80,8 +80,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
                     string name = importList[index++];
                     int duration = int.Parse(importList[index++]);
                     int numWorkers = int.Parse(importList[index++]);
+                    bool completed = bool.Parse(importList[index++]);
                     taskNames.Add(name);
                     DatabaseFunctions.addTask(projectName, name, duration, numWorkers);
+                    if (completed) DatabaseFunctions.markTaskCompleted(projectName, name);
 
                     // Retrieve task successors
                     int numPredecessors = int.Parse(importList[index++]);

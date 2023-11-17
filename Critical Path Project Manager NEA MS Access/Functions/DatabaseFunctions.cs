@@ -402,9 +402,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     string name = row["Name"].ToString();
                     int duration = Convert.ToInt32(row["Duration"]);
                     int numWorkers = Convert.ToInt32(row["NumWorkers"]);
+                    bool completed = (bool)row["Completed"];
                     List<string> predecessorsNames = new List<string>();
                     List<string> successorsNames = new List<string>();
-                    tasks[name] = new TaskNode(name, duration, numWorkers, predecessorsNames, successorsNames);
+                    tasks[name] = new TaskNode(name, duration, numWorkers, completed, predecessorsNames, successorsNames);
                 }
                 // Populate predecessorsNames and successorsNames in one SQL call (O(n)) to reduce bottleneck caused by a select query for each task (O(n^2))
                 string dependenciesDataSQL = "SELECT * FROM DependenciesTbl";
