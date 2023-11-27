@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Functions\MergeSortTasks.cs" />
-    <Compile Include="Functions\StringEncryptionFunction.cs" />
+    <Compile Include="Functions\ExportProjectFunctions.cs" />
     <Compile Include="DataStructures\LinkedListQueue.cs" />
     <Compile Include="DataStructures\LinkedListNode.cs" />
     <Compile Include="DataStructures\LinkedListStack.cs" />

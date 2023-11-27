@@ -24,22 +24,22 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
-            string encryptedImportStringWithCheckSumAndSquareParantheses = ImportTextBox.Text;
-            if (encryptedImportStringWithCheckSumAndSquareParantheses.Length < 4)
+            string encryptedImportStringWithCheckSumAndSquareParentheses = ImportTextBox.Text;
+            if (encryptedImportStringWithCheckSumAndSquareParentheses.Length < 4)
             {
                 MessageBox.Show("Import data is too short", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             // Remove bounding square parentheses
-            string encryptedImportStringWithCheckSum = StringEncryptionFunction.removeSquareParantheses(encryptedImportStringWithCheckSumAndSquareParantheses);
+            string encryptedImportStringWithCheckSum = ExportProjectFunctions.removeSquareParantheses(encryptedImportStringWithCheckSumAndSquareParentheses);
             // Check the data has not been corrupted
-            if (!StringEncryptionFunction.checkCheckSum(encryptedImportStringWithCheckSum))
+            if (!ExportProjectFunctions.checkCheckSum(encryptedImportStringWithCheckSum))
             {
                 MessageBox.Show("Data imported failed check sum - it is corrupted", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             // Decrypt the data
-            string importString = StringEncryptionFunction.decrypt(encryptedImportStringWithCheckSum.Substring(1, encryptedImportStringWithCheckSum.Length - 2));
+            string importString = ExportProjectFunctions.decrypt(encryptedImportStringWithCheckSum.Substring(1, encryptedImportStringWithCheckSum.Length - 2));
             ImportTextBox.Text = "";
 
             // Try and create new project

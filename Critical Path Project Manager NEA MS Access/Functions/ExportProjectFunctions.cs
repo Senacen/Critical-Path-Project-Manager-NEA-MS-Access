@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
 {
-    static internal class StringEncryptionFunction
+    static internal class ExportProjectFunctions
     {
         public static string encrypt(string plaintext)
         {
