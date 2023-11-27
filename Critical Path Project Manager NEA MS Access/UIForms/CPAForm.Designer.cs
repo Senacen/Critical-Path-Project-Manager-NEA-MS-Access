@@ -49,7 +49,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(1227, 10);
+            this.ExitButton.Location = new System.Drawing.Point(1513, 12);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(64, 28);
             this.ExitButton.TabIndex = 0;
@@ -78,7 +78,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPADataGrid.Name = "CPADataGrid";
             this.CPADataGrid.ReadOnly = true;
             this.CPADataGrid.RowTemplate.Height = 25;
-            this.CPADataGrid.Size = new System.Drawing.Size(920, 712);
+            this.CPADataGrid.Size = new System.Drawing.Size(1178, 712);
             this.CPADataGrid.TabIndex = 2;
             // 
             // CPAGroupBox
@@ -153,7 +153,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // ProjectTrackerButton
             // 
-            this.ProjectTrackerButton.Location = new System.Drawing.Point(847, 796);
+            this.ProjectTrackerButton.Location = new System.Drawing.Point(1008, 796);
             this.ProjectTrackerButton.Name = "ProjectTrackerButton";
             this.ProjectTrackerButton.Size = new System.Drawing.Size(115, 26);
             this.ProjectTrackerButton.TabIndex = 4;
@@ -163,7 +163,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // DrawCascadeDiagramButton
             // 
-            this.DrawCascadeDiagramButton.Location = new System.Drawing.Point(615, 796);
+            this.DrawCascadeDiagramButton.Location = new System.Drawing.Point(842, 796);
             this.DrawCascadeDiagramButton.Name = "DrawCascadeDiagramButton";
             this.DrawCascadeDiagramButton.Size = new System.Drawing.Size(133, 26);
             this.DrawCascadeDiagramButton.TabIndex = 5;
@@ -175,7 +175,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1303, 865);
+            this.ClientSize = new System.Drawing.Size(1589, 865);
             this.ControlBox = false;
             this.Controls.Add(this.DrawCascadeDiagramButton);
             this.Controls.Add(this.ProjectTrackerButton);

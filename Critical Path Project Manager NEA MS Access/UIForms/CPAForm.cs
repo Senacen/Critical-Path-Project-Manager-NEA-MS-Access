@@ -58,13 +58,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             tasksDataTable.Columns.Add("Name", typeof(string));
             tasksDataTable.Columns.Add("Duration", typeof(int));
             tasksDataTable.Columns.Add("NumWorkers", typeof(int));
-            tasksDataTable.Columns.Add("ES", typeof(int));
-            tasksDataTable.Columns.Add("EF", typeof(int));
-            tasksDataTable.Columns.Add("LS", typeof(int));
-            tasksDataTable.Columns.Add("LF", typeof(int));
+            tasksDataTable.Columns.Add("Early Start", typeof(int));
+            tasksDataTable.Columns.Add("Early Finish", typeof(int));
+            tasksDataTable.Columns.Add("Latest Start", typeof(int));
+            tasksDataTable.Columns.Add("Latest Finish", typeof(int));
             tasksDataTable.Columns.Add("Total Float", typeof(int));
-            tasksDataTable.Columns.Add("Ind. Float", typeof(int));
-            tasksDataTable.Columns.Add("Int. Float", typeof(int));
+            tasksDataTable.Columns.Add("Independent Float", typeof(int));
+            tasksDataTable.Columns.Add("Interfering Float", typeof(int));
             tasksDataTable.Columns.Add("Completed", typeof(bool));
 
             // Display tasks sorted by Earliest Start Time as default
@@ -83,13 +83,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 row["Name"] = task.getName();
                 row["Duration"] = task.getDuration();
                 row["NumWorkers"] = task.getNumWorkers();
-                row["ES"] = task.getEarliestStartTime();
-                row["EF"] = task.getEarliestFinishTime();
-                row["LS"] = task.getLatestStartTime();
-                row["LF"] = task.getLatestFinishTime();
+                row["Early Start"] = task.getEarliestStartTime();
+                row["Early Finish"] = task.getEarliestFinishTime();
+                row["Latest Start"] = task.getLatestStartTime();
+                row["Latest Finish"] = task.getLatestFinishTime();
                 row["Total Float"] = task.getTotalFloat();
-                row["Ind. Float"] = task.getIndependentFloat();
-                row["Int. Float"] = task.getInterferingFloat();
+                row["Independent Float"] = task.getIndependentFloat();
+                row["Interfering Float"] = task.getInterferingFloat();
                 row["Completed"] = task.getCompleted();
 
                 tasksDataTable.Rows.Add(row);
