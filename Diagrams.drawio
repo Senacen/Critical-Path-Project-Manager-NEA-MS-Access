@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-01T09:55:34.881Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="XqTCPPqGK3g5boJphfq6" version="22.1.5" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-01T10:08:17.907Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="GxwZZHNHF4IC-wRaGVyd" version="22.1.5" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3258,10 +3258,37 @@
     </mxGraphModel>
   </diagram>
   <diagram id="EhF1sAPiy0qMlAWQQoDI" name="AbstractHeirarchyChart">
-    <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" math="0" shadow="0">
+    <mxGraphModel dx="474" dy="757" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="KnMRBHesm-a9covbMU16-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-1" target="KnMRBHesm-a9covbMU16-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-1" target="KnMRBHesm-a9covbMU16-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-1" target="KnMRBHesm-a9covbMU16-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-1" value="Click Import" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="679" y="365" width="83" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-2" value="Check checksum is valid and decrypt import string" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="528" y="439" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-4" value="Create project in UserProjectsTbl and project MS Access file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="655" y="439" width="131" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-6" target="KnMRBHesm-a9covbMU16-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-6" value="Import the project data into the newly created project" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="793" y="439" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-8" value="If this fails for any reason, delete project&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="793" y="524" width="120" height="57" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
