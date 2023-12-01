@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-01T10:39:57.886Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="hL6ltgQAdlnPHjIlfC_I" version="22.1.5" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-01T10:48:39.837Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="zshx7EhAFcSUB6pRDpy2" version="22.1.5" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3415,14 +3415,57 @@
         <mxCell id="KnMRBHesm-a9covbMU16-47" value="Copy it to the user clipboard" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1664.5" y="922" width="120" height="45" as="geometry" />
         </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-49" target="KnMRBHesm-a9covbMU16-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="KnMRBHesm-a9covbMU16-49" value="Perform Critical Path Analysis" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="2019" y="591" width="120" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="KnMRBHesm-a9covbMU16-50" value="Retrieve all the task data from the project database and create a TaskGraph object" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1919" y="685" width="154" height="69" as="geometry" />
+        <mxCell id="KnMRBHesm-a9covbMU16-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-50" target="KnMRBHesm-a9covbMU16-52">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="KnMRBHesm-a9covbMU16-52" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1938" y="781.75" width="120" height="60" as="geometry" />
+        <mxCell id="KnMRBHesm-a9covbMU16-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-50" target="KnMRBHesm-a9covbMU16-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-50" target="KnMRBHesm-a9covbMU16-54">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2079" y="868" />
+              <mxPoint x="2021" y="868" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-50" target="KnMRBHesm-a9covbMU16-65">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2079" y="868" />
+              <mxPoint x="2148" y="868" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-50" value="Retrieve all the task data from the project database and create a TaskGraph object" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2002" y="666" width="154" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-52" value="Run a forwards pass on the TaskGraph and calculate Earliest Start and Earliest Finish time for each task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1869" y="780.5" width="196" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-54" target="KnMRBHesm-a9covbMU16-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-54" value="Calculate floats for each task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1951" y="894" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-56" value="Run a backwards pass on the TaskGraph and calculate Latest Start and Latest Finish time for each task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2094" y="780.5" width="206" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-63" value="Find the critical tasks" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1951" y="977" width="120" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-65" value="Mergesort critical tasks to calculate the critical path" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2088" y="894" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-67" value="Display the results" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2304" y="589" width="120" height="32" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
