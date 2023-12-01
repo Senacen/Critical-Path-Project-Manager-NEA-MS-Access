@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-01T10:33:23.739Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="BbqGXhQgzP_nsK20B7QP" version="22.1.5" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-01T10:39:57.886Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="hL6ltgQAdlnPHjIlfC_I" version="22.1.5" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3414,6 +3414,15 @@
         </mxCell>
         <mxCell id="KnMRBHesm-a9covbMU16-47" value="Copy it to the user clipboard" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1664.5" y="922" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-49" value="Perform Critical Path Analysis" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2019" y="591" width="120" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-50" value="Retrieve all the task data from the project database and create a TaskGraph object" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1919" y="685" width="154" height="69" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-52" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1938" y="781.75" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
