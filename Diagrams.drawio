@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-01T10:08:17.907Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="GxwZZHNHF4IC-wRaGVyd" version="22.1.5" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-01T10:20:37.463Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="bOr4uRRPf-q-GCiLZiL-" version="22.1.5" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3288,6 +3288,36 @@
         </mxCell>
         <mxCell id="KnMRBHesm-a9covbMU16-8" value="If this fails for any reason, delete project&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="793" y="524" width="120" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-10" target="KnMRBHesm-a9covbMU16-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-10" value="Click Add Task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1277" y="528" width="94" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-11" value="Add task to the project database file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1264" y="589" width="120" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-12" value="Update the displayed tasks and dependencies" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1343" y="693" width="146" height="46" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="KnMRBHesm-a9covbMU16-15" target="KnMRBHesm-a9covbMU16-16" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-15" value="Click Edit Task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1415" y="528" width="94" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-16" value="Edit the task in the project database file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1402" y="589" width="120" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="KnMRBHesm-a9covbMU16-18" target="KnMRBHesm-a9covbMU16-19" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-18" value="Click Delete Task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1552" y="528" width="94" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-19" value="Delete the task from the project database file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1539" y="589" width="120" height="47" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
