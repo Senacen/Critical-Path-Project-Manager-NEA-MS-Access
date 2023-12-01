@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-01T10:20:37.463Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="bOr4uRRPf-q-GCiLZiL-" version="22.1.5" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-01T10:33:23.739Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="BbqGXhQgzP_nsK20B7QP" version="22.1.5" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3295,11 +3295,14 @@
         <mxCell id="KnMRBHesm-a9covbMU16-10" value="Click Add Task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1277" y="528" width="94" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="KnMRBHesm-a9covbMU16-11" value="Add task to the project database file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="KnMRBHesm-a9covbMU16-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-11" target="KnMRBHesm-a9covbMU16-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-11" value="Add task to TasksTbl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1264" y="589" width="120" height="47" as="geometry" />
         </mxCell>
         <mxCell id="KnMRBHesm-a9covbMU16-12" value="Update the displayed tasks and dependencies" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1343" y="693" width="146" height="46" as="geometry" />
+          <mxGeometry x="1319" y="692" width="146" height="46" as="geometry" />
         </mxCell>
         <mxCell id="KnMRBHesm-a9covbMU16-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="KnMRBHesm-a9covbMU16-15" target="KnMRBHesm-a9covbMU16-16" parent="1">
           <mxGeometry relative="1" as="geometry" />
@@ -3307,17 +3310,110 @@
         <mxCell id="KnMRBHesm-a9covbMU16-15" value="Click Edit Task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1415" y="528" width="94" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="KnMRBHesm-a9covbMU16-16" value="Edit the task in the project database file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1402" y="589" width="120" height="47" as="geometry" />
-        </mxCell>
-        <mxCell id="KnMRBHesm-a9covbMU16-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="KnMRBHesm-a9covbMU16-18" target="KnMRBHesm-a9covbMU16-19" parent="1">
+        <mxCell id="KnMRBHesm-a9covbMU16-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-16" target="KnMRBHesm-a9covbMU16-12">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="KnMRBHesm-a9covbMU16-18" value="Click Delete Task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1552" y="528" width="94" height="32" as="geometry" />
+        <mxCell id="KnMRBHesm-a9covbMU16-16" value="Edit the task in TasksTbl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1402" y="589" width="120" height="47" as="geometry" />
         </mxCell>
-        <mxCell id="KnMRBHesm-a9covbMU16-19" value="Delete the task from the project database file" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1539" y="589" width="120" height="47" as="geometry" />
+        <mxCell id="KnMRBHesm-a9covbMU16-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-18" target="KnMRBHesm-a9covbMU16-24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1658" y="572" />
+              <mxPoint x="1596" y="572" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-18" target="KnMRBHesm-a9covbMU16-19">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1658" y="572" />
+              <mxPoint x="1722" y="572" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-18" value="Click Delete Task" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1606" y="528" width="103" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-19" target="KnMRBHesm-a9covbMU16-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-19" value="Delete the task from the TasksTbl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1662" y="589" width="120" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-24" value="Delete all dependencies that contain that task from DependenciesTbl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1532" y="589" width="120" height="73" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-32" target="KnMRBHesm-a9covbMU16-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-32" target="KnMRBHesm-a9covbMU16-34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1392" y="817" />
+              <mxPoint x="1317" y="817" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-32" target="KnMRBHesm-a9covbMU16-35">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1392" y="817" />
+              <mxPoint x="1458" y="817" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-32" value="Change dependency" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1331" y="765" width="122" height="39" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-34" value="Delete dependency from DependenciesTbl&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1251" y="831" width="132" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-35" target="KnMRBHesm-a9covbMU16-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-35" value="Add dependency to DependenciesTbl" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1398" y="831" width="120" height="49" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-38" value="Check that the new dependency does not create a cycle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1388" y="907" width="139" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-40" target="KnMRBHesm-a9covbMU16-41">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1656.5" y="783" />
+              <mxPoint x="1590.5" y="783" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-40" target="KnMRBHesm-a9covbMU16-43">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1656.5" y="783" />
+              <mxPoint x="1724.5" y="783" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-40" value="Click Export Project" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1596" y="733" width="120" height="37" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-41" value="Get all project data from the project database" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1530.5" y="793.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-43" target="KnMRBHesm-a9covbMU16-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-43" value="Serialise the data" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1664.5" y="793.5" width="120" height="36.5" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="KnMRBHesm-a9covbMU16-45" target="KnMRBHesm-a9covbMU16-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-45" value="Encrypt the data and add a checksum" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1664.5" y="853.5" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="KnMRBHesm-a9covbMU16-47" value="Copy it to the user clipboard" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1664.5" y="922" width="120" height="45" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
