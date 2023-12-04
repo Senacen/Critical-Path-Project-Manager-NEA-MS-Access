@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-04T14:48:26.421Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="xQ2z2SFB09qBJVZjENrh" version="22.1.5" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-04T14:49:26.326Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="79H_qq4TsMsNCHdnCpgP" version="22.1.5" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3485,10 +3485,13 @@
           <mxGeometry x="1500" y="1199.5" width="98" height="37" as="geometry" />
         </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-6" value="Truncate string to fit the rectangle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1491" y="1333.5" width="120" height="46.5" as="geometry" />
+          <mxGeometry x="1395" y="1434" width="120" height="46.5" as="geometry" />
         </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-7" value="Center the string in the rectangle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1664.5" y="1455" width="120" height="60" as="geometry" />
+          <mxGeometry x="1395" y="1499" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F_XcOUIO3qTdTEr_oWEu-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F_XcOUIO3qTdTEr_oWEu-8" target="F_XcOUIO3qTdTEr_oWEu-6">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-8" value="Write the label of the task rectangle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1301" y="1355" width="120" height="46" as="geometry" />
@@ -3502,11 +3505,14 @@
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-10" value="Draw the task rectangles" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1311" y="1291" width="100" height="42.5" as="geometry" />
         </mxCell>
+        <mxCell id="F_XcOUIO3qTdTEr_oWEu-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="F_XcOUIO3qTdTEr_oWEu-11" target="F_XcOUIO3qTdTEr_oWEu-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-11" value="Draw the key rectangles" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="1504" y="1261" width="90" height="44" as="geometry" />
         </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-12" value="Write the label of the key rectangle" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="1449" y="1607" width="120" height="60" as="geometry" />
+          <mxGeometry x="1489" y="1328" width="120" height="45" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
