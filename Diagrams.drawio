@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-04T14:12:04.311Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="ZLdxgz0wUUDbzTwB2yHJ" version="22.1.5" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-04T14:13:35.211Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="0C8PCIiyEWaXGXnuw9E7" version="22.1.5" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="1434" dy="758" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3468,6 +3468,12 @@
         </mxCell>
         <mxCell id="KnMRBHesm-a9covbMU16-70" value="Display all tasks" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2347" y="666" width="105" height="35" as="geometry" />
+        </mxCell>
+        <mxCell id="F_XcOUIO3qTdTEr_oWEu-4" value="Draw the Cascade Diagram" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1288" y="1181" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="F_XcOUIO3qTdTEr_oWEu-5" value="Draw the Key" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1503" y="1194" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
