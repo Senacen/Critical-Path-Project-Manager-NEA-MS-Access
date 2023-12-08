@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-08T09:16:38.773Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="FY0_wSryvdZOl_0MUZFj" version="22.1.7" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2023-12-08T09:37:28.761Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="CIXEc4x_INz74cG600j7" version="22.1.7" type="github" pages="5">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="712" dy="830" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3258,7 +3258,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="EhF1sAPiy0qMlAWQQoDI" name="AbstractHeirarchyChart">
-    <mxGraphModel dx="1674" dy="840" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="840" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -3485,10 +3485,13 @@
           <mxGeometry x="1500" y="1199.5" width="98" height="37" as="geometry" />
         </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-6" value="Truncate string to fit the rectangle" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1395" y="1427" width="120" height="46.5" as="geometry" />
+          <mxGeometry x="1333" y="1441" width="120" height="46.5" as="geometry" />
         </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-7" value="Center the string in the rectangle" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1395" y="1499" width="120" height="60" as="geometry" />
+          <mxGeometry x="1489" y="1441" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-4" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;" edge="1" parent="1" source="F_XcOUIO3qTdTEr_oWEu-8" target="F_XcOUIO3qTdTEr_oWEu-6">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-8" value="Write the label of the task rectangle" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1301" y="1355" width="120" height="46" as="geometry" />
@@ -3508,8 +3511,77 @@
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-11" value="Draw the key rectangles" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1504" y="1261" width="90" height="44" as="geometry" />
         </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-6" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="F_XcOUIO3qTdTEr_oWEu-12" target="F_XcOUIO3qTdTEr_oWEu-6">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1470" y="1421" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-10" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="F_XcOUIO3qTdTEr_oWEu-12" target="F_XcOUIO3qTdTEr_oWEu-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="F_XcOUIO3qTdTEr_oWEu-12" value="Write the label of the key rectangle" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1489" y="1328" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-19" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-11" target="LDTdIuLvlgKD7BGHL5kb-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-20" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-11" target="LDTdIuLvlgKD7BGHL5kb-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-21" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-11" target="LDTdIuLvlgKD7BGHL5kb-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-11" value="Update all the data grids" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2293" y="1350" width="120" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-12" value="Retrieve all completed tasks from TasksTbl" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2130" y="1427.5" width="129" height="53.5" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-17" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-13" target="LDTdIuLvlgKD7BGHL5kb-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-13" value="Retrieve all incomplete tasks from TasksTbl that are available to be completed" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2282" y="1427.5" width="142" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-18" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-15" target="LDTdIuLvlgKD7BGHL5kb-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-15" value="Retrieve all incomplete tasks from TasksTbl that are not yet available to be completed" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2446" y="1427.5" width="151" height="75.5" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-16" value="Check if the tasks predecessors have all been completed or not" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2367" y="1535" width="140" height="67" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-29" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-22" target="LDTdIuLvlgKD7BGHL5kb-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-31" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-22" target="LDTdIuLvlgKD7BGHL5kb-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-22" value="Click Mark Complete" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2146" y="1236.5" width="120" height="32.5" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-30" style="edgeStyle=elbowEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-23" target="LDTdIuLvlgKD7BGHL5kb-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-32" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;elbow=vertical;html=1;labelBackgroundColor=default;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=classic;startSize=8;endSize=8;" edge="1" parent="1" source="LDTdIuLvlgKD7BGHL5kb-23" target="LDTdIuLvlgKD7BGHL5kb-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="2572" y="1254" />
+              <mxPoint x="2572" y="1372" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-23" value="Click Mark Incomplete" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2409" y="1236.5" width="130" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-25" value="Mark task complete in TasksTbl" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2137" y="1288.25" width="138" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="LDTdIuLvlgKD7BGHL5kb-28" value="Mark task incomplete in TasksTbl" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="2405" y="1289.75" width="138" height="48" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
