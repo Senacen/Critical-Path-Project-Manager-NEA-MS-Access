@@ -8,10 +8,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 {
     static internal class djb2HashFunction
     {
-        public static int djb2(string password)
+        public static int djb2(string input)
         {
             int hash = 5381;
-            foreach (char c in password)
+            foreach (char c in input)
             {
                 hash = ((hash << 5) + hash) + (int)c;
             }

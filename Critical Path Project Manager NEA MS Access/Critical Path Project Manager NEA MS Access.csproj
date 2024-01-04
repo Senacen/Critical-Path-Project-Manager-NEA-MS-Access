@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataStructures\CustomDictionary.cs" />
-    <Compile Include="DataStructures\DictionaryLinkedListNode.cs" />
     <Compile Include="Functions\MergeSortTasks.cs" />
     <Compile Include="Functions\ExportProjectFunctions.cs" />
     <Compile Include="DataStructures\LinkedListQueue.cs" />
