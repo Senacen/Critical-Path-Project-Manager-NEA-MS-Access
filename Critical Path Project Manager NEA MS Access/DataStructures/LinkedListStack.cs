@@ -9,7 +9,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
 {
     internal class LinkedListStack<T>
     {
-        private LinkedListNode<T> top;
+        private CustomLinkedListNode<T> top;
 
         public LinkedListStack() 
         {
@@ -18,7 +18,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
 
         public void push (T item)
         {
-            LinkedListNode<T> newNode = new LinkedListNode<T>(item);
+            CustomLinkedListNode<T> newNode = new CustomLinkedListNode<T>(item);
             newNode.setNext(top);
             top = newNode;
         }

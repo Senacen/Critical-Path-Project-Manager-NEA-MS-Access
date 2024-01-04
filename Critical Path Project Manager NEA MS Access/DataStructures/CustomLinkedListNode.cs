@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
 {
-    internal class LinkedListNode<T>
+    internal class CustomLinkedListNode<T>
     {
-        private LinkedListNode<T> next;
+        private CustomLinkedListNode<T> next;
         private T item;
-        public LinkedListNode(T item)
+        public CustomLinkedListNode(T item)
         {
             this.item = item;
             next = null;
         }
-        public LinkedListNode<T> getNext()
+        public CustomLinkedListNode<T> getNext()
         {
             return next;
         }
@@ -23,7 +23,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
         {
             return item;
         }
-        public void setNext(LinkedListNode<T> next)
+        public void setNext(CustomLinkedListNode<T> next)
         {
             this.next = next;
         }

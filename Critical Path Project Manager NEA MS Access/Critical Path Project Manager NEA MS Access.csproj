@@ -46,10 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStructures\CustomDictionary.cs" />
+    <Compile Include="DataStructures\DictionaryLinkedListNode.cs" />
     <Compile Include="Functions\MergeSortTasks.cs" />
     <Compile Include="Functions\ExportProjectFunctions.cs" />
     <Compile Include="DataStructures\LinkedListQueue.cs" />
-    <Compile Include="DataStructures\LinkedListNode.cs" />
+    <Compile Include="DataStructures\CustomLinkedListNode.cs" />
     <Compile Include="DataStructures\LinkedListStack.cs" />
     <Compile Include="UIForms\CascadeDiagramForm.cs">
       <SubType>Form</SubType>

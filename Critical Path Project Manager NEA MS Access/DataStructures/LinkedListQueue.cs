@@ -8,7 +8,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
 {
     internal class LinkedListQueue<T>
     {
-        private LinkedListNode<T> front, back;
+        private CustomLinkedListNode<T> front, back;
 
         public LinkedListQueue()
         {
@@ -19,7 +19,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Objects
         // Enqueue an item to the back of the queue
         public void enqueue(T item)
         {
-            LinkedListNode<T> newNode = new LinkedListNode<T>(item);
+            CustomLinkedListNode<T> newNode = new CustomLinkedListNode<T>(item);
 
             if (back == null)
             {
