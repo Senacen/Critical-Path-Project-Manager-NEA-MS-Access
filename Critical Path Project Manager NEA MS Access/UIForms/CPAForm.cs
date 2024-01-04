@@ -16,7 +16,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
     {
         private string projectName, username;
         private TaskGraph taskGraph;
-        private Dictionary<string, TaskNode> tasks;
+        private CustomDictionary<string, TaskNode> tasks;
         private List<string> sortedTaskNames;
         public CPAForm(string projectName, string username)
         {
@@ -70,14 +70,14 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // Display tasks sorted by Earliest Start Time as default
 
             // Create taskNames list
-            List<string> taskNames = tasks.Keys.ToList<string>();
+            List<string> taskNames = tasks.keys.ToList<string>();
 
             // Sort by merge sort with Earliest Start Time of the task as the comparison value
             sortedTaskNames = MergeSortTasks.sort(taskNames, tasks);
 
             foreach (string taskName in sortedTaskNames)
             {
-                TaskNode task = tasks[taskName];
+                TaskNode task = tasks.getValue(taskName);
                 if (task.getName() == "Start" || task.getName() == "End") continue;
                 DataRow row = tasksDataTable.NewRow();
                 row["Name"] = task.getName();

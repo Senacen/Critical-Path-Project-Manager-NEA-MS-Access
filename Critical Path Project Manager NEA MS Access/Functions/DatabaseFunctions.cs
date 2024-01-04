@@ -334,7 +334,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
-                Dictionary<string, int> tasksToIndex = new Dictionary<string, int>();
+                CustomDictionary<string, int> tasksToIndex = new CustomDictionary<string, int>();
                 List<List<int>> adjacencyList = new List<List<int>>();
 
                 // Map the names to the index
@@ -342,11 +342,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 List<string> taskNames = executeStringListQuery(projectName, taskNamesSQL);
                 for (int i = 0; i < taskNames.Count; i++)
                 {
-                    tasksToIndex[taskNames[i]] = i;
+                    tasksToIndex.add(taskNames[i], i);
                 }
 
                 // Represent the new graph as an adjacency list
-                for (int i = 0; i < tasksToIndex.Count; i++)
+                for (int i = 0; i < tasksToIndex.keys.Count; i++)
                 {
                     adjacencyList.Add(new List<int>());
                 }
@@ -356,12 +356,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 {
                     string pre = row["PredecessorName"].ToString();
                     string suc = row["SuccessorName"].ToString();
-                    adjacencyList[tasksToIndex[pre]].Add(tasksToIndex[suc]);
+                    adjacencyList[tasksToIndex.getValue(pre)].Add(tasksToIndex.getValue(suc));
                 }
                 // Add new dependency to the graph
-                adjacencyList[tasksToIndex[predecessor]].Add(tasksToIndex[selectedTaskName]);
+                adjacencyList[tasksToIndex.getValue(predecessor)].Add(tasksToIndex.getValue(selectedTaskName));
                 // Start from the node that the new edge leads out of, which is the predecessor
-                return dfsCycle(tasksToIndex[predecessor], ref adjacencyList);
+                return dfsCycle(tasksToIndex.getValue(predecessor), ref adjacencyList);
 
             }
             catch (Exception ex)
@@ -389,10 +389,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             return false;
         }
 
-        // Returns a dictionary storing all the tasks as a mapping of Name -> TaskNode
-        public static Dictionary<string, TaskNode> tasksDict(string projectName)
+        // Returns a CustomDictionary storing all the tasks as a mapping of Name -> TaskNode
+        public static CustomDictionary<string, TaskNode> tasksDict(string projectName)
         {
-            Dictionary<string, TaskNode> tasks = new Dictionary<string, TaskNode>();
+            CustomDictionary<string, TaskNode> tasks = new CustomDictionary<string, TaskNode>();
             try
             {
                 string tasksDataSQL = "SELECT * FROM TasksTbl";
@@ -405,7 +405,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     bool completed = (bool)row["Completed"];
                     List<string> predecessorsNames = new List<string>();
                     List<string> successorsNames = new List<string>();
-                    tasks[name] = new TaskNode(name, duration, numWorkers, completed, predecessorsNames, successorsNames);
+                    tasks.add(name, new TaskNode(name, duration, numWorkers, completed, predecessorsNames, successorsNames));
                 }
                 // Populate predecessorsNames and successorsNames in one SQL call (O(n)) to reduce bottleneck caused by a select query for each task (O(n^2))
                 string dependenciesDataSQL = "SELECT * FROM DependenciesTbl";
@@ -414,8 +414,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 {
                     string pre = row["PredecessorName"].ToString();
                     string suc = row["SuccessorName"].ToString();                   
-                    tasks[pre].successorNames.Add(suc);
-                    tasks[suc].predecessorNames.Add(pre);
+                    tasks.getValue(pre).successorNames.Add(suc);
+                    tasks.getValue(suc).predecessorNames.Add(pre);
                 }
                 return tasks;
             }

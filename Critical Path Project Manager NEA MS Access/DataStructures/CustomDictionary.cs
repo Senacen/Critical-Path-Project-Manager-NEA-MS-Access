@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Critical_Path_Project_Manager_NEA_MS_Access.DataStructures
+namespace Critical_Path_Project_Manager_NEA_MS_Access
 {
     internal class CustomDictionary<K, V>
     {
@@ -56,10 +56,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.DataStructures
         }
           
 
-        private List<string> keys = new List<string>();
+        public List<K> keys = new List<K>();
+        public List<V> values = new List<V>();
         private List<Bucket> hashTable = new List<Bucket>(); // LinkedListNode for Separate Chaining
+        private List<Bucket> newHashTable = new List<Bucket>(); // For rehashing into
         private double loadFactorThreshold = 0.7; // When load factor exceeds this, double length of hashTable and rehash
         private int size = 10; // Set to starting size of the hashTable
+        private bool rehashing = false;
 
         
         public CustomDictionary()
@@ -72,7 +75,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.DataStructures
 
         public void add(K key, V value)
         {
-            if ((double)keys.Count + 1 / (double)size > 0.7) // If the new item would make the load factor go above the threshold, resize and rehash before adding
+            if (!rehashing && contains(key))
+            {
+                throw new InvalidOperationException("This key already exists.");
+            }
+            if (((double)keys.Count + 1) / (double)size > loadFactorThreshold) // If the new item would make the load factor go above the threshold, resize and rehash before adding
             {
                 rehash();
             }
@@ -80,7 +87,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.DataStructures
             CustomLinkedListNode<KVPair> dictionaryLinkedListNode = new CustomLinkedListNode<KVPair>(kVPair);
             int index = djb2HashFunction.djb2(key.ToString());
             index %= size;
-            Bucket bucket = hashTable[index];
+            if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
+
+            Bucket bucket;
+            if (rehashing) 
+            {
+                bucket = newHashTable[index]; // Adding to the new hash table as we are rehashing
+            }
+            else
+            {
+                bucket = hashTable[index]; // Adding to the normal hash table
+            }
+            
             if (bucket.getHead() == null)
             {
                 bucket.setHead(dictionaryLinkedListNode);
@@ -90,20 +108,66 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.DataStructures
                 bucket.getTail().setNext(dictionaryLinkedListNode);
                 bucket.setTail(dictionaryLinkedListNode);
             }
+            if (!rehashing)
+            {
+                keys.Add(key);
+                values.Add(value);
+            }
 
+        }
+
+        public V getValue(K key)
+        {
+            int index = djb2HashFunction.djb2(key.ToString());
+            index %= size;
+            if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
+            Bucket bucket = hashTable[index];
+            CustomLinkedListNode<KVPair> current = bucket.getHead();
+            while (current != null)
+            {
+                KVPair currentKVPair = current.getItem();
+                if (currentKVPair.getKey().Equals(key)) return currentKVPair.getValue();
+                else
+                {
+                    current = current.getNext();
+                }
+            }
+            throw new InvalidOperationException("This key-value pair does not exist in the Dictionary.");
+        }
+
+        public bool contains(K key)
+        {
+            int index = djb2HashFunction.djb2(key.ToString());
+            index %= size;
+            if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
+            Bucket bucket = hashTable[index];
+            CustomLinkedListNode<KVPair> current = bucket.getHead();
+            while (current != null)
+            {
+                KVPair currentKVPair = current.getItem();
+                if (currentKVPair.getKey().Equals(key)) return true;
+                else
+                {
+                    current = current.getNext();
+                }
+            }
+            return false;
         }
 
         private void rehash()
         {
             // Resize
             size *= 2;
-            List<Bucket> newHashTable = new List<Bucket>();
+            // Make a new empty hash table to copy into
+            newHashTable = new List<Bucket>();
             for (int i = 0; i < size; i++)
             {
                 newHashTable.Add(new Bucket(null, null)); // Initialise each bucket to no contents
             }
 
             // Rehash
+            rehashing = true; // Mark that we are rehashing to not add the key or value again to the key or value lists
+            // rename newHashTable to hashTable
             for (int i = 0; i < hashTable.Count; i++)
             {
                 Bucket bucket = hashTable[i];
@@ -112,12 +176,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.DataStructures
                 {
                     KVPair currentKVPair = current.getItem();
                     add(currentKVPair.getKey(), currentKVPair.getValue());
+                    current = current.getNext();
                 }
             }
-
-            // Rename
+            rehashing = false;
             hashTable = newHashTable;
-
         }
 
 

@@ -9,10 +9,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
 {
     static internal class MergeSortTasks
     {
-        // Note: the entire tasks dictionary is passed as an argument, which contains a lot of irelevant data for this merge sort
+        // Note: the entire tasks CustomDictionary is passed as an argument, which contains a lot of irelevant data for this merge sort
         // such as numWorkers, predecessor and successor lists.
-        // However, this is not an issue for efficiency, as objects are passed by reference not by value.km
-        public static List<string> sort(List<string> tasksToBeSorted, Dictionary<string, TaskNode> tasks) {
+        // However, this is not an issue for efficiency, as objects are passed by reference not by value.
+        public static List<string> sort(List<string> tasksToBeSorted, CustomDictionary<string, TaskNode> tasks) {
 
             // Base case when list only contains 1 or 0 elements
             if (tasksToBeSorted.Count <= 1) return tasksToBeSorted;
@@ -31,7 +31,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
 
         }
 
-        private static List<string> mergeHalves(List<string> left, List<string> right, Dictionary<string, TaskNode> tasks)
+        private static List<string> mergeHalves(List<string> left, List<string> right, CustomDictionary<string, TaskNode> tasks)
         {
             List<string> mergedResult = new List<string>();
 
@@ -41,7 +41,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
             // Compare the Earliest Start Time of each task at the pointer of each list, and add it to the mergedResult list if it is the earlier one
             // Until one list has been fully added
             while(leftIndex < left.Count && rightIndex < right.Count) {
-                if (tasks[left[leftIndex]].getEarliestStartTime() < tasks[right[rightIndex]].getEarliestStartTime())
+                if (tasks.getValue(left[leftIndex]).getEarliestStartTime() < tasks.getValue(right[rightIndex]).getEarliestStartTime())
                 {
                     mergedResult.Add(left[leftIndex]);
                     leftIndex++;

@@ -13,7 +13,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
 {
     public partial class CascadeDiagramForm : Form
     {
-        private Dictionary<string, TaskNode> tasks;
+        private CustomDictionary<string, TaskNode> tasks;
         private List<string> sortedTaskNames;
         // Spacings and lengths
         private const int
@@ -44,7 +44,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
 
        
 
-        internal CascadeDiagramForm(List<string> sortedTaskNames, Dictionary<string, TaskNode> tasks)
+        internal CascadeDiagramForm(List<string> sortedTaskNames, CustomDictionary<string, TaskNode> tasks)
         {
             InitializeComponent();
             this.tasks = tasks;
@@ -83,7 +83,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         {
             int criticalPathRowY = tasksTopMargin;
             int nonCriticalTaskCount = 0;
-            int totalDuration = tasks["End"].getEarliestStartTime(); // Duration of the project is EOS of dummy End node
+            int totalDuration = tasks.getValue("End").getEarliestStartTime(); // Duration of the project is EOS of dummy End node
             int dynamicTasksLengthScaleFactor = 1000 / totalDuration; // Suggests a scale factor such that the entire project will be roughly 1000 pixels
             int tasksLengthScaleFactor = Math.Max(dynamicTasksLengthScaleFactor, minTasksLengthScaleFactor); // Ensure project will either be roughly 1000 pixels long or more
 
@@ -93,7 +93,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
 
             // Count how many rows there will be
             int rowCount = 1; // Initialised to 1 to account for critical path row
-            foreach (TaskNode task in tasks.Values)
+            foreach (TaskNode task in tasks.values)
             {
                 if (task.getTotalFloat() != 0) // If task is not critical, and so therefore will be on it's own row
                 {
@@ -129,7 +129,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             for (int i = 0; i < sortedTaskNames.Count; i++) {
 
                 // Retrieve task data
-                TaskNode currentTask = tasks[sortedTaskNames[i]];
+                TaskNode currentTask = tasks.getValue(sortedTaskNames[i]);
                 string name = currentTask.getName();
                 if (name == "Start" || name == "End") continue; // Skip the dummy Start and End nodes
                 int duration = currentTask.getDuration();

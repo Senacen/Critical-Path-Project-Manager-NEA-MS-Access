@@ -179,13 +179,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void ExportProjectButton_Click(object sender, EventArgs e)
         {
-            Dictionary<string, TaskNode> tasks = DatabaseFunctions.tasksDict(projectName); // Retrieve all the task data
+            CustomDictionary<string, TaskNode> tasks = DatabaseFunctions.tasksDict(projectName); // Retrieve all the task data
             // Semicolon is reserved so cannot be in task names, this custom serialisation protocol will use semicolon as delimiters
             string exportString = "";
             // Output how many tasks there are
-            exportString += tasks.Count.ToString() + ';';
+            exportString += tasks.keys.Count.ToString() + ';';
             // Add task data
-            foreach (TaskNode task in tasks.Values)
+            foreach (TaskNode task in tasks.values)
             {
                 exportString += task.getName() + ';';
                 exportString += task.getDuration().ToString() + ';';
