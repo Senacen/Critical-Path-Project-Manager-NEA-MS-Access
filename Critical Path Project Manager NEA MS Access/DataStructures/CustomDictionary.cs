@@ -148,14 +148,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         public bool contains(K key)
         {
-            int index = djb2HashFunction.djb2(key.ToString());
-            index %= size;
-            if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
-            Bucket bucket = hashTable[index];
-            LinkedListNode<KVPair> current = bucket.getHead();
             try
             {
-                search(key, current); // If cannot find it, exception gets caught
+                getValue(key); // If cannot find it, exception gets caught
                 return true;
             }
             catch
