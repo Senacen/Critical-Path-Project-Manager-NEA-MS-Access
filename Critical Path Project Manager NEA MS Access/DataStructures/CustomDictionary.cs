@@ -28,28 +28,28 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         }
         private class Bucket // Class as it has to be mutable, and passed by reference
         {
-            private CustomLinkedListNode<KVPair> head;
-            private CustomLinkedListNode<KVPair> tail;
+            private LinkedListNode<KVPair> head;
+            private LinkedListNode<KVPair> tail;
 
-            public Bucket(CustomLinkedListNode<KVPair> head, CustomLinkedListNode<KVPair> tail)
+            public Bucket(LinkedListNode<KVPair> head, LinkedListNode<KVPair> tail)
             {
                 this.head = head;
                 this.tail = tail;
             }
 
-            public CustomLinkedListNode<KVPair> getHead()
+            public LinkedListNode<KVPair> getHead()
             {
                 return head;
             }
-            public CustomLinkedListNode<KVPair> getTail()
+            public LinkedListNode<KVPair> getTail()
             {
                 return tail;
             }
-            public void setHead(CustomLinkedListNode<KVPair> head)
+            public void setHead(LinkedListNode<KVPair> head)
             {
                 this.head = head;
             }
-            public void setTail(CustomLinkedListNode<KVPair> tail)
+            public void setTail(LinkedListNode<KVPair> tail)
             {
                 this.tail = tail;
             }
@@ -84,7 +84,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 rehash();
             }
             KVPair kVPair = new KVPair(key, value);
-            CustomLinkedListNode<KVPair> dictionaryLinkedListNode = new CustomLinkedListNode<KVPair>(kVPair);
+            LinkedListNode<KVPair> dictionaryLinkedListNode = new LinkedListNode<KVPair>(kVPair);
             int index = djb2HashFunction.djb2(key.ToString());
             index %= size;
             if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
@@ -116,23 +116,34 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         }
 
+        private V search(K key, LinkedListNode<KVPair> current)
+        {
+            if (current == null) throw new InvalidOperationException(); // End of linked list reached
+            KVPair currentKVPair = current.getItem();
+            if (currentKVPair.getKey().Equals(key)) return currentKVPair.getValue();
+            else
+            {
+                return search(key, current.getNext()); // Keep traversing
+            }
+            
+        }
+
         public V getValue(K key)
         {
             int index = djb2HashFunction.djb2(key.ToString());
             index %= size;
             if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
             Bucket bucket = hashTable[index];
-            CustomLinkedListNode<KVPair> current = bucket.getHead();
-            while (current != null)
+            LinkedListNode<KVPair> current = bucket.getHead();
+            try
             {
-                KVPair currentKVPair = current.getItem();
-                if (currentKVPair.getKey().Equals(key)) return currentKVPair.getValue();
-                else
-                {
-                    current = current.getNext();
-                }
+                return search(key, current);
+            } 
+            catch
+            {
+                throw new InvalidOperationException("This key-value pair does not exist in the Dictionary.");
             }
-            throw new InvalidOperationException("This key-value pair does not exist in the Dictionary.");
+            
         }
 
         public bool contains(K key)
@@ -141,17 +152,16 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             index %= size;
             if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
             Bucket bucket = hashTable[index];
-            CustomLinkedListNode<KVPair> current = bucket.getHead();
-            while (current != null)
+            LinkedListNode<KVPair> current = bucket.getHead();
+            try
             {
-                KVPair currentKVPair = current.getItem();
-                if (currentKVPair.getKey().Equals(key)) return true;
-                else
-                {
-                    current = current.getNext();
-                }
+                search(key, current); // If cannot find it, exception gets caught
+                return true;
             }
-            return false;
+            catch
+            {
+                return false;
+            }
         }
 
         private void rehash()
@@ -171,7 +181,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             for (int i = 0; i < hashTable.Count; i++)
             {
                 Bucket bucket = hashTable[i];
-                CustomLinkedListNode<KVPair> current = bucket.getHead();
+                LinkedListNode<KVPair> current = bucket.getHead();
                 while (current != null)
                 {
                     KVPair currentKVPair = current.getItem();
