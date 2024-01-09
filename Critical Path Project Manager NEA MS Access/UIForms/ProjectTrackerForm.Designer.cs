@@ -38,6 +38,9 @@
             this.CompletedTasksLabel = new System.Windows.Forms.Label();
             this.AvailableTasksLabel = new System.Windows.Forms.Label();
             this.IncompleteTasksLabel = new System.Windows.Forms.Label();
+            this.CompletedTasksInfoLabel = new System.Windows.Forms.Label();
+            this.AvailableTasksInfoLabel = new System.Windows.Forms.Label();
+            this.IncompleteTasksInfoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.IncompleteDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AvailableDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CompletedDataGrid)).BeginInit();
@@ -98,7 +101,7 @@
             // 
             // MarkCompletedButton
             // 
-            this.MarkCompletedButton.Location = new System.Drawing.Point(601, 573);
+            this.MarkCompletedButton.Location = new System.Drawing.Point(601, 591);
             this.MarkCompletedButton.Name = "MarkCompletedButton";
             this.MarkCompletedButton.Size = new System.Drawing.Size(115, 28);
             this.MarkCompletedButton.TabIndex = 5;
@@ -108,7 +111,7 @@
             // 
             // MarkIncompleteButton
             // 
-            this.MarkIncompleteButton.Location = new System.Drawing.Point(145, 573);
+            this.MarkIncompleteButton.Location = new System.Drawing.Point(145, 591);
             this.MarkIncompleteButton.Name = "MarkIncompleteButton";
             this.MarkIncompleteButton.Size = new System.Drawing.Size(137, 28);
             this.MarkIncompleteButton.TabIndex = 6;
@@ -146,12 +149,48 @@
             this.IncompleteTasksLabel.TabIndex = 9;
             this.IncompleteTasksLabel.Text = "Incomplete Tasks";
             // 
+            // CompletedTasksInfoLabel
+            // 
+            this.CompletedTasksInfoLabel.AutoSize = true;
+            this.CompletedTasksInfoLabel.Location = new System.Drawing.Point(73, 523);
+            this.CompletedTasksInfoLabel.Name = "CompletedTasksInfoLabel";
+            this.CompletedTasksInfoLabel.Size = new System.Drawing.Size(296, 52);
+            this.CompletedTasksInfoLabel.TabIndex = 10;
+            this.CompletedTasksInfoLabel.Text = "Completed Tasks are those that you have already completed.\r\n\r\n\r\nMark a task to in" +
+    "complete if you marked it complete in error\r\n";
+            this.CompletedTasksInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // AvailableTasksInfoLabel
+            // 
+            this.AvailableTasksInfoLabel.AutoSize = true;
+            this.AvailableTasksInfoLabel.Location = new System.Drawing.Point(528, 523);
+            this.AvailableTasksInfoLabel.Name = "AvailableTasksInfoLabel";
+            this.AvailableTasksInfoLabel.Size = new System.Drawing.Size(248, 52);
+            this.AvailableTasksInfoLabel.TabIndex = 11;
+            this.AvailableTasksInfoLabel.Text = "Available Tasks are those that are available to start\r\n as all their predecessors" +
+    " have been completed.\r\n\r\nMark Completed if you have finished it.\r\n";
+            this.AvailableTasksInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // IncompleteTasksInfoLabel
+            // 
+            this.IncompleteTasksInfoLabel.AutoSize = true;
+            this.IncompleteTasksInfoLabel.Location = new System.Drawing.Point(981, 523);
+            this.IncompleteTasksInfoLabel.Name = "IncompleteTasksInfoLabel";
+            this.IncompleteTasksInfoLabel.Size = new System.Drawing.Size(302, 26);
+            this.IncompleteTasksInfoLabel.TabIndex = 12;
+            this.IncompleteTasksInfoLabel.Text = "Incomplete Tasks are tasks that have not been completed yet \r\nbut cannot be start" +
+    "ed until their predecessors are completed.";
+            this.IncompleteTasksInfoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ProjectTrackerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1354, 658);
             this.ControlBox = false;
+            this.Controls.Add(this.IncompleteTasksInfoLabel);
+            this.Controls.Add(this.AvailableTasksInfoLabel);
+            this.Controls.Add(this.CompletedTasksInfoLabel);
             this.Controls.Add(this.IncompleteTasksLabel);
             this.Controls.Add(this.AvailableTasksLabel);
             this.Controls.Add(this.CompletedTasksLabel);
@@ -185,5 +224,8 @@
         private System.Windows.Forms.Label CompletedTasksLabel;
         private System.Windows.Forms.Label AvailableTasksLabel;
         private System.Windows.Forms.Label IncompleteTasksLabel;
+        private System.Windows.Forms.Label CompletedTasksInfoLabel;
+        private System.Windows.Forms.Label AvailableTasksInfoLabel;
+        private System.Windows.Forms.Label IncompleteTasksInfoLabel;
     }
 }
