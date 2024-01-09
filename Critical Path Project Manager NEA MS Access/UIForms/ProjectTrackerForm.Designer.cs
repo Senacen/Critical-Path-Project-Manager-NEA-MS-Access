@@ -112,7 +112,7 @@
             this.MarkIncompleteButton.Name = "MarkIncompleteButton";
             this.MarkIncompleteButton.Size = new System.Drawing.Size(137, 28);
             this.MarkIncompleteButton.TabIndex = 6;
-            this.MarkIncompleteButton.Text = "MarkIncomplete";
+            this.MarkIncompleteButton.Text = "Mark Incomplete";
             this.MarkIncompleteButton.UseVisualStyleBackColor = true;
             this.MarkIncompleteButton.Click += new System.EventHandler(this.MarkIncompleteButton_Click);
             // 

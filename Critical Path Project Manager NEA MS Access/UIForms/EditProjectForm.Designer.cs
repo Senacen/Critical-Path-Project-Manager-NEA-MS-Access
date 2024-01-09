@@ -55,6 +55,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPAButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.ExportProjectButton = new System.Windows.Forms.Button();
+            this.AddTaskDaysLabel = new System.Windows.Forms.Label();
+            this.EditTaskDaysLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TasksDataGrid)).BeginInit();
             this.AddTaskGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
@@ -135,6 +137,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // AddTaskGroupBox
             // 
+            this.AddTaskGroupBox.Controls.Add(this.AddTaskDaysLabel);
             this.AddTaskGroupBox.Controls.Add(this.DurationNumeric);
             this.AddTaskGroupBox.Controls.Add(this.NumWorkersNumeric);
             this.AddTaskGroupBox.Controls.Add(this.NameTextBox);
@@ -187,6 +190,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // 
             // EditTaskGroupBox
             // 
+            this.EditTaskGroupBox.Controls.Add(this.EditTaskDaysLabel);
             this.EditTaskGroupBox.Controls.Add(this.EditDurationNumeric);
             this.EditTaskGroupBox.Controls.Add(this.EditNumWorkersNumeric);
             this.EditTaskGroupBox.Controls.Add(this.DeleteTaskButton);
@@ -359,6 +363,24 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.ExportProjectButton.UseVisualStyleBackColor = true;
             this.ExportProjectButton.Click += new System.EventHandler(this.ExportProjectButton_Click);
             // 
+            // AddTaskDaysLabel
+            // 
+            this.AddTaskDaysLabel.AutoSize = true;
+            this.AddTaskDaysLabel.Location = new System.Drawing.Point(155, 98);
+            this.AddTaskDaysLabel.Name = "AddTaskDaysLabel";
+            this.AddTaskDaysLabel.Size = new System.Drawing.Size(29, 13);
+            this.AddTaskDaysLabel.TabIndex = 11;
+            this.AddTaskDaysLabel.Text = "days";
+            // 
+            // EditTaskDaysLabel
+            // 
+            this.EditTaskDaysLabel.AutoSize = true;
+            this.EditTaskDaysLabel.Location = new System.Drawing.Point(155, 98);
+            this.EditTaskDaysLabel.Name = "EditTaskDaysLabel";
+            this.EditTaskDaysLabel.Size = new System.Drawing.Size(29, 13);
+            this.EditTaskDaysLabel.TabIndex = 14;
+            this.EditTaskDaysLabel.Text = "days";
+            // 
             // EditProjectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,5 +440,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private NumericUpDown DurationNumeric;
         private NumericUpDown EditDurationNumeric;
         private Button ExportProjectButton;
+        private Label AddTaskDaysLabel;
+        private Label EditTaskDaysLabel;
     }
 }

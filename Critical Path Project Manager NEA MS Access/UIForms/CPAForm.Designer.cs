@@ -131,18 +131,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // TotalDurationLabel
             // 
             this.TotalDurationLabel.AutoSize = true;
-            this.TotalDurationLabel.Location = new System.Drawing.Point(107, 49);
+            this.TotalDurationLabel.Location = new System.Drawing.Point(90, 49);
             this.TotalDurationLabel.Name = "TotalDurationLabel";
-            this.TotalDurationLabel.Size = new System.Drawing.Size(74, 13);
+            this.TotalDurationLabel.Size = new System.Drawing.Size(105, 13);
             this.TotalDurationLabel.TabIndex = 1;
-            this.TotalDurationLabel.Text = "Total Duration";
+            this.TotalDurationLabel.Text = "Total Duration (days)";
             // 
             // TotalDurationTextBox
             // 
-            this.TotalDurationTextBox.Location = new System.Drawing.Point(99, 79);
+            this.TotalDurationTextBox.Location = new System.Drawing.Point(93, 79);
             this.TotalDurationTextBox.Name = "TotalDurationTextBox";
             this.TotalDurationTextBox.ReadOnly = true;
-            this.TotalDurationTextBox.Size = new System.Drawing.Size(86, 20);
+            this.TotalDurationTextBox.Size = new System.Drawing.Size(102, 20);
             this.TotalDurationTextBox.TabIndex = 0;
             this.TotalDurationTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

@@ -56,10 +56,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             DataTable tasksDataTable = new DataTable();
             tasksDataTable.Columns.Add("Name", typeof(string));
-            tasksDataTable.Columns.Add("Duration", typeof(int));
+            tasksDataTable.Columns.Add("Duration (days)", typeof(int));
             tasksDataTable.Columns.Add("NumWorkers", typeof(int));
-            tasksDataTable.Columns.Add("Early Start", typeof(int));
-            tasksDataTable.Columns.Add("Early Finish", typeof(int));
+            tasksDataTable.Columns.Add("Earliest Start", typeof(int));
+            tasksDataTable.Columns.Add("Earliest Finish", typeof(int));
             tasksDataTable.Columns.Add("Latest Start", typeof(int));
             tasksDataTable.Columns.Add("Latest Finish", typeof(int));
             tasksDataTable.Columns.Add("Total Float", typeof(int));
@@ -81,10 +81,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 if (task.getName() == "Start" || task.getName() == "End") continue;
                 DataRow row = tasksDataTable.NewRow();
                 row["Name"] = task.getName();
-                row["Duration"] = task.getDuration();
+                row["Duration (days)"] = task.getDuration();
                 row["NumWorkers"] = task.getNumWorkers();
-                row["Early Start"] = task.getEarliestStartTime();
-                row["Early Finish"] = task.getEarliestFinishTime();
+                row["Earliest Start"] = task.getEarliestStartTime();
+                row["Earliest Finish"] = task.getEarliestFinishTime();
                 row["Latest Start"] = task.getLatestStartTime();
                 row["Latest Finish"] = task.getLatestFinishTime();
                 row["Total Float"] = task.getTotalFloat();

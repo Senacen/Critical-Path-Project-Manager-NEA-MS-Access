@@ -34,7 +34,9 @@
             this.KeyPanel = new System.Windows.Forms.Panel();
             this.KeyGroupBox = new System.Windows.Forms.GroupBox();
             this.KeyTextBox = new System.Windows.Forms.TextBox();
+            this.DiagramDayLabel = new System.Windows.Forms.Label();
             this.ParentPanel.SuspendLayout();
+            this.ChildCascadeDiagramPanel.SuspendLayout();
             this.KeyGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +53,7 @@
             // ChildCascadeDiagramPanel
             // 
             this.ChildCascadeDiagramPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.ChildCascadeDiagramPanel.Controls.Add(this.DiagramDayLabel);
             this.ChildCascadeDiagramPanel.Location = new System.Drawing.Point(0, 0);
             this.ChildCascadeDiagramPanel.Name = "ChildCascadeDiagramPanel";
             this.ChildCascadeDiagramPanel.Size = new System.Drawing.Size(1186, 564);
@@ -91,6 +94,15 @@
             this.KeyTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.KeyTextBox.Enter += new System.EventHandler(this.KeyTextBox_Enter);
             // 
+            // DiagramDayLabel
+            // 
+            this.DiagramDayLabel.AutoSize = true;
+            this.DiagramDayLabel.Location = new System.Drawing.Point(13, 19);
+            this.DiagramDayLabel.Name = "DiagramDayLabel";
+            this.DiagramDayLabel.Size = new System.Drawing.Size(26, 13);
+            this.DiagramDayLabel.TabIndex = 0;
+            this.DiagramDayLabel.Text = "Day";
+            // 
             // CascadeDiagramForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,6 +116,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cascade Diagram";
             this.ParentPanel.ResumeLayout(false);
+            this.ChildCascadeDiagramPanel.ResumeLayout(false);
+            this.ChildCascadeDiagramPanel.PerformLayout();
             this.KeyGroupBox.ResumeLayout(false);
             this.KeyGroupBox.PerformLayout();
             this.ResumeLayout(false);
@@ -117,5 +131,6 @@
         private System.Windows.Forms.Panel KeyPanel;
         private System.Windows.Forms.GroupBox KeyGroupBox;
         private System.Windows.Forms.TextBox KeyTextBox;
+        private System.Windows.Forms.Label DiagramDayLabel;
     }
 }
