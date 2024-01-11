@@ -24,24 +24,33 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         private static string oledbConnectionString = @"Provider=Microsoft Jet 4.0 OLE DB Provider;Data Source = ";
         public static bool createDatabase(string databaseName)
         {
+            // Check that the user input name is a valid name for a database
             if (!isValidDatabaseName(databaseName))
             { 
+                // If not, display an info message and return that the database was not created
                 MessageBox.Show("The name must start with a letter, be made of only letters, numbers, and underscores, and be no longer than 128 characters. " +
                                 "It also may not be a MS Access reserved keyword.", "Invalid Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            // If it was valid, create the new database
             CatalogClass cat = new CatalogClass();
             cat.Create(oledbConnectionString + databaseName + ".mdb;");
             cat = null;
+
+            // If there were no exceptions, return that the database was created
             return true;
         }
 
         public static void checkUserAccountsDatabaseExists()
         {
+            // If the application CPPMUserAccounts database has not been created yet
             if (!File.Exists("CPPMUserAccounts.mdb"))
             {
+                // Create it
                 createDatabase("CPPMUserAccounts");
 
+                // Then create all the tables in it to store the user details and their projects
                 string createTableSQL = "CREATE TABLE UserDetailsTbl (" +
                                         "Username VARCHAR(100) PRIMARY KEY," +
                                         "PasswordHash INT)";
@@ -66,6 +75,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 string keyword;
                 while ((keyword = SR.ReadLine()) != null)
                 {
+                    // If the name is any of the keywords, return false
                     if (name.ToUpper() == keyword.Replace("\n", "")) return false;
                 }
             }
@@ -74,10 +84,15 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private static void executeNonQuery(string databaseName, string nonQuery)
         {
+            // Create the connection string
             string databaseConnectionString = oledbConnectionString + databaseName + ".mdb;";
+
+            // Open the connection in a using statement so it is destroyed appropriately when exiting the using statement
             using (OleDbConnection connection = new OleDbConnection(databaseConnectionString))
             {
                 connection.Open();
+
+                // Create the command using the passed SQL statement
                 using (OleDbCommand command = new OleDbCommand(nonQuery, connection))
                 {
                     command.ExecuteNonQuery();
@@ -87,13 +102,22 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private static DataTable executeQuery(string databaseName, string query)
         {
+            // Instantiate a data table to return the query results in
             DataTable dataTable = new DataTable();
+
+            // Create the connection string
             string databaseConnectionString = oledbConnectionString + databaseName + ".mdb;";
+
+            // Open the connection in a using statement so it is destroyed appropriately when exiting the using statement
             using (OleDbConnection connection = new OleDbConnection(databaseConnectionString))
             {
                 connection.Open();
+
+                // Create the command using the passed SQL query
                 using (OleDbCommand command = new OleDbCommand(query, connection))
                 {
+
+                    // Create an adapter to transfer the results into the data table
                     using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
                     {
                         // Fill the DataTable with data from the query
@@ -107,7 +131,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         public static List<string> executeStringListQuery(string databaseName, string executeStringListQuerySQL)
         {
             List<string> result = new List<string>();
+
+            // Retrieve the data table of results from the query
             DataTable dataTable = executeQuery(databaseName, executeStringListQuerySQL);
+
+            // Transfer the results into the list of strings
             foreach (DataRow row in dataTable.Rows)
             {
                 result.Add(row[0].ToString());
@@ -120,9 +148,14 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Hash the password
                 int passwordHash = djb2HashFunction.djb2(password);
+
+                // SQL query to check that the user input username and password is correct by returning all records where the username and password hash value match the user input
                 string checkDetailsSQL = $"SELECT * FROM UserDetailsTbl WHERE Username = '{username}' AND PasswordHash = {passwordHash}";
                 DataTable matchingAccountDataTable = executeQuery("CPPMUserAccounts", checkDetailsSQL);
+
+                // Return true if the datatable contains one matching record
                 return matchingAccountDataTable.Rows.Count == 1;
             }
             catch (Exception ex)
@@ -137,8 +170,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Hash the password
                 int passwordHash = djb2HashFunction.djb2(password);
 
+                // SQL statement to add the details to UserDetailsTbl
                 string addDetailsSQL = "INSERT INTO UserDetailsTbl (Username, PasswordHash)" +
                                         $"Values ('{username}', {passwordHash})";
                 executeNonQuery("CPPMUserAccounts", addDetailsSQL);
@@ -159,7 +194,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 {
                     throw new Exception("This project already exists.");
                 }
-                // If the database creation failed, return false that the project was created
+                // If the database creation failed, return that the project was not created
                 if (!createDatabase(projectName)) return false;
 
                 // Create TaskTbl
@@ -170,6 +205,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     "NumWorkers INT," +
                     "Completed BIT)";
                 executeNonQuery(projectName, createTableSQL);
+
                 // Create DependenciesTbl
                 createTableSQL =
                     "CREATE TABLE DependenciesTbl (" +
@@ -215,7 +251,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             List<string> projectNames = new List<string>();
             try
             {
+                // Select all projects that belong to the user
                 string projectNamesSQL = $"SELECT ProjectName FROM UserProjectsTbl WHERE Username = '{username}'";
+
+                // As a list of strings of the project names
                 projectNames = executeStringListQuery("CPPMUserAccounts", projectNamesSQL);
                 return projectNames;
             }
@@ -229,6 +268,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         // Returns the task details of the current project
         public static DataTable tasksData(string projectName)
         {
+            // Return all data of all tasks
             string getDataSQL = "SELECT * FROM TasksTbl";
             DataTable tasksDataTable = executeQuery(projectName, getDataSQL);
             return tasksDataTable;
@@ -238,6 +278,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Add a record of the task with the user input data
                 string addTaskSQL = "INSERT INTO TasksTbl (Name, Duration, NumWorkers, Completed)" +
                                     $"Values ('{name}', {duration}, {numWorkers}, 0)";
                 executeNonQuery(projectName, addTaskSQL);
@@ -252,6 +293,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Set the duration and the number of workers of a task to the user input data if the name of it matches the name of the to be edited task
                 string editTaskSQL = $"UPDATE TasksTbl SET Duration = {newDuration}, NumWorkers = {newNumWorkers} WHERE Name = '{name}'";
                 executeNonQuery(projectName, editTaskSQL);
             }
@@ -267,12 +309,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             try
             {
                 // Delete dependencies first
-
                 // Deleting dependencies where the to be deleted task is the predecessor or successor
                 string deletePredecessorSQL = $"DELETE FROM DependenciesTbl WHERE PredecessorName = '{name}' OR SuccessorName = '{name}'";
                 executeNonQuery(projectName, deletePredecessorSQL);
 
-                // Delete task
+                // Delete task from TasksTbl
                 string deleteTaskSQL = $"DELETE FROM TasksTbl WHERE Name = '{name}'";
                 executeNonQuery(projectName, deleteTaskSQL);
             }
@@ -287,6 +328,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             List<string> predecessors = new List<string>();
             try
             {
+                // Return a list of the predecessor names of the selected task
                 string predecessorsSQL = $"SELECT PredecessorName FROM DependenciesTbl WHERE SuccessorName = '{selectedTaskName}'";
                 predecessors = executeStringListQuery(projectName, predecessorsSQL);
                 return predecessors;
@@ -303,6 +345,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Delete the specific dependency 
                 string deleteDependencySQL = $"DELETE FROM DependenciesTbl WHERE PredecessorName = '{predecessor}' AND SuccessorName = '{selectedTaskName}'";
                 executeNonQuery(projectName, deleteDependencySQL);
             }
@@ -319,8 +362,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 // Check if a cycle would be made
                 if (dependenciesCycle(projectName, selectedTaskName, predecessor))
                 {
+                    // If a cycle would be made, reject the new dependency with an error message
                     throw new Exception("A cycle was created - check your dependencies to ensure no cycles are formed.");
                 }
+
+                // Otherwise add the dependency
                 string addDependencySQL = $"INSERT INTO DependenciesTbl (PredecessorName, SuccessorName) VALUES ('{predecessor}', '{selectedTaskName}')";
                 executeNonQuery(projectName, addDependencySQL);
             }
@@ -375,10 +421,16 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         // To check adding the new edge doesn't create a cycle, just run dfs from the start of the edge and check if it ever leads back to the start node.
         public static bool dfsCycle(int startNode, ref List<List<int>> adjacencyList)
         {
+
+            // Instantiate a custom implementation of a stack to store the to be processed nodes
             LinkedListStack<int> DFSStack = new LinkedListStack<int>();
             DFSStack.push(startNode);
+
+            // While there are still nodes unprocessed
             while (!DFSStack.isEmpty()) {
                 int currentNode = DFSStack.pop();
+
+                // Check each adjacent node and then push it to the stack to be processed next
                 foreach (int successor in adjacencyList[currentNode])
                 {
                     if (successor == startNode) return true; // As somehow we reached the start node again, a cycle must have formed.
@@ -395,26 +447,36 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             CustomDictionary<string, TaskNode> tasks = new CustomDictionary<string, TaskNode>();
             try
             {
+                // Retrieve all the data from all the tasks in TasksTbl
                 string tasksDataSQL = "SELECT * FROM TasksTbl";
                 DataTable tasksDataTable = executeQuery(projectName, tasksDataSQL);
                 foreach (DataRow row in tasksDataTable.Rows)
                 {
+                    // Type cast the data appropriately
                     string name = row["Name"].ToString();
                     int duration = Convert.ToInt32(row["Duration"]);
                     int numWorkers = Convert.ToInt32(row["NumWorkers"]);
                     bool completed = (bool)row["Completed"];
                     List<string> predecessorsNames = new List<string>();
                     List<string> successorsNames = new List<string>();
+
+                    // Create a new TaskNode object to represent that task with the retrieved data
                     tasks.add(name, new TaskNode(name, duration, numWorkers, completed, predecessorsNames, successorsNames));
                 }
                 // Populate predecessorsNames and successorsNames in one SQL call (O(n)) to reduce bottleneck caused by a select query for each task (O(n^2))
                 string dependenciesDataSQL = "SELECT * FROM DependenciesTbl";
+
+                // DataTable containing all dependencies
                 DataTable dependenciesDataTable = executeQuery(projectName, dependenciesDataSQL);
                 foreach (DataRow row in dependenciesDataTable.Rows)
                 {
                     string pre = row["PredecessorName"].ToString();
-                    string suc = row["SuccessorName"].ToString();                   
+                    string suc = row["SuccessorName"].ToString();       
+                    
+                    // Add the successor in the dependency to the predecessor's successorNames list
                     tasks.getValue(pre).successorNames.Add(suc);
+
+                    // Add the predecessor in the dependency to the successors's predecessorNames list
                     tasks.getValue(suc).predecessorNames.Add(pre);
                 }
                 return tasks;
@@ -432,6 +494,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             DataTable completedTasksDataTable = new DataTable();
             try
             {
+                // Retrieve all completed tasks
                 string completedTasksSQL = "SELECT Name, Duration, NumWorkers FROM TasksTbl WHERE Completed = -1";
                 completedTasksDataTable = executeQuery(projectName, completedTasksSQL);
                 return completedTasksDataTable;
@@ -445,6 +508,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         public static DataTable incompleteTasks(string projectName)
         {
+            // Instantiate a DataTable for all tasks that are not yet completed but also cannot be started yet
             DataTable incompleteTasksDataTable = new DataTable();
             try
             {
