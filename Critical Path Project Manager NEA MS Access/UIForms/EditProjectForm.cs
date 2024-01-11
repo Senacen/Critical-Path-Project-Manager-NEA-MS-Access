@@ -18,43 +18,93 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         public EditProjectForm(string projectName, string username)
         {
             InitializeComponent();
+            
+            // Display the username and project name at the top of the window
             this.projectName = projectName;
             this.username = username;
             this.Text += " - " + projectName + " - " + username;
-            TasksDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            updateTasksDataGrid();
+
+            // Set different properties I want in the TasksDataGrid
+            TasksDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; 
             TasksDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             TasksDataGrid.SelectionChanged += tasksDataGrid_SelectionChanged;
+
+            
+            this.Shown += EditProjectForm_Shown;
+            // Refresh the tasks
+            updateTasksDataGrid();
         }
         private void updateTasksDataGrid()
         {
+            // Refresh TasksDataGrid by rebinding the data source and calling tasksData() again
             TasksDataGrid.DataSource = DatabaseFunctions.tasksData(projectName);
-            
+
+            // Refreshing dependencies checked list box when start up or task is deleted
+            if (TasksDataGrid.Rows.Count > 0)
+            {
+                DataGridViewRow selectedTask = TasksDataGrid.Rows[0];
+                string selectedName = selectedTask.Cells["Name"].Value.ToString();
+                refreshUpdateDependenciesCheckedListBox(selectedName);
+            }
         }
 
-       
+        private void updateTasksDataGrid(string selectedTaskName)
+        {
+            // Refresh TasksDataGrid by rebinding the data source and calling tasksData() again
+            TasksDataGrid.DataSource = DatabaseFunctions.tasksData(projectName);
 
+            // Select the task passed in the arguement and deselect all other rows
+            foreach (DataGridViewRow row in TasksDataGrid.Rows)
+            {
+                if (row.Cells["Name"].Value.ToString() == selectedTaskName)
+                {
+                    row.Selected = true;
+                    continue;
+                }
+                row.Selected = false;
+            }
+        }
+
+        private void EditProjectForm_Shown(object sender, EventArgs e)
+        {
+            if (TasksDataGrid.Rows.Count > 0)
+            {
+                DataGridViewRow selectedTask = TasksDataGrid.Rows[0];
+                string selectedName = selectedTask.Cells["Name"].Value.ToString();
+                refreshUpdateDependenciesCheckedListBox(selectedName);
+            }
+        }
         private void AddTaskButton_Click(object sender, EventArgs e)
         {
             try
             {
+                // Take the user input
                 string name = NameTextBox.Text.Trim();
+
+                // Check that the task name is not reserved for dummy nodes in CPA, or contains the semicolon delimiter used in serialisation
                 if (name == "Start" || name == "End" || name.Contains(';'))
                 {
                     throw new Exception("Task cannot be named after a reserved keyword: Start, End, or contain the reserved character ';'");
                 }
                 int duration = (int) DurationNumeric.Value;
                 int numWorkers = (int) NumWorkersNumeric.Value;
-                DatabaseFunctions.addTask(projectName, name, duration, numWorkers);
-                updateTasksDataGrid();
-                NameTextBox.Text = "";
-                // Refresh Update Dependencies Checked ListBox to include added task
-                if (TasksDataGrid.SelectedRows.Count > 0)
-                {
-                    DataGridViewRow selectedTask = TasksDataGrid.SelectedRows[0];
-                    refreshUpdateDependenciesCheckedListBox(selectedTask.Cells["Name"].Value.ToString());
 
+                // Add the task to the database
+                DatabaseFunctions.addTask(projectName, name, duration, numWorkers);
+
+                // Refresh the tasks while selecting the just added task
+                updateTasksDataGrid(name);
+                NameTextBox.Text = "";
+                /*
+                // Deselect all the rows
+                foreach (DataGridViewRow row in TasksDataGrid.SelectedRows)
+                {
+                    row.Selected = false;
                 }
+
+                // Select the just added task
+                TasksDataGrid.Rows[TasksDataGrid.RowCount - 1].Selected = true;
+                */
             }
             catch (Exception ex)
             {
@@ -74,7 +124,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 int newDuration = (int)EditDurationNumeric.Value;
                 int newNumWorkers = (int)EditNumWorkersNumeric.Value;
                 DatabaseFunctions.editTask(projectName, name, newDuration, newNumWorkers);
-                updateTasksDataGrid();
+                updateTasksDataGrid(name);
 
 
             }

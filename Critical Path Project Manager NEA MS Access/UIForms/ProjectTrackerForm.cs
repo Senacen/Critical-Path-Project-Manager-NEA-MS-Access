@@ -18,9 +18,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         public ProjectTrackerForm(string projectName, string username)
         {
             InitializeComponent();
+
+            // Display the username and project name at the top of the window
             this.projectName = projectName;
             this.username = username;
             this.Text += " - " + projectName + " - " + username;
+
             CompletedDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             IncompleteDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AvailableDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

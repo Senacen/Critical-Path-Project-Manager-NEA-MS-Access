@@ -15,6 +15,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
     {
         private CustomDictionary<string, TaskNode> tasks;
         private List<string> sortedTaskNames;
+
         // Spacings and lengths
         private const int
             minTasksLengthScaleFactor = 50, 
@@ -242,7 +243,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             drawKey(e.Graphics);
         }
 
-        // Prevent the key text box from getting focussed upon load
+        // Prevent the key text box from getting focussed upon load by forcing focus on the diagram panel
         private void KeyTextBox_Enter(object sender, EventArgs e)
         {
             ParentPanel.Focus();

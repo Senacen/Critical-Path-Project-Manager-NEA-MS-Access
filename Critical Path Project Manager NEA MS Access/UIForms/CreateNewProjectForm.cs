@@ -23,8 +23,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             string projectName = ProjectNameTextBox.Text;
            
+            // Attempt to create the project
             if (DatabaseFunctions.createProject(projectName, username))
             {
+                // If successful, move to the EditProjectForm
                 EditProjectForm editProjectForm = new EditProjectForm(projectName, username);
                 editProjectForm.Show();
                 this.Close();

@@ -21,22 +21,34 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         public CPAForm(string projectName, string username)
         {
             InitializeComponent();
+
+            // Display the username and project name at the top of the window
             this.projectName = projectName;
             this.username = username;
             this.Text += " - " + projectName + " - " + username;
+
+            // Initialise the TaskGraph, which also runs all of the Critical Path Analysis
             taskGraph = new TaskGraph(projectName);
+
+            // Get the CPA results from the TaskGraph in a custom dictionary of TaskNode objects
             tasks = taskGraph.getTasks();
+
+            // Display the overall project CPA results
             displayCPAResults();
+
+            // Display the individual task CPA results
             displayTasks();
-
-
         }
 
         private void displayCPAResults()
         {
+            // Get the minimum possible duration of the project
             TotalDurationTextBox.Text = taskGraph.getTotalDuration().ToString();
 
+            // Get the critical path
             List<string> criticalPath = taskGraph.getCriticalPath();
+
+            // Display it with arrows inbetween each critical task
             StringBuilder criticalPathStringBuilder = new StringBuilder();
             for (int i = 0; i < criticalPath.Count(); i++)
             {
@@ -54,6 +66,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void displayTasks()
         {
+            // Initialise a DataTable to store every task's data
             DataTable tasksDataTable = new DataTable();
             tasksDataTable.Columns.Add("Name", typeof(string));
             tasksDataTable.Columns.Add("Duration (days)", typeof(int));
@@ -67,14 +80,13 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             tasksDataTable.Columns.Add("Interfering Float", typeof(int));
             tasksDataTable.Columns.Add("Completed", typeof(bool));
 
-            // Display tasks sorted by Earliest Start Time as default
-
             // Create taskNames list
             List<string> taskNames = tasks.keys.ToList<string>();
 
             // Sort by merge sort with Earliest Start Time of the task as the comparison value
             sortedTaskNames = MergeSortTasks.sort(taskNames, tasks);
 
+            // Display tasks sorted by Earliest Start Time as default
             foreach (string taskName in sortedTaskNames)
             {
                 TaskNode task = tasks.getValue(taskName);
