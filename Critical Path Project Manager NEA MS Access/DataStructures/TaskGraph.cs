@@ -19,10 +19,17 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             // Retrieve tasks from database
             tasks = DatabaseFunctions.tasksDict(projectName);
+
+            // Initialise the task graph to add a dummy start and end node
             initStartEnd();
+
+            // Perform the forward and backward pass
             forwardPass();
             backwardPass();
+
+            // Floats can be calculated from each task's CPA results
             calculateFloats();
+
             // Sorting the critical tasks by their earliest start time gives the order they must be completed in, which is the critical path
             criticalPath = sortCriticalTasks();
         }
@@ -59,6 +66,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             }
         }
 
+        // Used to initialise all tasks back to unprocessed before each pass
         private void setAllProcessedFalse()
         {
             foreach (string name in tasks.keys)
@@ -70,7 +78,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void forwardPass()
         {
+
             setAllProcessedFalse();
+
             // Initialise Start TaskNode
             tasks.getValue("Start").setEarliestStartTime(0);
             tasks.getValue("Start").setEarliestFinishTime(0);
@@ -79,7 +89,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // BFSQueue only stores the names of each TaskNode, to save space
             LinkedListQueue<string> BFSQueue = new LinkedListQueue<string>();
 
-            // Enqueue all tasks that are successors of Start
+            // Enqueue all tasks that are successors of Start to initialise the queue
             foreach (string name in tasks.getValue("Start").getSuccessorNames())
             {
                 BFSQueue.enqueue(name);
@@ -89,17 +99,22 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             while (!BFSQueue.isEmpty())
             {
                 TaskNode currTaskNode = tasks.getValue(BFSQueue.dequeue());
+
+                // Calculate the maximum of all the predecessors' earliest finish times, as this will be the current TaskNode's earliest start time
                 int maxPredecessorEarliestFinishTime = 0;
                 foreach (string predecessorName in currTaskNode.getPredecessorNames())
                 {
                     maxPredecessorEarliestFinishTime = Math.Max(maxPredecessorEarliestFinishTime, tasks.getValue(predecessorName).getEarliestFinishTime());
                 }
                 currTaskNode.setEarliestStartTime(maxPredecessorEarliestFinishTime);
+
+                // Earliest finish time of a task is just earlist start time + duration
                 currTaskNode.setEarliestFinishTime(currTaskNode.getEarliestStartTime() + currTaskNode.getDuration());
+
+                // Mark that the node has been processed
                 currTaskNode.setProcessed(true);
 
-                // Check every successor if its predecessors have been processed, to then enqueue
-                // Need to make logic more efficient, possible using predecessorProcessedCount
+                // Check every successor if all its predecessors have been processed, to then enqueue
                 foreach (string successorName in currTaskNode.getSuccessorNames())
                 {
                     TaskNode successorTaskNode = tasks.getValue(successorName);
@@ -108,12 +123,16 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     {
                         if (!tasks.getValue(predecessorName).getProcessed())
                         {
+                            // If any predecessor has not been processed yet, set predecessorsAllProcessed to false and break
                             predecessorsAllProcessed = false;
                             break;
                         }
                     }
+
+                    // If no predecessors were found that have not yet been processed
                     if (predecessorsAllProcessed)
                     {
+                        // Add the current succesor to the queue to be processed
                         BFSQueue.enqueue(successorTaskNode.getName());
                     }
                 }
@@ -131,7 +150,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // BFSQueue only stores the names of each TaskNode, to save space
             LinkedListQueue<string> BFSQueue = new LinkedListQueue<string>();
 
-            // Enqueue all tasks that are successors of Start
+            // Enqueue all tasks that are predecessors of End to initialise the queue
             foreach (string name in tasks.getValue("End").getPredecessorNames())
             {
                 BFSQueue.enqueue(name);
@@ -141,17 +160,22 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             while (!BFSQueue.isEmpty())
             {
                 TaskNode currTaskNode = tasks.getValue(BFSQueue.dequeue());
+
+                // Calculate the minimum of all the successors' latest start times, as this will be the current TaskNode's latest finish time
                 int minSuccessorLatestStartTime = int.MaxValue;
                 foreach (string successorName in currTaskNode.getSuccessorNames())
                 {
                     minSuccessorLatestStartTime = Math.Min(minSuccessorLatestStartTime, tasks.getValue(successorName).getLatestStartTime());
                 }
                 currTaskNode.setLatestFinishTime(minSuccessorLatestStartTime);
+
+                // Latest start time of a task is just latest finish time - duration
                 currTaskNode.setLatestStartTime(currTaskNode.getLatestFinishTime() - currTaskNode.getDuration());
+
+                // Mark that the node has been processed
                 currTaskNode.setProcessed(true);
 
-                // Check every successor if its predecessors have been processed, to then enqueue
-                // Need to make logic more efficient, possible using predecessorProcessedCount
+                // Check every predecessor if all its successors have been processed, to then enqueue
                 foreach (string predecessorName in currTaskNode.getPredecessorNames())
                 {
                     TaskNode predecessorTaskNode = tasks.getValue(predecessorName);
@@ -160,12 +184,16 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                     {
                         if (!tasks.getValue(successorName).getProcessed())
                         {
+                            // If any successor has not been processed yet, set successorsAllProcessed to false and break
                             successorsAllProcessed = false;
                             break;
                         }
                     }
+
+                    // If no successers were found that have not yet been processed
                     if (successorsAllProcessed)
                     {
+                        // Add the current predecessor to the queue to be processed
                         BFSQueue.enqueue(predecessorTaskNode.getName());
                     }
                 }
@@ -210,6 +238,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         public int getTotalDuration()
         {
+            // Minimum possible duration of the project is the End node's EarliestFinishTime
             return tasks.getValue("End").getEarliestFinishTime();
         }
 

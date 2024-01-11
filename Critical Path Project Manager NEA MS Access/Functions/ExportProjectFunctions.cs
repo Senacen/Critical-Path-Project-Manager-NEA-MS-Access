@@ -70,6 +70,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
         public static bool checkCheckSum(string textWithCheckSum)
         {
             if (textWithCheckSum.Length <= 2) return false; // There is no content in the text
+
+            // Same as addCheckSum
             int even1odd2 = textWithCheckSum[0];
             int even2odd1 = textWithCheckSum[textWithCheckSum.Length - 1];
             int checkEven1odd2 = 0;
@@ -96,6 +98,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.Functions
             checkEven1odd2 %= 95;
             checkEven2odd1 %= 95;
 
+            // Check the just calculated values are the same as the check sum values
             return (checkEven1odd2  == even1odd2 && checkEven2odd1 == even2odd1);
         }
 

@@ -8,7 +8,10 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 {
     internal class LinkedListNode<T>
     {
+        // Next pointer
         private LinkedListNode<T> next;
+
+        // Item stored in the LinkedListNode
         private T item;
         public LinkedListNode(T item)
         {

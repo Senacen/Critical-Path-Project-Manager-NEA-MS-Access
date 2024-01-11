@@ -539,6 +539,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         public static DataTable availableTasks(string projectName)
         {
+            // Instantiate a DataTable for all tasks that are not yet completed but can be started 
             DataTable availableTasksDataTable = new DataTable();
             try
             {
@@ -571,6 +572,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Update a uncompleted task to completed
                 string markTaskCompletedSQL = $"UPDATE TasksTbl SET Completed = -1 WHERE Name = '{taskName}'";
                 executeNonQuery(projectName, markTaskCompletedSQL);
             }
@@ -584,6 +586,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
         {
             try
             {
+                // Update a completed task to uncompleted
                 string markTaskIncompleteSQL = $"UPDATE TasksTbl SET Completed = 0 WHERE Name = '{taskName}'";
                 executeNonQuery(projectName, markTaskIncompleteSQL);
             }

@@ -192,20 +192,33 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
             string truncatedText = text;
             float textLength = g.MeasureString(text, font).Width;
 
+            // If the original text is too long to fit in the rectangle
             if (textLength >= rectLength)
             {
+                // Measure the length of the ellipsis to add to the end of the truncated string
                 float ellipsisLength = g.MeasureString("...", font).Width;
                 int charsToRemove = 0;
+
+                // Iterate through each character
                 for (int i = text.Length - 1; i >= 0; i--)
                 {
+                    // Measure the length of the current truncated text
                     float truncatedTextLength = g.MeasureString(truncatedText, font).Width;
+
+                    // If this + ellipsis would fit in the rectangle, break
                     if (truncatedTextLength + ellipsisLength < rectLength)
                     {
                         break;
                     }
+
+                    // If not, remove another character from the end
                     charsToRemove++;
+
+                    // Update the truncated text
                     truncatedText = text.Substring(0, text.Length - charsToRemove);
                 }
+
+                // Return the truncated text with the ellipsis add to the end
                 return truncatedText + "...";
             }
             return text;
@@ -214,6 +227,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access.UIForms
         // Calculate start position of text so it is centred
         private int[] centreStringInRectangleXY(Graphics g, string text, int rectX, int rectY, int rectLength, int rectWidth) 
         {
+            // Make the centre point of the text positioned at the centre point of the rectangle
             int textX = rectX + rectLength / 2 - (int)g.MeasureString(text, font).Width / 2;
             int textY = rectY + rectWidth / 2 - (int)g.MeasureString(text, font).Height / 2;
             return new int[] { textX, textY };
