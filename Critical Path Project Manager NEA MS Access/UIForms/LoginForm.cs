@@ -27,13 +27,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            // Take in user input
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
+
+            // Check the account details match
             if (!DatabaseFunctions.isValidAccount(username, password))
             {
                 MessageBox.Show("Invalid Login Details. To access the guest account, just press Login with an empty username and password", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            // Open forms depending on which are selected
             if (CreateNewRadioButton.Checked)
             {
                 CreateNewProjectForm createNewProjectForm = new CreateNewProjectForm(username);
@@ -54,8 +59,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void CreateAccountButton_Click(object sender, EventArgs e)
         {
+            // Take in user input
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
+
+            // Create an account
             DatabaseFunctions.createAccount(username, password);
         }
 

@@ -24,15 +24,19 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.username = username;
             this.Text += " - " + projectName + " - " + username;
 
+            // Different control settings
             CompletedDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             IncompleteDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AvailableDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CompletedDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             IncompleteDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             AvailableDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            // Refresh
             updateAllDataGrids();
         }
 
+        // Refresh all the data grids
         private void updateAllDataGrids()
         {
             updateCompletedDataGrid();
@@ -64,19 +68,25 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
         private void MarkCompletedButton_Click(object sender, EventArgs e)
         {
+            // Check that only 1 row is selcted
             if (AvailableDataGrid.SelectedRows.Count != 1) return;
             DataGridViewRow selectedTask = AvailableDataGrid.SelectedRows[0];
             string taskName = selectedTask.Cells["Name"].Value.ToString();
             DatabaseFunctions.markTaskCompleted(projectName, taskName);
+
+            // Refresh
             updateAllDataGrids();
         }
 
         private void MarkIncompleteButton_Click(object sender, EventArgs e)
         {
+            // Check that only 1 row is selcted
             if (CompletedDataGrid.SelectedRows.Count != 1) return;
             DataGridViewRow selectedTask = CompletedDataGrid.SelectedRows[0];
             string taskName = selectedTask.Cells["Name"].Value.ToString();
             DatabaseFunctions.markTaskIncomplete(projectName, taskName);
+
+            // Refresh
             updateAllDataGrids();
         }
 
