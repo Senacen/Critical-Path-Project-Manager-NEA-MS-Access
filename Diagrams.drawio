@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-13T22:56:27.253Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="zdi5sSXhg1VNzW8zkUFd" version="22.1.17" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2024-01-13T23:10:05.473Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="DsOBSDE7iaxiLtUwMjoz" version="22.1.17" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="792" dy="1130" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3854,6 +3854,90 @@
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="eRRJbDp92nSp44RrIPGP-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="133" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-8" value="Input Username&amp;nbsp;&lt;br&gt;and Password" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-4" target="eRRJbDp92nSp44RrIPGP-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-4" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="79" y="389.5" width="61" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="315" y="153" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-9" value="Username and &lt;br&gt;Password hash" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-6" target="eRRJbDp92nSp44RrIPGP-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-6" value="Hash Password" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="289" y="385" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-7" value="Database storing user account details" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="536" y="380" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-11" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="496" y="139" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-13" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="325" y="163" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-14" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="143" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-16" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="153" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-17" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="163" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-18" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="173" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="55" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-20" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="335" y="173" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-21" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="345" y="183" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-22" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="491" y="230" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-24" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="506" y="149" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-25" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="516" y="159" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-26" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="526" y="169" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-27" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="536" y="179" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-28" value="Table storing tasks dependencies" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="331" y="819.5" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-31" value="Task data input:&lt;br&gt;Name, Duration&lt;br&gt;Number of&amp;nbsp;&lt;br&gt;Workers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="eRRJbDp92nSp44RrIPGP-33" target="eRRJbDp92nSp44RrIPGP-34" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-32" value="New dependency for a task" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="eRRJbDp92nSp44RrIPGP-33" target="eRRJbDp92nSp44RrIPGP-35" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-33" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="104.5" y="714" width="61" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-34" value="Table storing&lt;br&gt;task data" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="331" y="710" width="100" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-36" value="Approved&amp;nbsp;&lt;br&gt;dependency" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-35" target="eRRJbDp92nSp44RrIPGP-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-35" value="Check new dependency doesn&#39;t create cycle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="79" y="817" width="120" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
