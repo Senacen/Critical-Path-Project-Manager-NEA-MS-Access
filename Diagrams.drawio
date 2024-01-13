@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-13T23:10:05.473Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="DsOBSDE7iaxiLtUwMjoz" version="22.1.17" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2024-01-13T23:27:41.862Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="si8JkOahzpjGgviLAjP0" version="22.1.17" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="792" dy="1130" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -3860,6 +3860,9 @@
         <mxCell id="eRRJbDp92nSp44RrIPGP-8" value="Input Username&amp;nbsp;&lt;br&gt;and Password" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-4" target="eRRJbDp92nSp44RrIPGP-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-37" value="Input new project name" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-4" target="eRRJbDp92nSp44RrIPGP-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-4" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="79" y="389.5" width="61" height="36" as="geometry" />
         </mxCell>
@@ -3872,8 +3875,8 @@
         <mxCell id="eRRJbDp92nSp44RrIPGP-6" value="Hash Password" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="289" y="385" width="120" height="45" as="geometry" />
         </mxCell>
-        <mxCell id="eRRJbDp92nSp44RrIPGP-7" value="Database storing user account details" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
-          <mxGeometry x="536" y="380" width="100" height="55" as="geometry" />
+        <mxCell id="eRRJbDp92nSp44RrIPGP-7" value="User account details" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="536" y="380" width="100" height="46" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-11" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
           <mxGeometry x="496" y="139" width="100" height="30" as="geometry" />
@@ -3894,13 +3897,19 @@
           <mxGeometry x="200" y="173" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-19" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="55" y="250" width="120" height="60" as="geometry" />
+          <mxGeometry x="31" y="242" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="eRRJbDp92nSp44RrIPGP-20" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="335" y="173" width="120" height="60" as="geometry" />
+        <mxCell id="eRRJbDp92nSp44RrIPGP-39" value="Project database" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-20" target="eRRJbDp92nSp44RrIPGP-25">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="eRRJbDp92nSp44RrIPGP-21" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="345" y="183" width="120" height="60" as="geometry" />
+        <mxCell id="eRRJbDp92nSp44RrIPGP-20" value="Create project database" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="481" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-38" value="Valid project&lt;br&gt;name" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-21" target="eRRJbDp92nSp44RrIPGP-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-21" value="Check project name is a valid database name&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="481" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-22" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="491" y="230" width="120" height="60" as="geometry" />
@@ -3908,17 +3917,14 @@
         <mxCell id="eRRJbDp92nSp44RrIPGP-24" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
           <mxGeometry x="506" y="149" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="eRRJbDp92nSp44RrIPGP-25" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
-          <mxGeometry x="516" y="159" width="100" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="eRRJbDp92nSp44RrIPGP-26" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
-          <mxGeometry x="526" y="169" width="100" height="30" as="geometry" />
+        <mxCell id="eRRJbDp92nSp44RrIPGP-25" value="Project databases" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="540" y="496" width="100" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-27" value="" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
-          <mxGeometry x="536" y="179" width="100" height="30" as="geometry" />
+          <mxGeometry x="352" y="58" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="eRRJbDp92nSp44RrIPGP-28" value="Table storing tasks dependencies" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
-          <mxGeometry x="331" y="819.5" width="100" height="55" as="geometry" />
+        <mxCell id="eRRJbDp92nSp44RrIPGP-28" value="&amp;nbsp;Task dependencies" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="316" y="1010.5" width="115" height="43.5" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-31" value="Task data input:&lt;br&gt;Name, Duration&lt;br&gt;Number of&amp;nbsp;&lt;br&gt;Workers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="eRRJbDp92nSp44RrIPGP-33" target="eRRJbDp92nSp44RrIPGP-34" parent="1">
           <mxGeometry relative="1" as="geometry" />
@@ -3927,16 +3933,47 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-33" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="104.5" y="714" width="61" height="36" as="geometry" />
+          <mxGeometry x="89.5" y="905" width="61" height="36" as="geometry" />
         </mxCell>
-        <mxCell id="eRRJbDp92nSp44RrIPGP-34" value="Table storing&lt;br&gt;task data" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
-          <mxGeometry x="331" y="710" width="100" height="38" as="geometry" />
+        <mxCell id="eRRJbDp92nSp44RrIPGP-34" value="Task data" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="316" y="901" width="100" height="38" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-36" value="Approved&amp;nbsp;&lt;br&gt;dependency" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-35" target="eRRJbDp92nSp44RrIPGP-28">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="eRRJbDp92nSp44RrIPGP-35" value="Check new dependency doesn&#39;t create cycle" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="79" y="817" width="120" height="60" as="geometry" />
+          <mxGeometry x="64" y="1008" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-40" value="Active project" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="114" y="778" width="115" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-42" value="Name of project to load" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-43" target="eRRJbDp92nSp44RrIPGP-46">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="84" y="633" />
+              <mxPoint x="136" y="633" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-43" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="53" y="564" width="61" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-47" value="Project database" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-44" target="eRRJbDp92nSp44RrIPGP-46">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="284" y="635" />
+              <mxPoint x="213" y="635" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-44" value="Project databases" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="234" y="566" width="100" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-45" value="Project database" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="eRRJbDp92nSp44RrIPGP-46" target="eRRJbDp92nSp44RrIPGP-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="eRRJbDp92nSp44RrIPGP-46" value="Get project from the project databases" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="114" y="665" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
