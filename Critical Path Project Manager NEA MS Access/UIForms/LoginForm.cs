@@ -31,10 +31,17 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
 
+            // Reject blanks
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Username or password cannot be blank. To access the guest account, just press Login with an username: 'guest' and password: 'guest'", "Invalid Details");
+                return;
+            }
+
             // Check the account details match
             if (!DatabaseFunctions.isValidAccount(username, password))
             {
-                MessageBox.Show("Invalid Login Details. To access the guest account, just press Login with an empty username and password", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid Login Details. To access the guest account, just press Login with an username: 'guest' and password: 'guest'", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -63,6 +70,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             string username = UsernameTextBox.Text;
             string password = PasswordTextBox.Text;
 
+            // Reject blanks
+            if (username == "" || password == "")
+            {
+                MessageBox.Show("Username or password cannot be blank. To access the guest account, just press Login with an username: 'guest' and password: 'guest'", "Invalid Details");
+                return;
+            }
             // Create an account
             DatabaseFunctions.createAccount(username, password);
         }

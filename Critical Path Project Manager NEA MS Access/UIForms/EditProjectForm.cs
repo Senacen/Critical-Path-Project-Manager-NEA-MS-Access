@@ -91,6 +91,12 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                 // Take the user input
                 string name = NameTextBox.Text.Trim();
 
+                // Reject blank name
+                if (name.Length == 0)
+                {
+                    return;
+                }
+
                 // Check that the task name is not reserved for dummy nodes in CPA, or contains the semicolon delimiter used in serialisation
                 if (name == "Start" || name == "End" || name.Contains(';'))
                 {
