@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-15T18:45:07.818Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="PwSeJE7iyQCCVAwYhVVN" version="22.1.18" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2024-01-15T19:41:40.555Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="yNBcGHNLpngjaTLBRmdM" version="22.1.18" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="UMLClassDiagram">
     <mxGraphModel dx="792" dy="1130" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="5000" pageHeight="5000" background="#ffffff" math="0" shadow="0">
       <root>
@@ -4239,6 +4239,47 @@
         </mxCell>
         <mxCell id="L4lK2RC9xkss1qjZQDBY-43" value="Construct Cascade Diagram" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="2061" y="733" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-50" value="Project Tracker" style="html=1;dashed=0;whiteSpace=wrap;shape=partialRectangle;right=0;" vertex="1" parent="1">
+          <mxGeometry x="2075" y="975" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" source="L4lK2RC9xkss1qjZQDBY-40" target="L4lK2RC9xkss1qjZQDBY-58" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1618" y="1126" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-52" value="Task data" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L4lK2RC9xkss1qjZQDBY-51">
+          <mxGeometry x="-0.1679" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="L4lK2RC9xkss1qjZQDBY-58" target="L4lK2RC9xkss1qjZQDBY-50" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-57" value="Completed,&amp;nbsp;&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;Available, and&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;Incomplete&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;tasks" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L4lK2RC9xkss1qjZQDBY-56">
+          <mxGeometry x="-0.0236" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-58" value="Calculate which tasks have been completed, are available, or are incomplete (cannot be started yet)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1775" y="950" width="178" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" source="L4lK2RC9xkss1qjZQDBY-61" target="L4lK2RC9xkss1qjZQDBY-40" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1541.5" y="944" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1570" y="942" />
+              <mxPoint x="1754" y="942" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-60" value="Mark a task as completed" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="L4lK2RC9xkss1qjZQDBY-59">
+          <mxGeometry x="0.1563" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L4lK2RC9xkss1qjZQDBY-61" value="User" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1533" y="981" width="61" height="36" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
