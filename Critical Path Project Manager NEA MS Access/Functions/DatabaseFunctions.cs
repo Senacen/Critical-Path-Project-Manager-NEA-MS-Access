@@ -61,6 +61,9 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
                                  "PRIMARY KEY (Username, ProjectName)," +
                                  "FOREIGN KEY (Username) REFERENCES UserDetailsTbl(Username))";
                 executeNonQuery("CPPMUserAccounts", createTableSQL);
+
+                // Add the guest account
+                createAccount("guest", "guest");
             }
         }
         public static bool isValidDatabaseName(string name)
