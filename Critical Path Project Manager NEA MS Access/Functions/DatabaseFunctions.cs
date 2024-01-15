@@ -181,7 +181,8 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // The username already exists
+                MessageBox.Show("An error occurred: That username is taken, please choose another", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

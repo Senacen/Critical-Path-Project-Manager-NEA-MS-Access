@@ -85,9 +85,9 @@
             this.ImportInfoTextBox.ReadOnly = true;
             this.ImportInfoTextBox.Size = new System.Drawing.Size(161, 164);
             this.ImportInfoTextBox.TabIndex = 4;
-            this.ImportInfoTextBox.Text = "\r\nPaste your encrypted export project data into the text box on the right \r\n\r\nEnt" +
-    "er a name for the new project\r\n\r\nClick Import to create a new project with the i" +
-    "mported data\r\n";
+            this.ImportInfoTextBox.Text = "\r\nPaste your encrypted \r\nproject data into the text box on the right \r\n\r\nEnter a " +
+    "name for the new project\r\n\r\nClick Import to create a new project with the import" +
+    "ed data\r\n";
             this.ImportInfoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ImportProjectNameTextBox

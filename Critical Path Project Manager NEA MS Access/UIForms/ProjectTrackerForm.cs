@@ -26,14 +26,23 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
 
             // Different control settings
             CompletedDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            IncompleteDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             AvailableDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CompletedDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             IncompleteDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             AvailableDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
+            // Subscribe to the selection changed event
+            IncompleteDataGrid.SelectionChanged += IncompleteDataGrid_SelectionChanged;
+
             // Refresh
             updateAllDataGrids();
+        }
+
+        // Stops IncompleteDataGrid from being able to be selected
+        private void IncompleteDataGrid_SelectionChanged(object sender, EventArgs e)
+        {
+            // Deselect all rows in IncompleteDataGrid
+            IncompleteDataGrid.ClearSelection();
         }
 
         // Refresh all the data grids
