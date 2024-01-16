@@ -38,9 +38,11 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.NumWorkersLabel = new System.Windows.Forms.Label();
             this.NameTextBox = new System.Windows.Forms.TextBox();
             this.AddTaskGroupBox = new System.Windows.Forms.GroupBox();
+            this.AddTaskDaysLabel = new System.Windows.Forms.Label();
             this.DurationNumeric = new System.Windows.Forms.NumericUpDown();
             this.NumWorkersNumeric = new System.Windows.Forms.NumericUpDown();
             this.EditTaskGroupBox = new System.Windows.Forms.GroupBox();
+            this.EditTaskDaysLabel = new System.Windows.Forms.Label();
             this.EditDurationNumeric = new System.Windows.Forms.NumericUpDown();
             this.EditNumWorkersNumeric = new System.Windows.Forms.NumericUpDown();
             this.DeleteTaskButton = new System.Windows.Forms.Button();
@@ -55,8 +57,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.CPAButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             this.ExportProjectButton = new System.Windows.Forms.Button();
-            this.AddTaskDaysLabel = new System.Windows.Forms.Label();
-            this.EditTaskDaysLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.TasksDataGrid)).BeginInit();
             this.AddTaskGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DurationNumeric)).BeginInit();
@@ -152,14 +152,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.AddTaskGroupBox.TabStop = false;
             this.AddTaskGroupBox.Text = "Add Task";
             // 
+            // AddTaskDaysLabel
+            // 
+            this.AddTaskDaysLabel.AutoSize = true;
+            this.AddTaskDaysLabel.Location = new System.Drawing.Point(155, 98);
+            this.AddTaskDaysLabel.Name = "AddTaskDaysLabel";
+            this.AddTaskDaysLabel.Size = new System.Drawing.Size(29, 13);
+            this.AddTaskDaysLabel.TabIndex = 11;
+            this.AddTaskDaysLabel.Text = "days";
+            // 
             // DurationNumeric
             // 
             this.DurationNumeric.Location = new System.Drawing.Point(55, 96);
-            this.DurationNumeric.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
             this.DurationNumeric.Name = "DurationNumeric";
             this.DurationNumeric.Size = new System.Drawing.Size(94, 20);
             this.DurationNumeric.TabIndex = 10;
@@ -206,14 +210,18 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.EditTaskGroupBox.TabStop = false;
             this.EditTaskGroupBox.Text = "Edit Task";
             // 
+            // EditTaskDaysLabel
+            // 
+            this.EditTaskDaysLabel.AutoSize = true;
+            this.EditTaskDaysLabel.Location = new System.Drawing.Point(155, 98);
+            this.EditTaskDaysLabel.Name = "EditTaskDaysLabel";
+            this.EditTaskDaysLabel.Size = new System.Drawing.Size(29, 13);
+            this.EditTaskDaysLabel.TabIndex = 14;
+            this.EditTaskDaysLabel.Text = "days";
+            // 
             // EditDurationNumeric
             // 
             this.EditDurationNumeric.Location = new System.Drawing.Point(55, 96);
-            this.EditDurationNumeric.Maximum = new decimal(new int[] {
-            10000,
-            0,
-            0,
-            0});
             this.EditDurationNumeric.Name = "EditDurationNumeric";
             this.EditDurationNumeric.Size = new System.Drawing.Size(94, 20);
             this.EditDurationNumeric.TabIndex = 13;
@@ -362,24 +370,6 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             this.ExportProjectButton.Text = "Export Project";
             this.ExportProjectButton.UseVisualStyleBackColor = true;
             this.ExportProjectButton.Click += new System.EventHandler(this.ExportProjectButton_Click);
-            // 
-            // AddTaskDaysLabel
-            // 
-            this.AddTaskDaysLabel.AutoSize = true;
-            this.AddTaskDaysLabel.Location = new System.Drawing.Point(155, 98);
-            this.AddTaskDaysLabel.Name = "AddTaskDaysLabel";
-            this.AddTaskDaysLabel.Size = new System.Drawing.Size(29, 13);
-            this.AddTaskDaysLabel.TabIndex = 11;
-            this.AddTaskDaysLabel.Text = "days";
-            // 
-            // EditTaskDaysLabel
-            // 
-            this.EditTaskDaysLabel.AutoSize = true;
-            this.EditTaskDaysLabel.Location = new System.Drawing.Point(155, 98);
-            this.EditTaskDaysLabel.Name = "EditTaskDaysLabel";
-            this.EditTaskDaysLabel.Size = new System.Drawing.Size(29, 13);
-            this.EditTaskDaysLabel.TabIndex = 14;
-            this.EditTaskDaysLabel.Text = "days";
             // 
             // EditProjectForm
             // 
