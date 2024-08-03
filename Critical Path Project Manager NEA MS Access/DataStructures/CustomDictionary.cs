@@ -97,7 +97,7 @@ namespace Critical_Path_Project_Manager_NEA_MS_Access
             // Store it in a linked list node
             LinkedListNode<KVPair> dictionaryLinkedListNode = new LinkedListNode<KVPair>(kVPair);
 
-            // Hash the kety
+            // Hash the key
             int index = djb2HashFunction.djb2(key.ToString());
             index %= size;
             if (index < 0) index += size; // If the hash value and therefore modulo was negative, make it positive to be in range
